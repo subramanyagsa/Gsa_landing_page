@@ -5,10 +5,9 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Header = () => {
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About', href: '#' },
-    { name: 'Services', href: '#' },
-    { name: 'Portfolio', href: '#' },
+    { name: 'Services', href: '#services' },
+    { name: 'Why Us', href: '#why-us' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -17,7 +16,7 @@ const Header = () => {
         <div className="mr-4 hidden md:flex">
           <a href="/" className="mr-6 flex items-center space-x-2">
             <span className="hidden font-bold sm:inline-block text-lg">
-              Global Scale
+              Global Scale Accountants
             </span>
           </a>
           <nav className="flex items-center gap-6 text-sm">
@@ -45,7 +44,7 @@ const Header = () => {
                 <SheetContent side="left">
                     <div className="flex flex-col gap-6 p-6">
                         <a href="/" className="flex items-center space-x-2">
-                            <span className="font-bold text-lg">Global Scale</span>
+                            <span className="font-bold text-lg">Global Scale Accountants</span>
                         </a>
                         <nav className="flex flex-col gap-4">
                             {navLinks.map((link) => (
@@ -58,13 +57,13 @@ const Header = () => {
                                 </a>
                             ))}
                         </nav>
-                         <Button>Contact Us</Button>
+                         <Button>Get a Free Consultation</Button>
                     </div>
                 </SheetContent>
             </Sheet>
           </div>
-          <a href="#" className="hidden md:flex items-center">
-            <Button>Contact Us</Button>
+          <a href="#contact" className="hidden md:flex items-center">
+            <Button>Get a Free Consultation</Button>
           </a>
         </div>
       </div>
