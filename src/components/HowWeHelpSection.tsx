@@ -36,12 +36,18 @@ const HowWeHelpSection = () => {
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {solutions.map((solution, index) => (
-            <div key={index} className="relative text-center p-8 bg-secondary/50 rounded-lg border border-white/10 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/20">
-              <div className="flex justify-center mb-4">
-                {solution.icon}
+            <div key={index} className="relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl">
+               <div className="absolute inset-0 z-0 opacity-50">
+                <div className="absolute -top-10 -left-10 w-48 h-48 bg-pink-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: `${index * 0.5}s` }} />
+                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-yellow-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: `${index * 0.5 + 2}s` }} />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">{solution.title}</h3>
-              <p className="text-muted-foreground">{solution.description}</p>
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
+                  {solution.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">{solution.title}</h3>
+                <p className="text-muted-foreground">{solution.description}</p>
+              </div>
             </div>
           ))}
         </div>

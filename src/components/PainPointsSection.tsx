@@ -34,9 +34,11 @@ const PainPointsSection = () => {
         
         <div className="grid md:grid-cols-3 gap-8 text-left">
           {painPoints.map((point, index) => (
-            <div key={index} className="relative p-8 rounded-lg bg-secondary/50 overflow-hidden">
-              <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-br from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+            <div key={index} className="relative p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl">
+              <div className="absolute inset-0 z-0 opacity-50">
+                <div className="absolute top-0 left-0 w-48 h-48 bg-purple-600/30 rounded-full blur-3xl animate-pulse" />
+                <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+              </div>
               <div className="relative z-10 flex flex-col space-y-4">
                 <div className="p-3 bg-primary/10 rounded-full w-fit">
                   {point.icon}
