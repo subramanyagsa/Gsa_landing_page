@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 const ContactPage = () => {
+  const contactRef = useRef<HTMLDivElement>(null);
+  const contactVisible = useIntersectionObserver(contactRef, { threshold: 0.2, triggerOnce: true });
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-background">
       <Header />
@@ -23,9 +28,12 @@ const ContactPage = () => {
         {/* Contact Details & Form Section */}
         <section className="py-16 md:py-24">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
+            <div ref={contactRef} className="grid md:grid-cols-2 gap-12">
               {/* Contact Info */}
-              <div className="space-y-8">
+              <div className={cn(
+                "space-y-8 transition-all duration-700 ease-out",
+                contactVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+              )}>
                 <div>
                   <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
                   <p className="text-muted-foreground mt-2">
@@ -64,7 +72,11 @@ const ContactPage = () => {
               </div>
 
               {/* Contact Form */}
-              <div>
+              <div className={cn(
+                "transition-all duration-700 ease-out",
+                contactVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+              )}
+              style={{ transitionDelay: '150ms' }}>
                 <Card className="border-white/10 bg-black/30 backdrop-blur-xl p-8">
                   <CardContent className="p-0">
                     <ContactForm />

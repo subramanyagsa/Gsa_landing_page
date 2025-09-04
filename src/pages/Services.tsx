@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CallToActionSection from '@/components/CallToActionSection';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { BookOpen, Percent, Users, Briefcase } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 const services = [
   {
@@ -53,6 +55,9 @@ const services = [
 ];
 
 const ServicesPage = () => {
+  const servicesRef = useRef<HTMLElement>(null);
+  const servicesVisible = useIntersectionObserver(servicesRef, { threshold: 0.1, triggerOnce: true });
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-background">
       <Header />
@@ -68,11 +73,15 @@ const ServicesPage = () => {
         </section>
 
         {/* Services Grid Section */}
-        <section className="py-16 md:py-24">
+        <section ref={servicesRef} className="py-16 md:py-24">
           <div className="container px-4 md:px-6 max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
-              {services.map((service) => (
-                <Card key={service.title} className="flex flex-col border-white/10 bg-black/30 backdrop-blur-xl">
+              {services.map((service, index) => (
+                <Card key={service.title} className={cn(
+                  "flex flex-col border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out",
+                  servicesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                )}
+                style={{ transitionDelay: `${index * 150}ms` }}>
                   <CardHeader className="flex flex-row items-start gap-4 space-y-0">
                     <div className="bg-primary/10 p-3 rounded-md mt-1.5">{service.icon}</div>
                     <div>
