@@ -10,7 +10,7 @@ const HeroSection = () => {
       
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
+          <h1 className="text-3xl md:text-7xl font-bold tracking-tighter leading-tight">
             We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
