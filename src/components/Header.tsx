@@ -47,7 +47,18 @@ const Header = () => {
       } else {
         navigate(`/${href}`);
       }
+    } else {
+      navigate(href);
     }
+  };
+
+  const isLinkActive = (href: string) => {
+    if (href.startsWith('/')) {
+      return location.pathname === href;
+    } else if (href.startsWith('#')) {
+      return location.pathname === '/' && location.hash === href;
+    }
+    return false;
   };
 
   return (
@@ -69,14 +80,25 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             link.href.startsWith('/') ? (
-              <Button key={link.name} asChild variant="link" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground p-0 h-auto">
+              <Button 
+                key={link.name} 
+                asChild 
+                variant="link" 
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-foreground p-0 h-auto",
+                  isLinkActive(link.href) ? "text-primary" : "text-muted-foreground"
+                )}
+              >
                 <Link to={link.href}>{link.name}</Link>
               </Button>
             ) : (
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-foreground",
+                  isLinkActive(link.href) ? "text-primary" : "text-muted-foreground"
+                )}
               >
                 {link.name}
               </button>
@@ -106,14 +128,26 @@ const Header = () => {
               <div className="flex flex-col gap-6 pt-8">
                 {navLinks.map((link) => (
                    link.href.startsWith('/') ? (
-                    <Button key={link.name} asChild variant="link" className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left p-0 h-auto justify-start" onClick={() => setIsSheetOpen(false)}>
+                    <Button 
+                      key={link.name} 
+                      asChild 
+                      variant="link" 
+                      className={cn(
+                        "text-lg font-medium transition-colors text-left p-0 h-auto justify-start",
+                        isLinkActive(link.href) ? "text-primary" : "text-foreground hover:text-primary"
+                      )}
+                      onClick={() => setIsSheetOpen(false)}
+                    >
                       <Link to={link.href}>{link.name}</Link>
                     </Button>
                   ) : (
                     <button
                       key={link.name}
                       onClick={() => handleNavClick(link.href)}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
+                      className={cn(
+                        "text-lg font-medium transition-colors text-left",
+                        isLinkActive(link.href) ? "text-primary" : "text-foreground hover:text-primary"
+                      )}
                     >
                       {link.name}
                     </button>
