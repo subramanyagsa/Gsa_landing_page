@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { BarChart, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from './ThemeToggle';
@@ -13,14 +13,14 @@ const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
+    { name: 'Services', href: '/services' },
     { name: 'About Us', href: '/about' },
     { name: 'Process', href: '#process' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const scrollToSection = (id: string) => {
@@ -45,7 +45,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-sm">
       <div className="container flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <BarChart className="h-6 w-6 text-primary" />
+          <img src="/logo.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
           <span className="font-bold text-lg">
             Global Scale Accountants
           </span>
