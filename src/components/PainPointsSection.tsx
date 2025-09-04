@@ -6,7 +6,7 @@ const PainPointsSection = () => {
     {
       icon: <HelpCircle className="h-8 w-8 text-primary" />,
       title: "Uncertain Cash Flow",
-      description: "You’re never quite sure where your cash flow stands, making critical business decisions feel like a guess."
+      description: "Making critical business decisions feels like a guess when you're unsure where your cash flow stands."
     },
     {
       icon: <FileWarning className="h-8 w-8 text-primary" />,
@@ -16,7 +16,7 @@ const PainPointsSection = () => {
     {
       icon: <Clock className="h-8 w-8 text-primary" />,
       title: "Wasted Hours",
-      description: "You’re losing valuable hours every week chasing receipts, reconciling books, and worrying over compliance."
+      description: "Losing valuable hours every week chasing receipts, reconciling books, and worrying over compliance."
     }
   ];
 
@@ -25,23 +25,27 @@ const PainPointsSection = () => {
       <div className="container px-4 md:px-6 max-w-5xl mx-auto">
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-            Running Your Business Feels Harder Than It Should
+            Stop Guessing With Your Finances
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Deep down, you know managing finances isn't the best use of your time.
+            Running your business feels harder than it should. Your focus is split, and your time is wasted on tasks that don't drive growth.
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 text-left">
           {painPoints.map((point, index) => (
-            <div key={index} className="flex flex-col space-y-4 p-6 border border-border rounded-lg hover:bg-accent transition-colors">
-              <div className="p-3 bg-primary/10 rounded-full w-fit">
-                {point.icon}
+            <div key={index} className="relative p-8 rounded-lg bg-secondary/50 overflow-hidden">
+              <div className="absolute top-0 left-0 h-full w-full bg-gradient-to-br from-primary/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+              <div className="relative z-10 flex flex-col space-y-4">
+                <div className="p-3 bg-primary/10 rounded-full w-fit">
+                  {point.icon}
+                </div>
+                <h3 className="text-xl font-semibold">{point.title}</h3>
+                <p className="text-muted-foreground">
+                  {point.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold">{point.title}</h3>
-              <p className="text-muted-foreground">
-                {point.description}
-              </p>
             </div>
           ))}
         </div>
