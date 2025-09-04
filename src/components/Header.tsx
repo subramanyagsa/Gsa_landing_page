@@ -14,13 +14,13 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Services', href: '#services' },
-    { name: 'Why Us', href: '#why-us' },
+    { name: 'About Us', href: '/about' },
     { name: 'Process', href: '#process' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const scrollToSection = (id: string) => {
