@@ -2,10 +2,13 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { BarChart } from 'lucide-react';
+import { BarChart, Menu } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Header = () => {
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+
   const navLinks = [
     { name: 'Services', href: '#services' },
     { name: 'Why Us', href: '#why-us' },
@@ -19,6 +22,7 @@ const Header = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsSheetOpen(false); // Close the sheet after navigating
     }
   };
 
@@ -32,11 +36,12 @@ const Header = () => {
           </span>
         </a>
         
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <button
               key={link.name}
-              onClick={() => scrollToSection(link.href.substring(1))} // Remove '#' from href to get the ID
+              onClick={() => scrollToSection(link.href.substring(1))}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.name}
@@ -44,14 +49,58 @@ const Header = () => {
           ))}
         </nav>
 
-        <ConsultationDialog>
-          <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-sm font-medium text-foreground backdrop-blur-3xl">
-              Get a Consultation
-            </span>
-          </Button>
-        </ConsultationDialog>
+        {/* Mobile Navigation */}
+        <div className="md:hidden flex items-center gap-4">
+          <ConsultationDialog>
+            <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50">
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-4 py-2 text-sm font-medium text-foreground backdrop-blur-3xl">
+                Consultation
+              </span>
+            </Button>
+          </ConsultationDialog>
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-background p-6">
+              <div className="flex flex-col gap-6 pt-8">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.name}
+                    onClick={() => scrollToSection(link.href.substring(1))}
+                    className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
+                  >
+                    {link.name}
+                  </button>
+                ))}
+                <ConsultationDialog>
+                  <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50 w-full mt-4">
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-base font-medium text-foreground backdrop-blur-3xl">
+                      Get a Consultation
+                    </span>
+                  </Button>
+                </ConsultationDialog>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        {/* Desktop Consultation Button */}
+        <div className="hidden md:block">
+          <ConsultationDialog>
+            <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50">
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-sm font-medium text-foreground backdrop-blur-3xl">
+                Get a Consultation
+              </span>
+            </Button>
+          </ConsultationDialog>
+        </div>
       </div>
     </header>
   );
