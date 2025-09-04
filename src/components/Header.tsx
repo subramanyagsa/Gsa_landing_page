@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { BarChart, Menu } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
@@ -9,6 +10,7 @@ import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+  const location = useLocation();
 
   const navLinks = [
     { name: 'Services', href: '#services' },
@@ -18,6 +20,7 @@ const Header = () => {
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   const scrollToSection = (id: string) => {
@@ -25,6 +28,16 @@ const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsSheetOpen(false); // Close the sheet after navigating
+    }
+  };
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('/')) {
+      setIsSheetOpen(false);
+    } else if (location.pathname !== '/') {
+      window.location.href = `/${href}`;
+    } else {
+      scrollToSection(href.substring(1));
     }
   };
 
@@ -41,13 +54,19 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => scrollToSection(link.href.substring(1))}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {link.name}
-            </button>
+            link.href.startsWith('/') ? (
+              <Button asChild variant="link" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground p-0 h-auto">
+                <Link to={link.href}>{link.name}</Link>
+              </Button>
+            ) : (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.name}
+              </button>
+            )
           ))}
           <ThemeToggle />
         </nav>
@@ -72,13 +91,19 @@ const Header = () => {
             <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-background p-6">
               <div className="flex flex-col gap-6 pt-8">
                 {navLinks.map((link) => (
-                  <button
-                    key={link.name}
-                    onClick={() => scrollToSection(link.href.substring(1))}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
-                  >
-                    {link.name}
-                  </button>
+                   link.href.startsWith('/') ? (
+                    <Button asChild variant="link" className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left p-0 h-auto justify-start">
+                      <Link to={link.href}>{link.name}</Link>
+                    </Button>
+                  ) : (
+                    <button
+                      key={link.name}
+                      onClick={() => handleNavClick(link.href)}
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
+                    >
+                      {link.name}
+                    </button>
+                  )
                 ))}
                 <ConsultationDialog>
                   <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50 w-full mt-4">
