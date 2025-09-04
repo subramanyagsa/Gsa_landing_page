@@ -1,11 +1,12 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
 import { cn } from '@/lib/utils';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const pricingTiers = [
   {
@@ -52,21 +53,34 @@ const pricingTiers = [
 ];
 
 const PricingSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
+
   return (
-    <section id="pricing" className="w-full py-16 md:py-24 bg-background">
+    <section id="pricing" ref={sectionRef} className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
-          Transparent Pricing for Every Stage
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-          Choose a plan that scales with your business. No hidden fees, no surprises.
-        </p>
+        <div className={cn(
+          "transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+            Transparent Pricing for Every Stage
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+            Choose a plan that scales with your business. No hidden fees, no surprises.
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-          {pricingTiers.map((tier) => (
-            <Card key={tier.name} className={cn(
-              "flex flex-col h-full border border-white/10 bg-black/30 backdrop-blur-xl",
-              tier.isFeatured && "border-primary ring-2 ring-primary shadow-lg"
-            )}>
+          {pricingTiers.map((tier, index) => (
+            <Card 
+              key={tier.name} 
+              className={cn(
+                "flex flex-col h-full border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105",
+                tier.isFeatured && "border-primary ring-2 ring-primary shadow-lg",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <CardHeader className="text-left">
                 <CardTitle className="text-2xl font-bold">{tier.name}</CardTitle>
                 <CardDescription>{tier.description}</CardDescription>

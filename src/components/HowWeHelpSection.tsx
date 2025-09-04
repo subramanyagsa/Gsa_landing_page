@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { TrendingUp, ShieldCheck, Users, CheckCircle } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 const HowWeHelpSection = () => {
   const solutions = [
@@ -25,18 +27,33 @@ const HowWeHelpSection = () => {
     }
   ];
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.2 });
+
   return (
-    <section id="services" className="w-full py-16 md:py-24 bg-background">
+    <section id="services" ref={sectionRef} className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
-          The Future of Your Finances is Clear
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-          With us handling your finances, you can finally focus 100% on growing your business.
-        </p>
+        <div className={cn(
+          "transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+            The Future of Your Finances is Clear
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+            With us handling your finances, you can finally focus 100% on growing your business.
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {solutions.map((solution, index) => (
-            <div key={index} className="relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl">
+            <div 
+              key={index} 
+              className={cn(
+                "relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:border-primary",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
                <div className="absolute inset-0 z-0 opacity-50">
                 <div className="absolute -top-10 -left-10 w-48 h-48 bg-pink-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: `${index * 0.5}s` }} />
                 <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-yellow-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: `${index * 0.5 + 2}s` }} />

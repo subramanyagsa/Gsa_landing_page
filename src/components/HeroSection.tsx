@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import GridPattern from './GridPattern';
-import ConsultationDialog from './ConsultationDialog'; // Import ConsultationDialog
+import ConsultationDialog from './ConsultationDialog';
+import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsMounted(true), 100);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
       <GridPattern />
@@ -12,15 +20,24 @@ const HeroSection = () => {
       
       <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h1 className="text-3xl md:text-4xl font-bold tracking-tighter leading-tight">
+          <h1 className={cn(
+            "text-3xl md:text-4xl font-bold tracking-tighter leading-tight transition-all duration-1000 ease-out",
+            isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          )}>
             We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className={cn(
+            "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ease-out",
+            isMounted ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-4"
+          )}>
             End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
           </p>
-          <div className="flex items-center justify-center">
-            <ConsultationDialog> {/* Wrap the button with ConsultationDialog */}
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50">
+          <div className={cn(
+            "flex items-center justify-center transition-all duration-1000 ease-out",
+            isMounted ? "opacity-100 translate-y-0 delay-300" : "opacity-0 translate-y-4"
+          )}>
+            <ConsultationDialog>
+              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
                 Get a Free Consultation
               </Button>
             </ConsultationDialog>

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Phone, FileText, BarChart2 } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 const HowItWorksSection = () => {
   const steps = [
@@ -20,10 +22,16 @@ const HowItWorksSection = () => {
     }
   ];
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.2 });
+
   return (
-    <section id="process" className="w-full py-16 md:py-24 bg-secondary/20">
+    <section id="process" ref={sectionRef} className="w-full py-16 md:py-24 bg-secondary/20">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto">
-        <div className="text-center space-y-4 mb-12">
+        <div className={cn(
+          "text-center space-y-4 mb-12 transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
             Your Path to Financial Clarity in 3 Steps
           </h2>
@@ -32,7 +40,14 @@ const HowItWorksSection = () => {
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-border hidden md:block"></div>
           <div className="space-y-12">
             {steps.map((step, index) => (
-              <div key={index} className="relative flex flex-col md:flex-row items-center gap-8">
+              <div 
+                key={index} 
+                className={cn(
+                  "relative flex flex-col md:flex-row items-center gap-8 transition-all duration-700 ease-out",
+                  isVisible ? "opacity-100 translate-x-0" : (index % 2 === 0 ? "opacity-0 -translate-x-8" : "opacity-0 translate-x-8")
+                )}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
                 <div className="md:w-1/2 md:pr-8 md:text-right flex md:justify-end">
                   <div className="max-w-sm">
                     <h3 className="text-2xl font-bold text-primary mb-2">{step.title}</h3>

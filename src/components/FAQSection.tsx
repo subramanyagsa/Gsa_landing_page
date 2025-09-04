@@ -1,12 +1,14 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 const faqs = [
   {
@@ -32,25 +34,42 @@ const faqs = [
 ];
 
 const FAQSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
+
   return (
-    <section id="faq" className="w-full py-16 md:py-24 bg-secondary/20">
+    <section id="faq" ref={sectionRef} className="w-full py-16 md:py-24 bg-secondary/20">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-          Find answers to common questions about our services and how we can help your business.
-        </p>
+        <div className={cn(
+          "transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+            Find answers to common questions about our services and how we can help your business.
+          </p>
+        </div>
         <Accordion type="single" collapsible className="w-full text-left">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="border-b border-white/10">
-              <AccordionTrigger className="text-lg hover:no-underline text-foreground hover:text-primary transition-colors">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground text-base pb-4">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+            <div
+              key={index}
+              className={cn(
+                "transition-all duration-500 ease-out",
+                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+              )}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <AccordionItem value={`item-${index}`} className="border-b border-white/10">
+                <AccordionTrigger className="text-lg hover:no-underline text-foreground hover:text-primary transition-colors">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base pb-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </div>
           ))}
         </Accordion>
       </div>

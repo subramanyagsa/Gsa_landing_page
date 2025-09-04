@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { HelpCircle, FileWarning, Clock } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { cn } from '@/lib/utils';
 
 const PainPointsSection = () => {
   const painPoints = [
@@ -20,10 +22,16 @@ const PainPointsSection = () => {
     }
   ];
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.2 });
+
   return (
-    <section id="why-us" className="w-full py-16 md:py-24 bg-background">
+    <section id="why-us" ref={sectionRef} className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-        <div className="text-center space-y-4 mb-12">
+        <div className={cn(
+          "text-center space-y-4 mb-12 transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
             Stop Guessing With Your Finances
           </h2>
@@ -34,7 +42,14 @@ const PainPointsSection = () => {
         
         <div className="grid md:grid-cols-3 gap-8 text-left">
           {painPoints.map((point, index) => (
-            <div key={index} className="relative p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl">
+            <div 
+              key={index} 
+              className={cn(
+                "relative p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:border-primary",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              )}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <div className="absolute inset-0 z-0 opacity-50">
                 <div className="absolute top-0 left-0 w-48 h-48 bg-purple-600/30 rounded-full blur-3xl animate-pulse" />
                 <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-600/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
