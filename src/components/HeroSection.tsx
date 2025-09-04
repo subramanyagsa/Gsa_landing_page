@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import GridPattern from './GridPattern'; // Import the new GridPattern component
 
 const HeroSection = () => {
   return (
     <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      <GridPattern /> {/* Use the imported GridPattern component */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-primary/20 rounded-full blur-[150px] animate-pulse z-0" />
       
@@ -26,27 +27,5 @@ const HeroSection = () => {
     </section>
   );
 };
-
-const GridPattern = () => (
-  <svg
-    aria-hidden="true"
-    className="absolute inset-0 h-full w-full fill-white/10 stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
-  >
-    <defs>
-      <pattern
-        id="grid-pattern"
-        width="40"
-        height="40"
-        patternUnits="userSpaceOnUse"
-        x="100%"
-        y="100%"
-        patternTransform="translate(-0.5 -0.5)"
-      >
-        <path d="M0 40V0H40" fill="none"></path>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" strokeWidth="0" fill="url(#grid-pattern)"></rect>
-  </svg>
-);
 
 export default HeroSection;
