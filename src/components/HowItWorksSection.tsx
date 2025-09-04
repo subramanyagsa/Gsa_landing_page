@@ -48,16 +48,30 @@ const HowItWorksSection = () => {
                 )}
                 style={{ transitionDelay: `${index * 200}ms` }}
               >
-                <div className="md:w-1/2 md:pr-8 md:text-right flex md:justify-end">
-                  <div className="max-w-sm">
-                    <h3 className="text-2xl font-bold text-primary mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
-                  </div>
+                {/* Left Side */}
+                <div className="md:w-1/2 md:pr-16 flex justify-end">
+                  {index % 2 === 0 && (
+                    <div className="max-w-sm text-center md:text-right">
+                      <h3 className="text-2xl font-bold text-primary mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
+                  )}
                 </div>
+                
+                {/* Center Icon */}
                 <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 h-16 w-16 bg-background rounded-full border-2 border-primary flex items-center justify-center z-10">
                   {step.icon}
                 </div>
-                <div className="md:w-1/2 md:pl-8"></div>
+
+                {/* Right Side */}
+                <div className="md:w-1/2 md:pl-16 flex justify-start">
+                  {index % 2 !== 0 && (
+                    <div className="max-w-sm text-center md:text-left">
+                      <h3 className="text-2xl font-bold text-primary mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
