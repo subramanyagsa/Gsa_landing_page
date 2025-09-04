@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
+import ConsultationDialog from './ConsultationDialog';
 
 const CallToActionSection = () => {
   return (
@@ -14,9 +17,11 @@ const CallToActionSection = () => {
             Schedule a free, no-obligation consultation to see how we can build a financial system that works for you, not against you.
           </p>
           <div className="mt-8">
-            <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50">
-              Schedule Your Free Consultation
-            </Button>
+            <ConsultationDialog>
+              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50">
+                Schedule Your Free Consultation
+              </Button>
+            </ConsultationDialog>
           </div>
         </div>
       </div>
