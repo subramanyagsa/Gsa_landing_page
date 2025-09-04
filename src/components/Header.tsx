@@ -70,7 +70,7 @@ const Header = () => {
     )}>
       <div className="container flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
+          <img src="/logo1.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
           <span className="font-bold text-lg">
             Global Scale Accountants
           </span>
