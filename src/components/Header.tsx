@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { BarChart, Menu } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ThemeToggle } from './ThemeToggle'; // New import
+import { ThemeToggle } from './ThemeToggle';
 
 const Header = () => {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
@@ -14,6 +14,7 @@ const Header = () => {
     { name: 'Services', href: '#services' },
     { name: 'Why Us', href: '#why-us' },
     { name: 'Process', href: '#process' },
+    { name: 'Pricing', href: '#pricing' },
     { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#contact' },
@@ -48,7 +49,7 @@ const Header = () => {
               {link.name}
             </button>
           ))}
-          <ThemeToggle /> {/* Added ThemeToggle for desktop */}
+          <ThemeToggle />
         </nav>
 
         {/* Mobile Navigation */}
@@ -87,7 +88,7 @@ const Header = () => {
                     </span>
                   </Button>
                 </ConsultationDialog>
-                <div className="mt-4"> {/* Added ThemeToggle for mobile */}
+                <div className="mt-4">
                   <ThemeToggle />
                 </div>
               </div>

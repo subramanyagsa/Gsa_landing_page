@@ -6,9 +6,10 @@ import PainPointsSection from '@/components/PainPointsSection';
 import HowWeHelpSection from '@/components/HowWeHelpSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-import FAQSection from '@/components/FAQSection'; // New import
+import FAQSection from '@/components/FAQSection';
 import CallToActionSection from '@/components/CallToActionSection';
 import Footer from '@/components/Footer';
+import PricingSection from '@/components/PricingSection';
 
 const Index = () => {
   return (
@@ -20,8 +21,9 @@ const Index = () => {
         <PainPointsSection />
         <HowWeHelpSection />
         <HowItWorksSection />
+        <PricingSection />
         <TestimonialsSection />
-        <FAQSection /> {/* New component added here */}
+        <FAQSection />
         <CallToActionSection />
       </main>
       <Footer />
