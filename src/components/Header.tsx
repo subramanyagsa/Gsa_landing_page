@@ -1,17 +1,29 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from './ThemeToggle';
+import { cn } from '@/lib/utils';
 
 const Header = () => {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const navLinks = [
     { name: 'Services', href: '/services' },
@@ -39,7 +51,12 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-sm">
+    <header className={cn(
+      "sticky top-0 z-50 w-full border-b transition-all duration-300",
+      isScrolled 
+        ? "border-border/40 bg-background/95 backdrop-blur-lg" 
+        : "border-transparent bg-background/80 backdrop-blur-sm"
+    )}>
       <div className="container flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-2">
           <img src="/logo.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
