@@ -10,7 +10,17 @@ const Header = () => {
     { name: 'Services', href: '#services' },
     { name: 'Why Us', href: '#why-us' },
     { name: 'Process', href: '#process' },
+    { name: 'Testimonials', href: '#testimonials' },
+    { name: 'FAQ', href: '#faq' },
+    { name: 'Contact', href: '#contact' },
   ];
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-sm">
@@ -24,13 +34,13 @@ const Header = () => {
         
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.name}
-              href={link.href}
+              onClick={() => scrollToSection(link.href.substring(1))} // Remove '#' from href to get the ID
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.name}
-            </a>
+            </button>
           ))}
         </nav>
 
