@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import GridPattern from './GridPattern'; // Import the new GridPattern component
+import GridPattern from './GridPattern';
+import ConsultationDialog from './ConsultationDialog'; // Import ConsultationDialog
 
 const HeroSection = () => {
   return (
     <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
-      <GridPattern /> {/* Use the imported GridPattern component */}
+      <GridPattern />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-primary/20 rounded-full blur-[150px] animate-pulse z-0" />
       
@@ -18,9 +19,11 @@ const HeroSection = () => {
             End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
           </p>
           <div className="flex items-center justify-center">
-            <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50">
-              Get a Free Consultation
-            </Button>
+            <ConsultationDialog> {/* Wrap the button with ConsultationDialog */}
+              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50">
+                Get a Free Consultation
+              </Button>
+            </ConsultationDialog>
           </div>
         </div>
       </div>
