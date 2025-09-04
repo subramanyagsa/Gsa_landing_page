@@ -40,6 +40,20 @@ const blogPosts = {
     author: 'Jane Doe, CPA',
     imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059ee41f?q=80&w=1973&auto=format&fit=crop',
     content: `<p>Content for tax planning post...</p>`
+  },
+  '4': {
+    title: 'How to Choose the Right Accounting Software',
+    date: 'September 12, 2023',
+    author: 'John Smith, CA',
+    imageUrl: 'https://images.unsplash.com/photo-1554224154-260328c04740?q=80&w=2070&auto=format&fit=crop',
+    content: `<p>Choosing the right accounting software is a critical decision for any small business. The right tool can save you time, reduce errors, and provide valuable insights into your financial health. Here's a breakdown of the top contenders...</p>`
+  },
+  '5': {
+    title: 'Maximizing Deductions for Your Home Office',
+    date: 'August 25, 2023',
+    author: 'Jane Doe, CPA',
+    imageUrl: 'https://images.unsplash.com/photo-1487528278747-0402b27b49e9?q=80&w=2070&auto=format&fit=crop',
+    content: `<p>If you're self-employed or work from home, you may be eligible for the home office deduction. This can be a significant tax benefit, but it's important to understand the rules to claim it correctly. Let's dive into what qualifies and how to calculate it...</p>`
   }
 };
 
