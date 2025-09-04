@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -60,55 +58,51 @@ const BlogPage = () => {
     : blogPosts.filter(post => post.category === selectedCategory);
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-background">
-      <Header />
-      <main className="py-16 md:py-24">
-        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Our Blog</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Insights and advice on accounting, finance, and business growth from our team of experts.
-            </p>
-          </div>
-
-          <div className="flex justify-center flex-wrap gap-2 mb-12">
-            {categories.map(category => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                onClick={() => setSelectedCategory(category)}
-                className="rounded-full"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
-              <Card key={post.id} className="flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:scale-105">
-                <img src={post.imageUrl} alt={post.title} className="h-48 w-full object-cover" />
-                <CardHeader>
-                  <CardTitle className="text-xl font-semibold">{post.title}</CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground">{post.date}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <p className="text-muted-foreground">{post.excerpt}</p>
-                </CardContent>
-                <CardFooter>
-                  <Button asChild variant="link" className="p-0 h-auto text-primary">
-                    <Link to={`/blog/${post.id}`}>
-                      Read More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
+    <main className="py-16 md:py-24">
+      <div className="container px-4 md:px-6 max-w-5xl mx-auto">
+        <div className="text-center space-y-4 mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Our Blog</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Insights and advice on accounting, finance, and business growth from our team of experts.
+          </p>
         </div>
-      </main>
-      <Footer />
-    </div>
+
+        <div className="flex justify-center flex-wrap gap-2 mb-12">
+          {categories.map(category => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory(category)}
+              className="rounded-full"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPosts.map((post) => (
+            <Card key={post.id} className="flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:scale-105">
+              <img src={post.imageUrl} alt={post.title} className="h-48 w-full object-cover" />
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold">{post.title}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground">{post.date}</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <p className="text-muted-foreground">{post.excerpt}</p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild variant="link" className="p-0 h-auto text-primary">
+                  <Link to={`/blog/${post.id}`}>
+                    Read More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </main>
   );
 };
 
