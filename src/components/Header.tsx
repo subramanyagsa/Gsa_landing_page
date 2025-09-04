@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Menu } from 'lucide-react';
 import ConsultationDialog from './ConsultationDialog';
@@ -11,6 +11,7 @@ import { ThemeToggle } from './ThemeToggle';
 const Header = () => {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Services', href: '/services' },
@@ -23,21 +24,17 @@ const Header = () => {
     { name: 'Contact', href: '/contact' },
   ];
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsSheetOpen(false); // Close the sheet after navigating
-    }
-  };
-
   const handleNavClick = (href: string) => {
-    if (href.startsWith('/')) {
-      setIsSheetOpen(false);
-    } else if (location.pathname !== '/') {
-      window.location.href = `/${href}`;
-    } else {
-      scrollToSection(href.substring(1));
+    setIsSheetOpen(false);
+    if (href.startsWith('#')) {
+      if (location.pathname === '/') {
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate(`/${href}`);
+      }
     }
   };
 
@@ -55,7 +52,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             link.href.startsWith('/') ? (
-              <Button asChild variant="link" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground p-0 h-auto">
+              <Button key={link.name} asChild variant="link" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground p-0 h-auto">
                 <Link to={link.href}>{link.name}</Link>
               </Button>
             ) : (
@@ -92,7 +89,7 @@ const Header = () => {
               <div className="flex flex-col gap-6 pt-8">
                 {navLinks.map((link) => (
                    link.href.startsWith('/') ? (
-                    <Button asChild variant="link" className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left p-0 h-auto justify-start">
+                    <Button key={link.name} asChild variant="link" className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left p-0 h-auto justify-start" onClick={() => setIsSheetOpen(false)}>
                       <Link to={link.href}>{link.name}</Link>
                     </Button>
                   ) : (
