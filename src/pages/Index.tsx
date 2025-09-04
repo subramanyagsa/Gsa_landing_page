@@ -5,6 +5,7 @@ import SocialProofSection from '@/components/SocialProofSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import HowWeHelpSection from '@/components/HowWeHelpSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
+import TestimonialsSection from '@/components/TestimonialsSection'; // New import
 import CallToActionSection from '@/components/CallToActionSection';
 import Footer from '@/components/Footer';
 
@@ -18,6 +19,7 @@ const Index = () => {
         <PainPointsSection />
         <HowWeHelpSection />
         <HowItWorksSection />
+        <TestimonialsSection /> {/* New component added here */}
         <CallToActionSection />
       </main>
       <Footer />
