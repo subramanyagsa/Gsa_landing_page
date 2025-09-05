@@ -7,7 +7,6 @@ import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
 import CallToActionSection from '@/components/CallToActionSection';
-import VSLSection from '@/components/VSLSection'; // Import the new VSLSection
 
 const Index = () => {
   const location = useLocation();
@@ -33,7 +32,6 @@ const Index = () => {
       <TestimonialsSection />
       <FAQSection />
       <CallToActionSection />
-      <VSLSection /> {/* Render the VSLSection here */}
     </main>
   );
 };
