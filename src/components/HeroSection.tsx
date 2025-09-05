@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import GridPattern from './GridPattern';
 import ConsultationDialog from './ConsultationDialog';
-import VSLSection from './VSLSection'; // Import the new VSLSection
 import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
@@ -14,12 +13,12 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[90vh] min-h-[700px] flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
       <GridPattern />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-primary/20 rounded-full blur-[150px] animate-pulse z-0" />
       
-      <div className="container px-4 md:px-6 relative z-10 flex flex-col items-center">
+      <div className="container px-4 md:px-6 relative z-10">
         <div className="max-w-4xl mx-auto space-y-6">
           <h1 className={cn(
             "text-3xl md:text-4xl font-bold tracking-tighter leading-tight transition-all duration-1000 ease-out",
@@ -44,8 +43,6 @@ const HeroSection = () => {
             </ConsultationDialog>
           </div>
         </div>
-        {/* VSL Section added here */}
-        <VSLSection />
       </div>
     </section>
   );
