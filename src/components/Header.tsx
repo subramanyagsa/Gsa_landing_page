@@ -26,6 +26,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
+    { name: "Home", href: "/" }, // Added Home link
     { name: "About Us", href: "/about" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
@@ -43,6 +44,13 @@ const Header = () => {
         }
       } else {
         navigate(`/${href}`);
+      }
+    } else if (href === "/") {
+      // If clicking 'Home' and already on the home page, scroll to top
+      if (location.pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        navigate(href);
       }
     } else {
       navigate(href);
