@@ -13,7 +13,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
+    <section className="relative w-full pt-28 pb-16 text-center overflow-hidden">
       <GridPattern />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-primary/20 rounded-full blur-[150px] animate-pulse z-0" />
@@ -24,7 +24,7 @@ const HeroSection = () => {
             "text-3xl md:text-4xl font-bold tracking-tighter leading-tight transition-all duration-1000 ease-out",
             isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}>
-            We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
+            We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth.</span>
           </h1>
           <p className={cn(
             "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ease-out",
