@@ -76,9 +76,9 @@ const Header = () => {
           : "h-20 bg-background/80 backdrop-blur-sm border-b border-transparent"
       )}
     >
-      <div className="container flex h-full items-center justify-between px-4 md:px-6">
-        {/* Left spacer (empty div as no logo) */}
-        <div className="flex-grow hidden md:block"></div>
+      <div className="container flex h-full items-center px-4 md:px-6">
+        {/* Left spacer to balance the right side elements */}
+        <div className="hidden md:block flex-1"></div>
 
         {/* Desktop Navigation - Pill-shaped container */}
         <nav
@@ -103,7 +103,7 @@ const Header = () => {
         </nav>
 
         {/* Right side (ThemeToggle and Consultation Button) */}
-        <div className="hidden md:flex items-center gap-4 ml-auto">
+        <div className="hidden md:flex items-center gap-4 flex-1 justify-end">
           <ThemeToggle />
           <ConsultationDialog>
             <Button className={cn(
@@ -119,7 +119,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-4 ml-auto"> {/* ml-auto to push mobile elements to the right */}
           <ConsultationDialog>
             <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50">
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
