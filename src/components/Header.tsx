@@ -26,7 +26,7 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" }, // Added Home link
+    { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
@@ -43,10 +43,10 @@ const Header = () => {
           element.scrollIntoView({ behavior: "smooth" });
         }
       } else {
+        // Navigate to home page and then scroll
         navigate(`/${href}`);
       }
     } else if (href === "/") {
-      // If clicking 'Home' and already on the home page, scroll to top
       if (location.pathname === "/") {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
@@ -61,6 +61,7 @@ const Header = () => {
     if (href.startsWith("/")) {
       return location.pathname === href;
     } else if (href.startsWith("#")) {
+      // For anchor links, check if on homepage and hash matches
       return location.pathname === "/" && location.hash === href;
     }
     return false;
@@ -69,50 +70,53 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full border-b transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
         isScrolled
-          ? "border-border/40 bg-background/95 backdrop-blur-lg"
-          : "border-transparent bg-background/80 backdrop-blur-sm"
+          ? "h-16 bg-background/90 backdrop-blur-lg border-b border-border/40"
+          : "h-20 bg-background/80 backdrop-blur-sm border-b border-transparent"
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
-        {/* Logo only (no text, no link) */}
-        <img src="/logo1.png" alt="Logo" className="h-10 w-auto" />
+      <div className="container flex h-full items-center justify-between px-4 md:px-6">
+        {/* Left spacer (empty div as no logo) */}
+        <div className="flex-grow hidden md:block"></div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) =>
-            link.href.startsWith("/") ? (
-              <Button
-                key={link.name}
-                asChild
-                variant="link"
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-foreground p-0 h-auto",
-                  isLinkActive(link.href)
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                )}
-              >
-                <Link to={link.href}>{link.name}</Link>
-              </Button>
-            ) : (
-              <button
-                key={link.name}
-                onClick={() => handleNavClick(link.href)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-foreground",
-                  isLinkActive(link.href)
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                )}
-              >
-                {link.name}
-              </button>
-            )
+        {/* Desktop Navigation - Pill-shaped container */}
+        <nav
+          className={cn(
+            "hidden md:flex items-center gap-2 p-1 rounded-full border border-gray-700 bg-gradient-to-r from-gray-800 to-gray-900 shadow-lg transition-all duration-300",
+            isScrolled ? "scale-90" : "scale-100"
           )}
-          <ThemeToggle />
+        >
+          {navLinks.map((link) => (
+            <button
+              key={link.name}
+              onClick={() => handleNavClick(link.href)}
+              className={cn(
+                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
+                "text-white hover:bg-primary/20 hover:shadow-md",
+                isLinkActive(link.href) ? "bg-primary text-white shadow-md" : "text-muted-foreground"
+              )}
+            >
+              {link.name}
+            </button>
+          ))}
         </nav>
+
+        {/* Right side (ThemeToggle and Consultation Button) */}
+        <div className="hidden md:flex items-center gap-4 ml-auto">
+          <ThemeToggle />
+          <ConsultationDialog>
+            <Button className={cn(
+              "relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50",
+              isScrolled ? "scale-90" : "scale-100"
+            )}>
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-sm font-medium text-foreground backdrop-blur-3xl">
+                Get a Consultation
+              </span>
+            </Button>
+          </ConsultationDialog>
+        </div>
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-4">
@@ -136,23 +140,7 @@ const Header = () => {
               className="w-[250px] sm:w-[300px] bg-background p-6"
             >
               <div className="flex flex-col gap-6 pt-8">
-                {navLinks.map((link) =>
-                  link.href.startsWith("/") ? (
-                    <Button
-                      key={link.name}
-                      asChild
-                      variant="link"
-                      className={cn(
-                        "text-lg font-medium transition-colors text-left p-0 h-auto justify-start",
-                        isLinkActive(link.href)
-                          ? "text-primary"
-                          : "text-foreground hover:text-primary"
-                      )}
-                      onClick={() => setIsSheetOpen(false)}
-                    >
-                      <Link to={link.href}>{link.name}</Link>
-                    </Button>
-                  ) : (
+                {navLinks.map((link) => (
                     <button
                       key={link.name}
                       onClick={() => handleNavClick(link.href)}
@@ -181,18 +169,6 @@ const Header = () => {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
-
-        {/* Desktop Consultation Button */}
-        <div className="hidden md:block">
-          <ConsultationDialog>
-            <Button className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50">
-              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-sm font-medium text-foreground backdrop-blur-3xl">
-                Get a Consultation
-              </span>
-            </Button>
-          </ConsultationDialog>
         </div>
       </div>
     </header>
