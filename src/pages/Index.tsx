@@ -6,7 +6,6 @@ import PainPointsSection from '@/components/PainPointsSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
-import VSLVideoSection from '@/components/VSLVideoSection'; // Import the new component
 import CallToActionSection from '@/components/CallToActionSection';
 
 const Index = () => {
@@ -32,7 +31,7 @@ const Index = () => {
       <HowItWorksSection />
       <TestimonialsSection />
       <FAQSection />
-      <VSLVideoSection /> {/* New VSL video section */}
+      {/* VSLVideoSection removed as it's now part of HeroSection */}
       <CallToActionSection />
     </main>
   );

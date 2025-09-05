@@ -12,6 +12,39 @@ const HeroSection = () => {
     return () => clearTimeout(timeout);
   }, []);
 
+  // Wistia embed scripts need to be loaded dynamically or placed directly in the HTML head.
+  useEffect(() => {
+    const script1 = document.createElement('script');
+    script1.src = "https://fast.wistia.com/player.js";
+    script1.async = true;
+    document.head.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = "https://fast.wistia.com/embed/yslkn30any.js";
+    script2.async = true;
+    script2.type = "module";
+    document.head.appendChild(script2);
+
+    // Add the style for the thumbnail placeholder
+    const style = document.createElement('style');
+    style.textContent = `
+      wistia-player[media-id='yslkn30any']:not(:defined) {
+        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/yslkn30any/swatch');
+        display: block;
+        filter: blur(5px);
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      // Clean up scripts and style when component unmounts
+      document.head.removeChild(script1);
+      document.head.removeChild(script2);
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <section className="relative w-full h-[90vh] min-h-[700px] flex items-center justify-center text-center overflow-hidden">
       <GridPattern />
@@ -32,6 +65,15 @@ const HeroSection = () => {
           )}>
             End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
           </p>
+
+          {/* VSL Video Embed */}
+          <div className={cn(
+            "relative w-full max-w-2xl mx-auto rounded-lg overflow-hidden shadow-2xl border border-white/10 mt-8 mb-8 transition-all duration-1000 ease-out",
+            isMounted ? "opacity-100 translate-y-0 delay-250" : "opacity-0 translate-y-4"
+          )}>
+            <wistia-player media-id="yslkn30any" aspect="1.7777777777777777"></wistia-player>
+          </div>
+
           <div className={cn(
             "flex items-center justify-center transition-all duration-1000 ease-out",
             isMounted ? "opacity-100 translate-y-0 delay-300" : "opacity-0 translate-y-4"
