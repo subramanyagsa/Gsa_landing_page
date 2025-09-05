@@ -7,7 +7,6 @@ import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
 import CallToActionSection from '@/components/CallToActionSection';
-import PricingSection from '@/components/PricingSection';
 
 const Index = () => {
   const location = useLocation();
@@ -30,7 +29,6 @@ const Index = () => {
       <SocialProofSection />
       <PainPointsSection />
       <HowItWorksSection />
-      <PricingSection />
       <TestimonialsSection />
       <FAQSection />
       <CallToActionSection />
