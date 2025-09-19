@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DollarSign, Briefcase, FileText, Users } from "lucide-react";
-import { useInView } from "react-intersection-observer";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { cn } from "@/lib/utils";
 
 const painPoints = [
@@ -30,7 +30,8 @@ const painPoints = [
 ];
 
 const PainPointsSection = () => {
-  const { ref: sectionRef, inView: isVisible } = useInView({
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, {
     triggerOnce: true,
     threshold: 0.2,
   });
