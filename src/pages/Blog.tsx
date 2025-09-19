@@ -1,46 +1,47 @@
 "use client";
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
 const blogPosts = [
   {
+    id: 1,
+    title: '5 Common Financial Mistakes Startups Make',
+    date: 'October 26, 2023',
+    excerpt: 'Starting a business is an exhilarating journey, but it\'s also fraught with financial pitfalls. Learn how to avoid them.',
+    imageUrl: 'https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=2070&auto=format&fit=crop',
+  },
+  {
     id: 2,
-    title: "5 Common Tax Mistakes Small Businesses Make",
-    date: "July 28, 2024",
-    excerpt: "Avoid these costly errors during tax season. Our expert tips will help you stay compliant and maximize your deductions.",
-    imageUrl: "/placeholder.svg",
+    title: 'Understanding Your Cash Flow Statement',
+    date: 'October 15, 2023',
+    excerpt: 'Profit is not the same as cash flow. A business can be profitable on paper but fail because it runs out of cash. Learn to understand this critical document.',
+    imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop',
   },
   {
     id: 3,
-    title: "Navigating International Compliance: A Guide for Startups",
-    date: "July 10, 2024",
-    excerpt: "Expanding globally? Understand the complexities of international financial regulations and how to navigate them successfully.",
-    imageUrl: "/placeholder.svg",
+    title: 'Tax Planning Strategies for Q4',
+    date: 'September 30, 2023',
+    excerpt: 'Don\'t wait until the deadline. Proactive tax planning involves making strategic decisions throughout the year to minimize your tax liability.',
+    imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059ee41f?q=80&w=1973&auto=format&fit=crop',
   },
   {
     id: 4,
-    title: "Why Your Business Needs a Virtual CFO",
-    date: "June 22, 2024",
-    excerpt: "Discover the benefits of hiring a virtual Chief Financial Officer and how it can drive strategic growth for your company.",
-    imageUrl: "/placeholder.svg",
+    title: 'How to Choose the Right Accounting Software',
+    date: 'September 12, 2023',
+    excerpt: 'The right tool can save you time, reduce errors, and provide valuable insights into your financial health. Here\'s a breakdown of the top contenders.',
+    imageUrl: 'https://images.unsplash.com/photo-1554224154-260328c04740?q=80&w=2070&auto=format&fit=crop',
   },
   {
     id: 5,
-    title: "Understanding Cash Flow: The Lifeblood of Your Business",
-    date: "June 5, 2024",
-    excerpt: "A deep dive into managing and optimizing your cash flow for long-term financial health and stability.",
-    imageUrl: "/placeholder.svg",
-  },
-  {
-    id: 6,
-    title: "The Rise of ESG Reporting and What It Means for You",
-    date: "May 18, 2024",
-    excerpt: "Environmental, Social, and Governance (ESG) reporting is becoming crucial. Learn why it matters and how to get started.",
-    imageUrl: "/placeholder.svg",
-  },
+    title: 'Maximizing Deductions for Your Home Office',
+    date: 'August 25, 2023',
+    excerpt: 'If you work from home, you may be eligible for the home office deduction. Let\'s dive into what qualifies and how to calculate it.',
+    imageUrl: 'https://images.unsplash.com/photo-1487528278747-0402b27b49e9?q=80&w=2070&auto=format&fit=crop',
+  }
 ];
 
 const BlogPage = () => {
@@ -76,16 +77,18 @@ const BlogPage = () => {
 
         <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
-            <Card key={post.id} className="flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:scale-105">
-              <img src={post.imageUrl} alt={post.title} className="h-48 w-full object-cover" />
-              <CardHeader>
-                <CardTitle className="text-xl font-semibold">{post.title}</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground">{post.date}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-muted-foreground">{post.excerpt}</p>
-              </CardContent>
-            </Card>
+            <Link to={`/blog/${post.id}`} key={post.id} className="flex">
+              <Card className="flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-300 hover:border-primary hover:scale-105 w-full">
+                <img src={post.imageUrl} alt={post.title} className="h-48 w-full object-cover" />
+                <CardHeader>
+                  <CardTitle className="text-xl font-semibold">{post.title}</CardTitle>
+                  <CardDescription className="text-sm text-muted-foreground">{post.date}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground">{post.excerpt}</p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </main>
       </div>
