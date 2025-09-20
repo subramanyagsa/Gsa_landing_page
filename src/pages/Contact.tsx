@@ -43,7 +43,12 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Our Office</h3>
-                    <p className="text-muted-foreground">123 Finance Street, Suite 456<br />New York, NY 10001</p>
+                    <p className="text-muted-foreground">
+                      #10, 1st Floor, 1st Cross, <br />
+                      Opp. to Canara Bank, <br />
+                      Near KSRTC Bus Stand, <br />
+                      Udupi - 576101, Karnataka, India
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -52,7 +57,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
-                    <p className="text-muted-foreground">contact@globalscale.com</p>
+                    <p className="text-muted-foreground">info@globalscaleaccountants.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -61,7 +66,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold">Call Us</h3>
-                    <p className="text-muted-foreground">(123) 456-7890</p>
+                    <p className="text-muted-foreground">+91 99000 99000</p>
                   </div>
                 </div>
               </div>
