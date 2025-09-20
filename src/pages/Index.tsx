@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import SocialProofSection from '@/components/SocialProofSection';
 import PainPointsSection from '@/components/PainPointsSection';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection'; // Import the new component
 import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
@@ -28,10 +29,10 @@ const Index = () => {
       <HeroSection />
       <SocialProofSection />
       <PainPointsSection />
+      <WhyChooseUsSection /> {/* New section added here */}
       <HowItWorksSection />
       <TestimonialsSection />
       <FAQSection />
-      {/* VSLVideoSection removed as it's now part of HeroSection */}
       <CallToActionSection />
     </main>
   );
