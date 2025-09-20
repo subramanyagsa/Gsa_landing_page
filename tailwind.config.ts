@@ -83,7 +83,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
-        "glow-purple": "glow-purple 2.5s ease-in-out infinite", // Slower, smoother pulse
+        "glow-purple": "glow-purple 4s ease-in-out infinite", // Increased duration to 4s
       },
     },
   },
