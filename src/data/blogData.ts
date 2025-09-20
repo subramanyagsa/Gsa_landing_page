@@ -79,6 +79,36 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     `
   },
   {
+    title: 'Old vs New Tax Regime: Which One Should You Choose for AY 2025–26 & AY 2026–27?',
+    date: 'July 28, 2025',
+    excerpt: 'Understand the differences between the old and new tax regimes in India to make an informed decision for Assessment Years 2025-26 and 2026-27.',
+    imageUrl: 'https://images.unsplash.com/photo-1579621970563-fa0204202365?q=80&w=2070&auto=format&fit=crop', // A relevant image for tax
+    content: `
+      <p>Navigating India's tax landscape can be complex, especially with the co-existence of the old and new tax regimes. For Assessment Years (AY) 2025-26 and 2026-27, taxpayers have the option to choose between these two systems. Understanding their key differences is crucial for optimizing your tax liability.</p>
+      <h3 class="text-2xl font-bold mt-8 mb-4">The Old Tax Regime</h3>
+      <p>The old tax regime, also known as the default regime until AY 2023-24, allows taxpayers to claim various deductions and exemptions under sections like 80C, 80D, HRA, LTA, etc. While it offers numerous avenues for tax savings, it often comes with higher tax slabs.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Key Feature:</strong> Allows claiming of over 70 exemptions and deductions.</li>
+        <li><strong>Benefit:</strong> Ideal for individuals with significant investments in tax-saving instruments (e.g., PPF, ELSS, life insurance) and those with housing loan interest or HRA benefits.</li>
+        <li><strong>Complexity:</strong> Requires meticulous record-keeping of investments and expenses to claim deductions.</li>
+      </ul>
+      <h3 class="text-2xl font-bold mt-8 mb-4">The New Tax Regime</h3>
+      <p>Introduced to simplify the tax structure, the new tax regime offers lower tax rates across various income slabs but requires taxpayers to forgo most of the common deductions and exemptions. From AY 2024-25, the new regime became the default, though individuals can still opt for the old regime.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Key Feature:</strong> Simplified structure with fewer tax slabs and lower rates, but almost no deductions/exemptions.</li>
+        <li><strong>Benefit:</strong> Suitable for individuals who prefer simplicity, do not have many tax-saving investments, or have lower income levels where the reduced rates offer more savings.</li>
+        <li><strong>Simplicity:</strong> Less paperwork and fewer calculations due to the absence of most deductions.</li>
+      </ul>
+      <h3 class="text-2xl font-bold mt-8 mb-4">Which One to Choose?</h3>
+      <p>The choice between the old and new tax regimes depends entirely on your individual financial situation, income level, and investment habits. Here’s a general guide:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Opt for Old Regime if:</strong> You have significant deductions (e.g., Section 80C, 80D, HRA, home loan interest) that, when claimed, reduce your taxable income more effectively than the lower rates of the new regime.</li>
+        <li><strong>Opt for New Regime if:</strong> You have minimal deductions, prefer a simpler tax filing process, or find that the lower tax rates result in a lower tax outgo compared to the old regime without deductions.</li>
+      </ul>
+      <p class="mt-8">It is highly recommended to perform a comparative analysis of your tax liability under both regimes before making a final decision. Consulting with a tax professional can provide personalized advice tailored to your specific financial circumstances for AY 2025-26 and 2026-27.</p>
+    `
+  },
+  {
     title: 'The Power of Financial Forecasting for Business Growth',
     date: 'October 28, 2023',
     excerpt: 'Learn how accurate financial forecasting can provide a roadmap for sustainable growth, helping you make informed decisions and mitigate risks.',
@@ -202,11 +232,13 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
 export const blogPosts: BlogPost[] = posts.map((post, index) => {
   let author: string;
   if (index === 0) {
-    author = 'CA Sthuthi S Prabhu'; // For the new post
+    author = 'CA Sthuthi S Prabhu';
   } else if (index === 1) {
-    author = 'CA Subramanya Kamath'; // For the 'Why SMEs...' post
+    author = 'CA Subramanya Kamath';
+  } else if (index === 2) {
+    author = 'CA Vishnu Acharya';
   } else {
-    author = (index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA'; // For the rest
+    author = (index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA';
   }
   return {
     ...post,
