@@ -46,12 +46,13 @@ const WhyChooseUsSection = () => {
             <div
               key={benefit.title}
               className={cn(
-                "card-glow-border rounded-2xl transition-all duration-500 ease-out hover:scale-105", // Outer div for glow and hover scale
+                "relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:border-primary",
+                "shadow-soft-glow animate-soft-glow-pulse hover:shadow-soft-glow-hover", // Applied custom shadow, animation, and hover effect
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative z-10 flex flex-col items-center text-center p-8 rounded-2xl bg-white"> {/* Inner div for content */}
+              <div className="relative z-10 flex flex-col items-center">
                 <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
                   {benefit.icon}
                 </div>
