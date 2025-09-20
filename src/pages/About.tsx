@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarImage } from '@/components/ui/avatar'; // Removed AvatarFallback import
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Target, Eye, Heart, Linkedin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
@@ -9,9 +9,7 @@ const teamMembers = [
   {
     name: 'Ashwin Dsouza',
     title: 'Advisor–Investments & Financial Planning',
-    // IMPORTANT: Replace this placeholder URL with the actual public URL of Ashwin Dsouza's image.
-    // You need to host the image online (e.g., Imgur, Cloudinary) to get a public URL.
-    imageUrl: 'YOUR_GITHUB_RAW_IMAGE_URL_HERE', // <--- REPLACE THIS WITH THE URL YOU COPIED FROM GITHUB
+    imageUrl: '/ashwin-dsouza.jpg', // Updated to use the new image
     bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
     linkedin: '#', // Placeholder for LinkedIn
   },
