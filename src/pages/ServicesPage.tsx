@@ -52,8 +52,8 @@ const ServicesPage = () => {
       <section
         ref={sectionRef}
         className={cn(
-          "container px-4 md:px-6 max-w-6xl mx-auto py-16 md:py-24 relative rounded-xl", // Added relative and rounded-xl
-          "animate-glow-purple" // Added the animation
+          "container px-4 md:px-6 max-w-6xl mx-auto py-16 md:py-24 relative rounded-xl",
+          "animate-glow-purple"
         )}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -62,7 +62,8 @@ const ServicesPage = () => {
               key={service.title}
               className={cn(
                 "flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 w-full",
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+                "animate-glow-purple" // Added the animation here
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
