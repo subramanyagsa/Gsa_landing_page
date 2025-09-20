@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } = '@/lib/utils';
+import { cn } from '@/lib/utils'; // Corrected 'from' instead of '='
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
