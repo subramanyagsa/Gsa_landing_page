@@ -54,10 +54,9 @@ const WhyChooseUsSection = () => {
               {/* Animated glowing stroke */}
               <div className="absolute inset-[-2px] rounded-2xl bg-conic-gradient-purple-blue animate-border-spin opacity-75 transition-opacity duration-300 group-hover:opacity-100 z-[-1]"></div>
 
-              {/* Inner card content with its own background, border, and soft glow */}
+              {/* Inner card content with its own background and border */}
               <div className={cn(
                 "relative z-10 h-full w-full p-8 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 hover:border-primary", // Inner card styles
-                "shadow-soft-glow animate-soft-glow-pulse hover:shadow-soft-glow-hover" // Existing soft glow
               )}>
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
