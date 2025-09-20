@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react'; // Added DollarSign
+import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils';
+import { cn } = '@/lib/utils';
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -21,9 +21,9 @@ const WhyChooseUsSection = () => {
       description: "Our proven processes boost productivity and keep your finances running smoothly.",
     },
     {
-      icon: <DollarSign className="h-8 w-8 text-primary" />, // Changed icon to DollarSign
-      title: "Lower Costs Without Sacrificing Quality", // Updated title
-      description: "We help you cut overhead while maintaining exceptional financial service.", // Updated description
+      icon: <DollarSign className="h-8 w-8 text-primary" />,
+      title: "Lower Costs Without Sacrificing Quality",
+      description: "We help you cut overhead while maintaining exceptional financial service.",
     },
   ];
 
@@ -47,6 +47,7 @@ const WhyChooseUsSection = () => {
               key={benefit.title}
               className={cn(
                 "relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:border-primary",
+                "shadow-lg shadow-[rgba(180,190,255,0.2)]", // Added static soft outer glow
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
