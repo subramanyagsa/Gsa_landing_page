@@ -57,8 +57,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      backgroundImage: { // New conic gradient for the animated border
-        'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #8a2be2 0%, #4b0082 25%, #8a2be2 50%, #4b0082 75%, #8a2be2 100%)',
+      backgroundImage: {
+        // Adjusted conic gradient to use less purple and more dark blue
+        'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #8a2be2 0%, #4b0082 15%, #4b0082 40%, #8a2be2 50%, #4b0082 65%, #4b0082 90%, #8a2be2 100%)',
       },
       keyframes: {
         "accordion-down": {
@@ -73,7 +74,7 @@ module.exports = {
           "0%": { backgroundPosition: "0% center" },
           "100%": { backgroundPosition: "200% center" },
         },
-        "border-spin": { // New keyframe for the rotating border gradient
+        "border-spin": {
           "0%": { "--angle": "0deg" },
           "100%": { "--angle": "360deg" },
         },
@@ -82,7 +83,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
-        "border-spin": "border-spin 7s linear infinite", // 7 seconds for slow border spin
+        "border-spin": "border-spin 7s linear infinite",
       },
     },
   },
