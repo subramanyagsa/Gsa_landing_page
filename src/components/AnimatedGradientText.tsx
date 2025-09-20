@@ -13,7 +13,7 @@ const AnimatedGradientText: React.FC<AnimatedGradientTextProps> = ({ children, c
     <h1
       className={cn(
         "inline-block text-transparent bg-clip-text",
-        "bg-gradient-to-r from-blue-500 via-blue-300 to-blue-500",
+        "bg-gradient-to-r from-blue-300 via-blue-600 to-blue-300", // Updated gradient colors
         "animate-gradient-shift",
         className
       )}
