@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Target, Eye, Heart } from 'lucide-react';
+import { Target, Eye, Heart, Linkedin } from 'lucide-react'; // Import Linkedin icon
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
@@ -11,18 +11,28 @@ const teamMembers = [
     title: 'Founder & CEO',
     avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=John',
     bio: 'John is a certified public accountant with over 15 years of experience helping businesses scale.',
+    linkedin: '#', // Placeholder for LinkedIn
   },
   {
     name: 'Jane Smith',
     title: 'Head of Tax Strategy',
     avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Jane',
     bio: 'Jane specializes in complex tax planning and ensures our clients maximize their deductions.',
+    linkedin: '#', // Placeholder for LinkedIn
   },
   {
     name: 'Peter Jones',
     title: 'Lead Payroll Specialist',
     avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Peter',
     bio: 'Peter manages our payroll services, ensuring timely and accurate payments for our clients.',
+    linkedin: '#', // Placeholder for LinkedIn
+  },
+  {
+    name: 'Ashwin Dsouza',
+    title: 'Advisor–Investments & Financial Planning',
+    avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Ashwin', // Placeholder avatar
+    bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
+    linkedin: '#', // Placeholder for LinkedIn
   },
 ];
 
@@ -132,7 +142,13 @@ const AboutPage = () => {
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
-                  <p className="text-muted-foreground mt-2 text-sm">{member.bio}</p>
+                  <p className="text-muted-foreground mt-2 text-sm flex-grow">{member.bio}</p> {/* Added flex-grow */}
+                  {member.linkedin && (
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
+                      <Linkedin className="h-6 w-6" />
+                      <span className="sr-only">LinkedIn profile of {member.name}</span>
+                    </a>
+                  )}
                 </CardContent>
               </Card>
             ))}
