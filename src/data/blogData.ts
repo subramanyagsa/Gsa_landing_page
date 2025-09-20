@@ -10,20 +10,6 @@ export interface BlogPost {
 
 const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   {
-    title: 'Navigating the New Tax Landscape for Small Businesses',
-    date: 'November 10, 2023',
-    excerpt: 'Stay ahead of the curve with our guide to recent tax changes affecting small businesses and how to optimize your strategy.',
-    imageUrl: 'https://images.unsplash.com/photo-1520607162513-77705d0b81c0?q=80&w=2070&auto=format&fit=crop',
-    content: `
-      <p>The tax landscape is constantly evolving, and for small businesses, staying informed is crucial to avoid penalties and maximize savings. Recent legislative changes have introduced new opportunities and challenges. Understanding these can significantly impact your bottom line.</p>
-      <h3 class="text-2xl font-bold mt-8 mb-4">Key Changes to Watch For</h3>
-      <p>Several new regulations and adjustments to existing tax codes have come into effect. These include changes to depreciation rules, new credits for certain types of investments, and shifts in how remote work expenses are handled. It's vital to review these with a professional to ensure compliance.</p>
-      <h3 class="text-2xl font-bold mt-8 mb-4">Optimizing Your Tax Strategy</h3>
-      <p>Proactive tax planning is more important than ever. Consider strategies such as accelerating deductions, deferring income, and maximizing contributions to retirement plans. For businesses investing in technology or green initiatives, new tax credits might be available that can substantially reduce your tax liability.</p>
-      <p class="mt-8">Don't wait until tax season to discover these changes. A year-round approach to tax planning, guided by expert advice, can help your business thrive in the new financial environment.</p>
-    `
-  },
-  {
     title: 'The Power of Financial Forecasting for Business Growth',
     date: 'October 28, 2023',
     excerpt: 'Learn how accurate financial forecasting can provide a roadmap for sustainable growth, helping you make informed decisions and mitigate risks.',
