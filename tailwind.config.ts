@@ -58,8 +58,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        // Adjusted conic gradient to be more distinctly purple
-        'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #a78bfa 0%, #8b5cf6 15%, #8b5cf6 40%, #a78bfa 50%, #8b5cf6 65%, #8b5cf6 90%, #a78bfa 100%)',
+        // Adjusted conic gradient to use less purple and more dark blue
+        'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #8a2be2 0%, #4b0082 15%, #4b0082 40%, #8a2be2 50%, #4b0082 65%, #4b0082 90%, #8a2be2 100%)',
       },
       keyframes: {
         "accordion-down": {
@@ -78,17 +78,12 @@ module.exports = {
           "0%": { "--angle": "0deg" },
           "100%": { "--angle": "360deg" },
         },
-        "pulse-glow": {
-          "0%, 100%": { opacity: "0.7", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.02)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
         "border-spin": "border-spin 7s linear infinite",
-        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
     },
   },
