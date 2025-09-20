@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils';
+import { cn } => '@/lib/utils';
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,11 +52,11 @@ const WhyChooseUsSection = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Animated glowing stroke */}
-              <div className="absolute inset-[-2px] rounded-2xl bg-conic-gradient-purple-blue animate-border-spin opacity-75 transition-opacity duration-300 group-hover:opacity-100 z-[-1]"></div>
+              <div className="absolute inset-[-4px] rounded-2xl bg-conic-gradient-purple-blue animate-border-spin opacity-100 blur-md transition-opacity duration-300 group-hover:opacity-100 z-[-1]"></div>
 
               {/* Inner card content with its own background and border */}
               <div className={cn(
-                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 hover:border-primary", // Inner card styles, changed bg-black/70 to bg-black/90
+                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 hover:border-primary", // Inner card styles
               )}>
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
