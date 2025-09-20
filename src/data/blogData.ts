@@ -10,8 +10,8 @@ export interface BlogPost {
 
 const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   {
-    title: 'Outsourced CFO for SMEs: 2025',
-    date: 'November 20, 2023',
+    title: 'Why SMEs and Startups Should Consider an Outsourced CFO in 2025',
+    date: 'July 28, 2025',
     excerpt: 'Discover how an outsourced CFO can provide strategic financial leadership, drive growth, and optimize operations for small and medium-sized enterprises in 2025.',
     imageUrl: 'https://images.unsplash.com/photo-1554076875-02244717217e?q=80&w=2070&auto=format&fit=crop',
     content: `
@@ -163,7 +163,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
 export const blogPosts: BlogPost[] = posts.map((post, index) => ({
   ...post,
   id: index + 1,
-  author: (index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA',
+  author: index === 0 ? 'CA Subramanya Kamath' : ((index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA'),
 }));
 
 export const blogPostsMap = blogPosts.reduce((acc, post) => {
