@@ -56,7 +56,7 @@ const WhyChooseUsSection = () => {
 
               {/* Inner card content with its own background and border */}
               <div className={cn(
-                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 hover:border-primary", // Inner card styles
+                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/10 hover:border-primary", // Inner card styles, changed bg-black/30 to bg-black/70
               )}>
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
