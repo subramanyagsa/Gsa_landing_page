@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookText, BarChart2, ReceiptText, Briefcase } from 'lucide-react';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useIntersectionObserver } => '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
 const services = [
@@ -40,7 +40,7 @@ const ServicesPage = () => {
         <div className="container px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Our Core Services</h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-            Tailored financial solutions designed to empower your business growth.
+            Expertly crafted to strengthen and scale your business
           </p>
         </div>
       </section>
