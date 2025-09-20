@@ -9,7 +9,7 @@ const teamMembers = [
   {
     name: 'Ashwin Dsouza',
     title: 'Advisor–Investments & Financial Planning',
-    imageUrl: '/ashwin-dsouza.jpg', // Updated to use the new image
+    imageUrl: '/ashwin-dsouza.png', // Updated to use the new PNG image
     bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
     linkedin: '#', // Placeholder for LinkedIn
   },
