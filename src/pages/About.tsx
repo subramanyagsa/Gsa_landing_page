@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Target, Eye, Heart, Linkedin } from 'lucide-react'; // Import Linkedin icon
+import { Avatar, AvatarImage } from '@/components/ui/avatar'; // Removed AvatarFallback import
+import { Target, Eye, Heart, Linkedin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
@@ -119,7 +119,6 @@ const AboutPage = () => {
                 <CardContent className="p-6 flex flex-col items-center">
                   <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
                     <AvatarImage src={member.imageUrl} alt={member.name} />
-                    <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
