@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookText, BarChart2, ReceiptText, Briefcase } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
+import AnimatedGradientText from '@/components/AnimatedGradientText'; // Import the new component
 
 const services = [
   {
@@ -38,7 +39,9 @@ const ServicesPage = () => {
       {/* Hero Section */}
       <section className="py-20 md:py-32 text-center bg-secondary/20">
         <div className="container px-4 md:px-6">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">Our Core Services</h1>
+          <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter">
+            Our Core Services
+          </AnimatedGradientText>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
             Expertly crafted to strengthen and scale your business
           </p>
