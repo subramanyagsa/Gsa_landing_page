@@ -46,18 +46,26 @@ const WhyChooseUsSection = () => {
             <div
               key={benefit.title}
               className={cn(
-                "relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:border-primary",
-                "shadow-soft-glow animate-soft-glow-pulse hover:shadow-soft-glow-hover", // Applied custom shadow, animation, and hover effect
+                "relative group rounded-2xl overflow-hidden transition-all duration-500 ease-out hover:scale-105", // Outer container for scale and group
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
-                  {benefit.icon}
+              {/* Animated glowing stroke */}
+              <div className="absolute inset-[-2px] rounded-2xl bg-conic-gradient-purple-blue animate-border-spin opacity-75 transition-opacity duration-300 group-hover:opacity-100 z-[-1]"></div>
+
+              {/* Inner card content with its own background, border, and soft glow */}
+              <div className={cn(
+                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 hover:border-primary", // Inner card styles
+                "shadow-soft-glow animate-soft-glow-pulse hover:shadow-soft-glow-hover" // Existing soft glow
+              )}>
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
+                    {benefit.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{benefit.title}</h3>
+                  <p className="text-muted-foreground">{benefit.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">{benefit.title}</h3>
-                <p className="text-muted-foreground">{benefit.description}</p>
               </div>
             </div>
           ))}
