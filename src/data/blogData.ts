@@ -10,6 +10,36 @@ export interface BlogPost {
 
 const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   {
+    title: 'Outsourced CFO for SMEs: 2025',
+    date: 'November 20, 2023',
+    excerpt: 'Discover how an outsourced CFO can provide strategic financial leadership, drive growth, and optimize operations for small and medium-sized enterprises in 2025.',
+    imageUrl: 'https://images.unsplash.com/photo-1554076875-02244717217e?q=80&w=2070&auto=format&fit=crop',
+    content: `
+      <p>In today's dynamic business environment, small and medium-sized enterprises (SMEs) face increasing pressure to optimize financial performance, navigate complex regulations, and plan for sustainable growth. While a full-time Chief Financial Officer (CFO) might be out of reach for many, an outsourced CFO offers a powerful, cost-effective alternative.</p>
+      <h3 class="text-2xl font-bold mt-8 mb-4">What is an Outsourced CFO?</h3>
+      <p>An outsourced CFO provides high-level financial expertise and strategic guidance to businesses on a part-time or project basis. This role goes beyond traditional bookkeeping, offering insights into cash flow management, financial forecasting, risk assessment, and strategic planning, all tailored to the unique needs of an SME.</p>
+      <h3 class="text-2xl font-bold mt-8 mb-4">Benefits for SMEs in 2025</h3>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Cost-Efficiency:</strong> Access top-tier financial expertise without the overhead of a full-time executive salary and benefits.</li>
+        <li><strong>Strategic Insight:</strong> Gain a clear understanding of your financial health, identify growth opportunities, and make data-driven decisions.</li>
+        <li><strong>Risk Mitigation:</strong> Proactive management of financial risks, ensuring compliance and protecting your assets.</li>
+        <li><strong>Scalability:</strong> Services can be scaled up or down based on your business's evolving needs, providing flexibility.</li>
+        <li><strong>Focus on Core Business:</strong> Free up internal resources and leadership to concentrate on product development, sales, and customer relations.</li>
+      </ul>
+      <h3 class="text-2xl font-bold mt-8 mb-4">Key Areas of Support</h3>
+      <p>An outsourced CFO can assist with:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Developing financial strategies and business plans.</li>
+        <li>Improving cash flow and working capital management.</li>
+        <li>Budgeting and forecasting.</li>
+        <li>Financial reporting and analysis for stakeholders.</li>
+        <li>Guidance on mergers, acquisitions, or fundraising.</li>
+        <li>Optimizing tax strategies and ensuring compliance.</li>
+      </ul>
+      <p class="mt-8">For SMEs looking to achieve significant growth and stability in 2025, an outsourced CFO is not just a luxury but a strategic necessity. It's about bringing executive-level financial acumen to your business, empowering you to make smarter decisions and build a more resilient future.</p>
+    `
+  },
+  {
     title: 'The Power of Financial Forecasting for Business Growth',
     date: 'October 28, 2023',
     excerpt: 'Learn how accurate financial forecasting can provide a roadmap for sustainable growth, helping you make informed decisions and mitigate risks.',
