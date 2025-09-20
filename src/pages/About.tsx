@@ -116,12 +116,11 @@ const AboutPage = () => {
               style={{ transitionDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6 flex flex-col items-center">
                   <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
-                    <AvatarImage src={member.avatar} alt={member.name} />
                     <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
-                  <p className="text-muted-foreground mt-2 text-sm flex-grow">{member.bio}</p> {/* Added flex-grow */}
+                  <p className="text-muted-foreground mt-2 text-sm flex-grow">{member.bio}</p>
                   {member.linkedin && (
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-6 w-6" />
