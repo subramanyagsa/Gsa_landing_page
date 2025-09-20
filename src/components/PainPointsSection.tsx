@@ -62,7 +62,7 @@ const PainPointsSection = () => {
               {/* Soft animated purplish outer stroke glow */}
               <div className="absolute inset-[-4px] rounded-lg bg-conic-gradient-purple-blue animate-border-spin opacity-70 blur-md z-[-1] group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              <Card className="relative z-10 h-full bg-card/80 border-border/50 backdrop-blur-sm hover:border-primary transition-colors duration-300">
+              <Card className="relative z-10 h-full bg-black/90 border-border/50 backdrop-blur-sm hover:border-primary transition-colors duration-300">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <div className="bg-primary/10 p-3 rounded-full">{point.icon}</div>
                   <CardTitle className="text-xl font-semibold">{point.title}</CardTitle>
