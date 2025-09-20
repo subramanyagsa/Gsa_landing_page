@@ -36,10 +36,7 @@ const PainPointsSection = () => {
   return (
     <section ref={sectionRef} className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-6xl mx-auto text-center">
-        <div className={cn(
-          "transition-all duration-700 ease-out",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
+        <div className="transition-all duration-700 ease-out opacity-100 translate-y-0">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
             Common Pain Points We Solve
           </h2>
