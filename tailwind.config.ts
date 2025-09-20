@@ -72,10 +72,10 @@ module.exports = {
         },
         "glow-purple": {
           "0%, 100%": {
-            boxShadow: "0 0 0px 0px rgba(216, 180, 254, 0.3)", // Light purple with transparency
+            boxShadow: "0 0 5px 2px rgba(216, 180, 254, 0.1)", // Very subtle base glow
           },
           "50%": {
-            boxShadow: "0 0 15px 5px rgba(216, 180, 254, 0.6)", // Stronger, lighter glow
+            boxShadow: "0 0 20px 8px rgba(216, 180, 254, 0.3)", // Slightly more visible pulse
           },
         },
       },
@@ -83,7 +83,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
-        "glow-purple": "glow-purple 10s ease-in-out infinite", // Increased duration to 10s for a very slow effect
+        "glow-purple": "glow-purple 15s ease-in-out infinite", // Increased duration to 15s for a very slow effect
       },
     },
   },
