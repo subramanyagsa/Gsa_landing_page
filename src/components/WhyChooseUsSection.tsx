@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils';
+import { cn } => '@/lib/utils';
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,12 +52,12 @@ const WhyChooseUsSection = () => {
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {/* The glowing border element */}
+              {/* The glowing border element, now thinner and less blurred */}
               <div
-                className="absolute inset-[-2px] rounded-2xl blur-md bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 animate-border-gradient-move"
+                className="absolute inset-[-1px] rounded-2xl blur-sm bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500 animate-border-gradient-move"
                 style={{ backgroundSize: '400% 400%' }}
               />
-              {/* The actual card content, now with its own background and padding */}
+              {/* The actual card content, covering the interior of the glow */}
               <div className="relative z-10 text-center p-8 rounded-2xl bg-black/30 backdrop-blur-xl h-full flex flex-col items-center justify-center">
                 <div className="flex justify-center mb-4 p-3 bg-primary/10 rounded-full w-fit">
                   {benefit.icon}
