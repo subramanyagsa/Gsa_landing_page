@@ -57,6 +57,11 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: { // Custom box shadows for the glow effect
+        'soft-glow': '0 0 10px rgba(180, 190, 255, 0.2), 0 0 20px rgba(255, 255, 255, 0.05)',
+        'soft-glow-mid': '0 0 20px rgba(180, 190, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.1)',
+        'soft-glow-hover': '0 0 25px rgba(180, 190, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.15)',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -70,11 +75,16 @@ module.exports = {
           "0%": { backgroundPosition: "0% center" },
           "100%": { backgroundPosition: "200% center" },
         },
+        "soft-glow-pulse": { // New keyframe for the pulsing glow
+          "0%, 100%": { boxShadow: "var(--tw-shadow-soft-glow)" },
+          "50%": { boxShadow: "var(--tw-shadow-soft-glow-mid)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
+        "soft-glow-pulse": "soft-glow-pulse 7s ease-in-out infinite", // 7 seconds for a slow, subtle pulse
       },
     },
   },
