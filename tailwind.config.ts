@@ -58,9 +58,8 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
+        // Adjusted conic gradient to use less purple and more dark blue
         'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #8a2be2 0%, #4b0082 15%, #4b0082 40%, #8a2be2 50%, #4b0082 65%, #4b0082 90%, #8a2be2 100%)',
-        // New gradient for a lighter bluish-purple glow
-        'conic-gradient-bluish-purple': 'conic-gradient(from var(--angle, 0deg), #A78BFA 0%, #60A5FA 15%, #60A5FA 40%, #A78BFA 50%, #60A5FA 65%, #60A5FA 90%, #A78BFA 100%)',
       },
       keyframes: {
         "accordion-down": {
