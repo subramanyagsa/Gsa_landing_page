@@ -9,7 +9,8 @@ const teamMembers = [
   {
     name: 'Ashwin Dsouza',
     title: 'Advisor–Investments & Financial Planning',
-    avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Ashwin', // Placeholder avatar
+    // Placeholder for the image URL. Please replace this with the actual hosted image URL.
+    imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Ashwin', 
     bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
     linkedin: '#', // Placeholder for LinkedIn
   },
@@ -116,6 +117,7 @@ const AboutPage = () => {
               style={{ transitionDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6 flex flex-col items-center">
                   <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
+                    <AvatarImage src={member.imageUrl} alt={member.name} />
                     <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
