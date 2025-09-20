@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils'; // Corrected 'from' instead of '='
+import { cn } from '@/lib/utils';
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -47,7 +47,8 @@ const WhyChooseUsSection = () => {
               key={benefit.title}
               className={cn(
                 "relative text-center p-8 rounded-2xl overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:border-primary",
-                "shadow-lg shadow-[rgba(180,190,255,0.2)]", // Added static soft outer glow
+                "shadow-lg", // Keep shadow-lg for initial state
+                "animate-pulse-glow", // Apply the new pulsing glow animation
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
