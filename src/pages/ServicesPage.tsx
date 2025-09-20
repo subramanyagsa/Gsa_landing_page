@@ -60,7 +60,7 @@ const ServicesPage = () => {
             <Card
               key={service.title}
               className={cn(
-                "flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 w-full",
+                "flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 w-full animate-glow-blue-purple", // Added animate-glow-blue-purple
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
