@@ -70,20 +70,11 @@ module.exports = {
           "0%": { backgroundPosition: "0% center" },
           "100%": { backgroundPosition: "200% center" },
         },
-        "glow-purple": {
-          "0%, 100%": {
-            boxShadow: "0 0 0px 0px rgba(168, 85, 247, 0.4)", // purple-500 with transparency
-          },
-          "50%": {
-            boxShadow: "0 0 20px 8px rgba(168, 85, 247, 0.7)", // Stronger glow
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
-        "glow-purple": "glow-purple 2.5s ease-in-out infinite", // Slower, smoother pulse
       },
     },
   },
