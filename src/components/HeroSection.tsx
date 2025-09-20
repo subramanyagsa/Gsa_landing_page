@@ -2,10 +2,10 @@
 
 import React, { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Link } from 'react-router-dom'; // Corrected import
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
-import AnimatedGradientText from '@/components/AnimatedGradientText'; // Import AnimatedGradientText
+import AnimatedGradientText from '@/components/AnimatedGradientText';
 
 const HeroSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,10 +38,10 @@ const HeroSection = () => {
           isVisible ? "opacity-100 translate-y-0 delay-400" : "opacity-0 translate-y-8"
         )}>
           <Button asChild size="lg" className="px-8 py-3 text-lg">
-            <Link href="/contact">Get Started</Link>
+            <Link to="/contact">Get Started</Link> {/* Changed href to to */}
           </Button>
           <Button asChild variant="outline" size="lg" className="px-8 py-3 text-lg">
-            <Link href="/services">Learn More</Link>
+            <Link to="/services">Learn More</Link> {/* Changed href to to */}
           </Button>
         </div>
       </div>
