@@ -10,7 +10,7 @@ interface AnimatedGradientTextProps {
 
 const AnimatedGradientText: React.FC<AnimatedGradientTextProps> = ({ children, className }) => {
   return (
-    <h1
+    <span // Changed from h1 to span
       className={cn(
         "inline-block text-transparent bg-clip-text",
         "bg-gradient-to-r from-blue-300 via-blue-600 to-blue-300", // Updated gradient colors
@@ -22,7 +22,7 @@ const AnimatedGradientText: React.FC<AnimatedGradientTextProps> = ({ children, c
       }}
     >
       {children}
-    </h1>
+    </span>
   );
 };
 
