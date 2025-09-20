@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { CheckCircle, TrendingUp, Users } from 'lucide-react';
+import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react'; // Added DollarSign
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
@@ -21,9 +21,9 @@ const WhyChooseUsSection = () => {
       description: "Our proven processes boost productivity and keep your finances running smoothly.",
     },
     {
-      icon: <TrendingUp className="h-8 w-8 text-primary" />,
-      title: "Increase Productivity",
-      description: "Streamlined processes help your team get more done with less effort.",
+      icon: <DollarSign className="h-8 w-8 text-primary" />, // Changed icon to DollarSign
+      title: "Lower Costs Without Sacrificing Quality", // Updated title
+      description: "We help you cut overhead while maintaining exceptional financial service.", // Updated description
     },
   ];
 
