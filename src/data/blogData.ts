@@ -10,6 +10,45 @@ export interface BlogPost {
 
 const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   {
+    title: 'A Simple Guide to Personal Finance: Planning Your Liabilities & Assets',
+    date: 'July 28, 2025',
+    excerpt: 'Understand the basics of personal finance by learning how to effectively plan and manage your assets and liabilities for a secure financial future.',
+    imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop', // Reusing a relevant image
+    content: `
+      <p>Personal finance can seem daunting, but at its core, it's about understanding and managing your assets and liabilities. A clear grasp of these two concepts is the first step towards building a strong financial foundation and achieving your long-term goals.</p>
+      <h3 class="text-2xl font-bold mt-8 mb-4">What are Assets?</h3>
+      <p>Assets are anything you own that has economic value and can be converted into cash. They are resources that can provide future economic benefits. Common personal assets include:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Cash and Bank Accounts:</strong> Your checking, savings, and money market accounts.</li>
+        <li><strong>Investments:</strong> Stocks, bonds, mutual funds, retirement accounts (401k, IRA), and real estate investments.</li>
+        <li><strong>Real Estate:</strong> Your primary home, vacation properties, or rental properties.</li>
+        <li><strong>Vehicles:</strong> Cars, motorcycles, boats, etc. (though their value depreciates quickly).</li>
+        <li><strong>Personal Possessions:</strong> Jewelry, art, collectibles, and other valuable items.</li>
+      </ul>
+      <p class="mt-4">Understanding the value and liquidity of your assets is crucial for financial planning.</p>
+      <h3 class="text-2xl font-bold mt-8 mb-4">What are Liabilities?</h3>
+      <p>Liabilities are financial obligations or debts that you owe to others. They represent future sacrifices of economic benefits that you are obliged to make. Common personal liabilities include:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Mortgages:</strong> Loans taken to purchase real estate.</li>
+        <li><strong>Car Loans:</strong> Debts incurred for vehicle purchases.</li>
+        <li><strong>Student Loans:</strong> Money borrowed for education.</li>
+        <li><strong>Credit Card Debt:</strong> Outstanding balances on your credit cards.</li>
+        <li><strong>Personal Loans:</strong> Unsecured loans from banks or other lenders.</li>
+      </ul>
+      <p class="mt-4">Managing your liabilities effectively, aiming to reduce high-interest debts, is key to improving your financial health.</p>
+      <h3 class="text-2xl font-bold mt-8 mb-4">Planning Your Financial Future</h3>
+      <p>The goal of personal finance is to maximize your assets while minimizing your liabilities. Here’s how you can start:</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Create a Net Worth Statement:</strong> List all your assets and subtract your total liabilities. This gives you your net worth, a snapshot of your financial health.</li>
+        <li><strong>Budgeting:</strong> Track your income and expenses to understand where your money is going and identify areas for savings.</li>
+        <li><strong>Debt Management:</strong> Prioritize paying off high-interest debts first.</li>
+        <li><strong>Savings and Investments:</strong> Regularly contribute to savings accounts and investment portfolios to grow your assets.</li>
+        <li><strong>Emergency Fund:</strong> Build a safety net of 3-6 months' living expenses to cover unexpected costs.</li>
+      </ul>
+      <p class="mt-8">By actively managing your assets and liabilities, you gain control over your financial destiny, paving the way for security and prosperity.</p>
+    `
+  },
+  {
     title: 'Why SMEs and Startups Should Consider an Outsourced CFO in 2025',
     date: 'July 28, 2025',
     excerpt: 'Discover how an outsourced CFO can provide strategic financial leadership, drive growth, and optimize operations for small and medium-sized enterprises in 2025.',
@@ -160,11 +199,21 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   }
 ];
 
-export const blogPosts: BlogPost[] = posts.map((post, index) => ({
-  ...post,
-  id: index + 1,
-  author: index === 0 ? 'CA Subramanya Kamath' : ((index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA'),
-}));
+export const blogPosts: BlogPost[] = posts.map((post, index) => {
+  let author: string;
+  if (index === 0) {
+    author = 'CA Sthuthi S Prabhu'; // For the new post
+  } else if (index === 1) {
+    author = 'CA Subramanya Kamath'; // For the 'Why SMEs...' post
+  } else {
+    author = (index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA'; // For the rest
+  }
+  return {
+    ...post,
+    id: index + 1,
+    author: author,
+  };
+});
 
 export const blogPostsMap = blogPosts.reduce((acc, post) => {
   acc[post.id] = post;
