@@ -8,6 +8,7 @@ import BlogPage from "./pages/Blog";
 import BlogPostPage from "./pages/BlogPost";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
+import ServicesPage from "./pages/ServicesPage"; // Import the new ServicesPage
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
 import PageLayout from "./components/PageLayout";
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route element={<PageLayout />}>
               <Route path="/" element={<Index />} />
+              <Route path="/services" element={<ServicesPage />} /> {/* New Services Route */}
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/about" element={<AboutPage />} />
