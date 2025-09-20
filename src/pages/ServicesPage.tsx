@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookText, BarChart2, ReceiptText, Briefcase } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
-import AnimatedGradientText from '@/components/AnimatedGradientText'; // Import the new component
+import AnimatedGradientText from '@/components/AnimatedGradientText';
 
 const services = [
   {
@@ -49,7 +49,13 @@ const ServicesPage = () => {
       </section>
 
       {/* Services Grid */}
-      <section ref={sectionRef} className="container px-4 md:px-6 max-w-6xl mx-auto py-16 md:py-24">
+      <section
+        ref={sectionRef}
+        className={cn(
+          "container px-4 md:px-6 max-w-6xl mx-auto py-16 md:py-24 relative rounded-xl", // Added relative and rounded-xl
+          "animate-glow-purple" // Added the animation
+        )}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <Card
