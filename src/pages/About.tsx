@@ -9,7 +9,8 @@ const teamMembers = [
   {
     name: 'Ashwin Dsouza',
     title: 'Advisor–Investments & Financial Planning',
-    // Placeholder for the image URL. Please replace this with the actual hosted image URL.
+    // IMPORTANT: Replace this placeholder URL with the actual public URL of Ashwin Dsouza's image.
+    // You need to host the image online (e.g., Imgur, Cloudinary) to get a public URL.
     imageUrl: 'https://via.placeholder.com/150/0000FF/FFFFFF?text=Ashwin', 
     bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
     linkedin: '#', // Placeholder for LinkedIn
