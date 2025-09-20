@@ -70,16 +70,11 @@ module.exports = {
           "0%": { backgroundPosition: "0% center" },
           "100%": { backgroundPosition: "200% center" },
         },
-        "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 12px rgba(180,190,255,0.25)" }, // Slightly more visible at start/end
-          "50%": { boxShadow: "0 0 25px rgba(180,190,255,0.5)" }, // Stronger glow in the middle
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
-        "pulse-glow": "pulse-glow 4s ease-in-out infinite", // Increased duration to 4s for a slower pulse
       },
     },
   },
