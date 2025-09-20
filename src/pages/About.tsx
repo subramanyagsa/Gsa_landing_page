@@ -7,27 +7,6 @@ import { cn } from '@/lib/utils';
 
 const teamMembers = [
   {
-    name: 'John Doe',
-    title: 'Founder & CEO',
-    avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=John',
-    bio: 'John is a certified public accountant with over 15 years of experience helping businesses scale.',
-    linkedin: '#', // Placeholder for LinkedIn
-  },
-  {
-    name: 'Jane Smith',
-    title: 'Head of Tax Strategy',
-    avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Jane',
-    bio: 'Jane specializes in complex tax planning and ensures our clients maximize their deductions.',
-    linkedin: '#', // Placeholder for LinkedIn
-  },
-  {
-    name: 'Peter Jones',
-    title: 'Lead Payroll Specialist',
-    avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Peter',
-    bio: 'Peter manages our payroll services, ensuring timely and accurate payments for our clients.',
-    linkedin: '#', // Placeholder for LinkedIn
-  },
-  {
     name: 'Ashwin Dsouza',
     title: 'Advisor–Investments & Financial Planning',
     avatar: 'https://api.dicebear.com/8.x/lorelei/svg?seed=Ashwin', // Placeholder avatar
