@@ -70,11 +70,19 @@ module.exports = {
           "0%": { backgroundPosition: "0% center" },
           "100%": { backgroundPosition: "200% center" },
         },
+        "border-glow-move": { // New keyframe for moving glow
+          "0%": { top: "0%", left: "0%", transform: "translate(-50%, -50%)" },
+          "25%": { top: "0%", left: "100%", transform: "translate(-50%, -50%)" },
+          "50%": { top: "100%", left: "100%", transform: "translate(-50%, -50%)" },
+          "75%": { top: "100%", left: "0%", transform: "translate(-50%, -50%)" },
+          "100%": { top: "0%", left: "0%", transform: "translate(-50%, -50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
+        "border-glow-move": "border-glow-move 8s linear infinite", // Slower, continuous animation
       },
     },
   },
