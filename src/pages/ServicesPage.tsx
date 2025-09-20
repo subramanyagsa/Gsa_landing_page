@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookText, BarChart2, ReceiptText, Briefcase } from 'lucide-react';
-import { useIntersectionObserver } => '@/hooks/useIntersectionObserver';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
 const services = [
