@@ -55,7 +55,7 @@ const PainPointsSection = () => {
             <div
               key={point.title}
               className={cn(
-                "relative group rounded-lg overflow-hidden transition-all duration-700 ease-out",
+                "relative group rounded-lg overflow-hidden transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-105", // Added hover effects here
                 isVisible ? `opacity-100 translate-y-0 delay-${index * 150}` : "opacity-0 translate-y-8"
               )}
             >

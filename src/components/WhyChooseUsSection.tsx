@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils'; // Corrected '=>' to 'from'
+import { cn } from '@/lib/utils';
 
 const WhyChooseUsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -46,7 +46,7 @@ const WhyChooseUsSection = () => {
             <div
               key={benefit.title}
               className={cn(
-                "relative group rounded-2xl overflow-hidden transition-all duration-500 ease-out hover:scale-105", // Outer container for scale and group
+                "relative group rounded-2xl overflow-hidden transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2", // Added hover effects here
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}

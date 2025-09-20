@@ -60,7 +60,7 @@ const ServicesPage = () => {
             <Card
               key={service.title}
               className={cn(
-                "flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 w-full",
+                "flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 hover:-translate-y-2 w-full", // Added hover effects here
                 "shadow-lg shadow-[rgba(180,190,255,0.2)]", // Applied static soft outer glow
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
               )}
