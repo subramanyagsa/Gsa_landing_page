@@ -20,6 +20,13 @@ const teamMembers = [
     bio: '', // Keeping bio empty as per previous request
     linkedin: '#', // Placeholder for LinkedIn
   },
+  {
+    name: 'CA Vishnu Acharya',
+    title: 'Advisor–Tech enabled Accounting & ERP Solutions',
+    imageUrl: '/vishnu-acharya.png', // Placeholder image
+    bio: '', // Keeping bio empty as per previous request
+    linkedin: '#', // Placeholder for LinkedIn
+  },
 ];
 
 const companyValues = [
@@ -127,7 +134,6 @@ const AboutPage = () => {
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
-                  {/* Removed member.bio as per previous request */}
                   {member.linkedin && (
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-6 w-6" />
