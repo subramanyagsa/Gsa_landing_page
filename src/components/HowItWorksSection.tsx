@@ -67,7 +67,7 @@ const HowItWorksSection = () => {
           </div>
         </div>
         <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line - changed to bg-white */}
+          {/* Vertical line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
           
           <div className="space-y-6">
@@ -95,7 +95,7 @@ const HowItWorksSection = () => {
                     )}>
                       <CardHeader className="p-0 mb-4">
                         <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                          <span className="text-primary text-3xl font-extrabold">{index + 1}.</span>
+                          {/* Removed the step number here */}
                           {step.title}
                         </CardTitle>
                       </CardHeader>
@@ -117,7 +117,7 @@ const HowItWorksSection = () => {
                     )}>
                       <CardHeader className="p-0 mb-4">
                         <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                          <span className="text-primary text-3xl font-extrabold">{index + 1}.</span>
+                          {/* Removed the step number here */}
                           {step.title}
                         </CardTitle>
                       </CardHeader>
