@@ -1,27 +1,37 @@
+"use client";
+
 import React, { useRef } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
+import ConsultationDialog from './ConsultationDialog';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
 const CallToActionSection = () => {
-  const ctaRef = useRef<HTMLElement>(null);
-  const ctaVisible = useIntersectionObserver(ctaRef, { threshold: 0.2, triggerOnce: true });
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.3 });
 
   return (
-    <section ref={ctaRef} className="py-16 md:py-24 bg-primary text-primary-foreground text-center">
-      <div className={cn(
-        "container px-4 md:px-6 transition-all duration-1000 ease-out",
-        ctaVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      )}>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
-          Let us handle the numbers
-        </h2>
-        <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
-          Focus on what you do best—growing your business. We'll take care of the rest.
-        </p>
-        <Button size="lg" className="mt-8 bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-          Get Started Today
-        </Button>
+    <section id="contact" ref={sectionRef} className="w-full py-20 md:py-32 bg-background">
+      <div className="container relative px-4 md:px-6 max-w-3xl mx-auto text-center space-y-6">
+        <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[80vw] h-[40vh] bg-primary/10 rounded-full blur-[120px] z-0" />
+        <div className={cn(
+          "relative z-10 transition-all duration-1000 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
+            Ready to Reclaim Your Time?
+          </h2>
+          <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
+            Schedule a free, no-obligation consultation to see how we can build a financial system that works for you, not against you.
+          </p>
+          <div className="mt-8">
+            <ConsultationDialog>
+              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
+                Schedule Your Free Consultation
+              </Button>
+            </ConsultationDialog>
+          </div>
+        </div>
       </div>
     </section>
   );
