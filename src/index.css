@@ -74,9 +74,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-/* Custom text glow effect */
-.text-glow-indigo {
-  text-shadow: 0 0 8px rgba(129, 140, 248, 0.7), /* indigo-400 with transparency */
-               0 0 15px rgba(129, 140, 248, 0.5); /* wider, softer glow */
-}
