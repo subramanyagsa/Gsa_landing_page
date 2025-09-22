@@ -76,7 +76,7 @@ const HowItWorksSection = () => {
                 key={index} 
                 ref={(el) => (stepRefs.current[index] = el)}
                 data-step-index={index}
-                className="relative flex items-center justify-center md:justify-start md:pl-16" // All cards on the right for md+
+                className="relative flex items-center justify-center md:justify-between"
               >
                 {/* Dot on the timeline */}
                 <div className={cn(
@@ -86,22 +86,49 @@ const HowItWorksSection = () => {
                 )}></div>
 
                 {/* Step Content Card */}
-                <Card className={cn(
-                  "w-full md:w-[calc(50%-32px)] p-6 shadow-lg transition-all duration-300",
-                  activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent"
-                )}>
-                  <CardHeader className="p-0 mb-4">
-                    <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                      <span className="text-primary text-3xl font-extrabold">{index + 1}.</span>
-                      {step.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="p-0">
-                    <CardDescription className="text-muted-foreground">
-                      {step.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                {index % 2 === 0 ? ( // Even index: Left side
+                  <>
+                    <Card className={cn(
+                      "w-full md:w-[calc(50%-32px)] p-6 shadow-lg transition-all duration-300",
+                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
+                      "md:mr-8" // Margin to the right of the card
+                    )}>
+                      <CardHeader className="p-0 mb-4">
+                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                          <span className="text-primary text-3xl font-extrabold">{index + 1}.</span>
+                          {step.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <CardDescription className="text-muted-foreground">
+                          {step.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                    <div className="hidden md:block w-[calc(50%-32px)]"></div> {/* Placeholder for right side */}
+                  </>
+                ) : ( // Odd index: Right side
+                  <>
+                    <div className="hidden md:block w-[calc(50%-32px)]"></div> {/* Placeholder for left side */}
+                    <Card className={cn(
+                      "w-full md:w-[calc(50%-32px)] p-6 shadow-lg transition-all duration-300",
+                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
+                      "md:ml-8" // Margin to the left of the card
+                    )}>
+                      <CardHeader className="p-0 mb-4">
+                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                          <span className="text-primary text-3xl font-extrabold">{index + 1}.</span>
+                          {step.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <CardDescription className="text-muted-foreground">
+                          {step.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
               </div>
             ))}
           </div>
