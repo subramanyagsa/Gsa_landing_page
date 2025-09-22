@@ -18,7 +18,7 @@ const CallToActionSection = () => {
           Relax, We’ve Got Your Numbers Covered
         </h2>
         <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
-          Let us handle the complexities of your finances so you can focus on what you do best—growing your business.
+          Let us handle the complexities of accounting, tax, and payroll so you can focus on what you do best—growing your business.
         </p>
         <div className="mt-8 flex justify-center space-x-4">
           <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
