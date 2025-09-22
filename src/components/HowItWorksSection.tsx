@@ -105,7 +105,7 @@ const HowItWorksSection = () => {
                 {index % 2 === 0 ? ( // Even index: Left side
                   <>
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-purple-950/90 backdrop-blur-xl text-white", // Changed to bg-purple-950/90
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-purple-950 backdrop-blur-xl text-white", // Removed /90 opacity
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
                       "md:mr-4" // Reduced margin to the right of the card
                     )}>
@@ -126,7 +126,7 @@ const HowItWorksSection = () => {
                   <>
                     <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-purple-950/90 backdrop-blur-xl text-white", // Changed to bg-purple-950/90
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-purple-950 backdrop-blur-xl text-white", // Removed /90 opacity
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
                       "md:ml-4" // Reduced margin to the left of the card
                     )}>
