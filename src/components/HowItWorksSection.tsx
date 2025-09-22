@@ -26,6 +26,7 @@ const steps = [
 const HowItWorksSection = () => {
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [blueLineHeight, setBlueLineHeight] = useState(0); // New state for blue line height
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,6 +56,16 @@ const HowItWorksSection = () => {
     };
   }, []);
 
+  // Effect to update blueLineHeight when activeStepIndex changes
+  useEffect(() => {
+    const activeStepElement = stepRefs.current[activeStepIndex];
+    if (activeStepElement) {
+      const offsetTop = activeStepElement.offsetTop;
+      const elementHeight = activeStepElement.offsetHeight;
+      setBlueLineHeight(offsetTop + elementHeight / 2);
+    }
+  }, [activeStepIndex]); // Recalculate when activeStepIndex changes
+
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
       <div className="container px-4 md:px-6">
@@ -67,8 +78,13 @@ const HowItWorksSection = () => {
           </div>
         </div>
         <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line */}
+          {/* Vertical white line (base) */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
+          {/* Vertical blue line (fill) */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-primary hidden md:block transition-all duration-500 ease-out"
+            style={{ height: `${blueLineHeight}px` }}
+          ></div>
           
           <div className="space-y-6">
             {steps.map((step, index) => (
