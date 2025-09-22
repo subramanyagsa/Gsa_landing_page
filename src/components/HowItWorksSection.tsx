@@ -70,7 +70,7 @@ const HowItWorksSection = () => {
           {/* Vertical line */}
           <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-border hidden md:block"></div>
           
-          <div className="space-y-12">
+          <div className="space-y-8"> {/* Changed from space-y-12 to space-y-8 */}
             {steps.map((step, index) => (
               <div 
                 key={index} 
