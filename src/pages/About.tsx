@@ -32,7 +32,7 @@ const teamMembers = [
     title: 'Operations lead',
     imageUrl: '/sthuthis-prabhu.png', // Placeholder image
     bio: '', // Keeping bio empty as per previous request
-    linkedin: '#', // Placeholder for LinkedIn
+    linkedin: 'https://www.linkedin.com/in/ca-sthuthi-s-prabhu-77a555212/', // Updated LinkedIn link
   },
 ];
 
