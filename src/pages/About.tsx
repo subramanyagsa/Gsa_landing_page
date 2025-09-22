@@ -18,7 +18,7 @@ const teamMembers = [
     title: 'Strategic Outsourcing Advisor',
     imageUrl: '/subramanya-kamath.png', // Placeholder image
     bio: '', // Keeping bio empty as per previous request
-    linkedin: '#', // Placeholder for LinkedIn
+    linkedin: 'https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/', // Updated LinkedIn link
   },
   {
     name: 'CA Vishnu Acharya',
