@@ -13,6 +13,13 @@ const teamMembers = [
     bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
     linkedin: '#', // Placeholder for LinkedIn
   },
+  {
+    name: 'CA Subramanya Kamath',
+    title: 'Strategic Outsourcing Advisor',
+    imageUrl: '/subramanya-kamath.png', // Placeholder image
+    bio: '', // Keeping bio empty as per previous request
+    linkedin: '#', // Placeholder for LinkedIn
+  },
 ];
 
 const companyValues = [
@@ -120,6 +127,7 @@ const AboutPage = () => {
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
+                  {/* Removed member.bio as per previous request */}
                   {member.linkedin && (
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-6 w-6" />
