@@ -1,160 +1,70 @@
+"use client";
+
 import React, { useRef } from 'react';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
-import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { Target, Eye, Heart, Linkedin } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { DollarSign, Users, ShieldCheck, Lightbulb } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
-const teamMembers = [
-  {
-    name: 'Ashwin Dsouza',
-    title: 'Advisor–Investments & Financial Planning',
-    imageUrl: '/ashwin-dsouza.png',
-    bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
-    linkedin: 'https://www.linkedin.com/in/aadsouza/', // Updated LinkedIn link
-  },
-  {
-    name: 'CA Subramanya Kamath',
-    title: 'Strategic Outsourcing Advisor',
-    imageUrl: '/subramanya-kamath.png', // Placeholder image
-    bio: '', // Keeping bio empty as per previous request
-    linkedin: 'https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/', // Updated LinkedIn link
-  },
-  {
-    name: 'CA Vishnu Acharya',
-    title: 'Advisor–Tech enabled Accounting & ERP Solutions',
-    imageUrl: '/vishnu-acharya.png', // Placeholder image
-    bio: '', // Keeping bio empty as per previous request
-    linkedin: 'https://www.linkedin.com/in/ca-vishnu-acharya/', // Updated LinkedIn link
-  },
-  {
-    name: 'CA Sthuthi S Prabhu',
-    title: 'Operations lead',
-    imageUrl: '/sthuthis-prabhu.png', // Placeholder image
-    bio: '', // Keeping bio empty as per previous request
-    linkedin: 'https://www.linkedin.com/in/ca-sthuthi-s-prabhu-77a555212/', // Updated LinkedIn link
-  },
-];
+const About = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.3 });
 
-const companyValues = [
-  {
-    icon: <Target className="h-8 w-8 text-primary" />,
-    title: 'Client-Centric',
-    description: 'Your success is our primary metric. We are dedicated to understanding your unique needs and goals.',
-  },
-  {
-    icon: <Eye className="h-8 w-8 text-primary" />,
-    title: 'Transparency',
-    description: 'We believe in clear, honest communication. No hidden fees, no confusing jargon—just straightforward advice.',
-  },
-  {
-    icon: <Heart className="h-8 w-8 text-primary" />,
-    title: 'Integrity',
-    description: 'We uphold the highest ethical standards in all our work, ensuring your finances are managed with care and responsibility.',
-  },
-];
-
-const AboutPage = () => {
-  const missionRef = useRef<HTMLElement>(null);
-  const valuesRef = useRef<HTMLElement>(null);
-  const teamRef = useRef<HTMLElement>(null);
-
-  const missionVisible = useIntersectionObserver(missionRef, { threshold: 0.2, triggerOnce: true });
-  const valuesVisible = useIntersectionObserver(valuesRef, { threshold: 0.1, triggerOnce: true });
-  const teamVisible = useIntersectionObserver(teamRef, { threshold: 0.1, triggerOnce: true });
+  const values = [
+    {
+      icon: DollarSign,
+      title: "Financial Clarity",
+      description: "We demystify complex financial data, providing clear, actionable insights."
+    },
+    {
+      icon: Users,
+      title: "Client-Centric Approach",
+      description: "Your goals are our priority. We tailor our services to your unique needs."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Unwavering Integrity",
+      description: "Trust is paramount. We uphold the highest ethical standards in all we do."
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovative Solutions",
+      description: "Leveraging technology and expertise to offer modern accounting solutions."
+    }
+  ];
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="py-20 md:py-32 text-center bg-secondary/20">
-        <div className="container px-4 md:px-6">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">About Global Scale Accountants</h1>
+    <div className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section ref={sectionRef} className="container px-4 md:px-6 text-center mb-16">
+        <div className={cn(
+          "transition-all duration-1000 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-indigo-500 text-glow-indigo">
+            About Global Scale Accountants
+          </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
             We are more than just accountants; we are your financial partners, dedicated to simplifying your finances so you can focus on growth.
           </p>
         </div>
       </section>
 
-      {/* Our Mission Section */}
-      <section ref={missionRef} className="py-16 md:py-24">
-        <div className={cn(
-          "container px-4 md:px-6 max-w-4xl mx-auto text-center transition-all duration-1000 ease-out",
-          missionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Our Mission</h2>
-          <p className="text-xl text-muted-foreground mt-4">
-            To empower business owners with financial clarity and confidence. We handle the complexities of accounting, tax, and payroll, providing real-time insights and strategic guidance that turns financial data into a roadmap for success.
-          </p>
-        </div>
-      </section>
-
-      {/* Company Values Section */}
-      <section ref={valuesRef} className="py-16 md:py-24 bg-secondary/20">
-        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-          <div className={cn(
-            "text-center mb-12 transition-all duration-700 ease-out",
-            valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Our Core Values</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-              The principles that guide every decision we make.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {companyValues.map((value, index) => (
-              <div key={value.title} className={cn(
-                "text-center p-6 transition-all duration-500 ease-out",
-                valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}>
-                <div className="flex justify-center mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
+      <section className="container px-4 md:px-6 py-12">
+        <h2 className="text-3xl font-bold tracking-tighter text-center mb-10">Our Core Values</h2>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {values.map((value, index) => (
+            <Card key={index} className="flex flex-col items-center text-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-primary/10 p-4 rounded-full mb-4">
+                <value.icon className="h-8 w-8 text-primary" />
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+              <p className="text-muted-foreground">{value.description}</p>
+            </Card>
+          ))}
         </div>
       </section>
-
-      {/* Meet the Team Section */}
-      <section ref={teamRef} className="py-16 md:py-24">
-        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-          <div className={cn(
-            "text-center mb-12 transition-all duration-700 ease-out",
-            teamVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Meet Our Experts</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-              The dedicated professionals behind your financial success.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={member.name} className={cn(
-                "text-center border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105",
-                teamVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}>
-                <CardContent className="p-6 flex flex-col items-center">
-                  <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
-                    <AvatarImage src={member.imageUrl} alt={member.name} />
-                  </Avatar>
-                  <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
-                  <p className="text-primary font-medium">{member.title}</p>
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
-                      <Linkedin className="h-6 w-6" />
-                      <span className="sr-only">LinkedIn profile of {member.name}</span>
-                    </a>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
+    </div>
   );
 };
 
-export default AboutPage;
+export default About;
