@@ -67,10 +67,10 @@ const HowItWorksSection = () => {
           </div>
         </div>
         <div className="relative max-w-4xl mx-auto">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-border hidden md:block"></div>
+          {/* Vertical line - changed to bg-white */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
           
-          <div className="space-y-6"> {/* Changed from space-y-8 to space-y-6 */}
+          <div className="space-y-6">
             {steps.map((step, index) => (
               <div 
                 key={index} 
