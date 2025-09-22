@@ -40,7 +40,7 @@ const About = () => {
           "transition-all duration-1000 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-primary">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter text-foreground">
             About Global Scale Accountants
           </h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
