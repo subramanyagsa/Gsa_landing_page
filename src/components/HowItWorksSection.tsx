@@ -89,9 +89,9 @@ const HowItWorksSection = () => {
                 {index % 2 === 0 ? ( // Even index: Left side
                   <>
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-32px)] p-6 shadow-lg transition-all duration-300",
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg transition-all duration-300", // Adjusted width
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:mr-8" // Margin to the right of the card
+                      "md:mr-4" // Reduced margin to the right of the card
                     )}>
                       <CardHeader className="p-0 mb-4">
                         <CardTitle className="text-2xl font-bold flex items-center gap-2">
@@ -105,15 +105,15 @@ const HowItWorksSection = () => {
                         </CardDescription>
                       </CardContent>
                     </Card>
-                    <div className="hidden md:block w-[calc(50%-32px)]"></div> {/* Placeholder for right side */}
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for right side, adjusted width */}
                   </>
                 ) : ( // Odd index: Right side
                   <>
-                    <div className="hidden md:block w-[calc(50%-32px)]"></div> {/* Placeholder for left side */}
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-32px)] p-6 shadow-lg transition-all duration-300",
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg transition-all duration-300", // Adjusted width
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:ml-8" // Margin to the left of the card
+                      "md:ml-4" // Reduced margin to the left of the card
                     )}>
                       <CardHeader className="p-0 mb-4">
                         <CardTitle className="text-2xl font-bold flex items-center gap-2">
