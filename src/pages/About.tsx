@@ -25,7 +25,7 @@ const teamMembers = [
     title: 'Advisor–Tech enabled Accounting & ERP Solutions',
     imageUrl: '/vishnu-acharya.png', // Placeholder image
     bio: '', // Keeping bio empty as per previous request
-    linkedin: '#', // Placeholder for LinkedIn
+    linkedin: 'https://www.linkedin.com/in/ca-vishnu-acharya/', // Updated LinkedIn link
   },
   {
     name: 'CA Sthuthi S Prabhu',
