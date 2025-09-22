@@ -27,6 +27,13 @@ const teamMembers = [
     bio: '', // Keeping bio empty as per previous request
     linkedin: '#', // Placeholder for LinkedIn
   },
+  {
+    name: 'CA Sthuthi S Prabhu',
+    title: 'Operations lead',
+    imageUrl: '/sthuthis-prabhu.png', // Placeholder image
+    bio: '', // Keeping bio empty as per previous request
+    linkedin: '#', // Placeholder for LinkedIn
+  },
 ];
 
 const companyValues = [
