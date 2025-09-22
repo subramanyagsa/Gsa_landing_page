@@ -105,7 +105,7 @@ const HowItWorksSection = () => {
                 {index % 2 === 0 ? ( // Even index: Left side
                   <>
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-card text-card-foreground", // Added dark blue background and adjusted text color
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-blue-950 text-white", // Changed to bg-blue-950 and text-white
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
                       "md:mr-4" // Reduced margin to the right of the card
                     )}>
@@ -115,7 +115,7 @@ const HowItWorksSection = () => {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="p-0">
-                        <CardDescription className="text-card-foreground/80"> {/* Adjusted description text color */}
+                        <CardDescription className="text-blue-100"> {/* Adjusted description text color */}
                           {step.description}
                         </CardDescription>
                       </CardContent>
@@ -126,7 +126,7 @@ const HowItWorksSection = () => {
                   <>
                     <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-card text-card-foreground", // Added dark blue background and adjusted text color
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-blue-950 text-white", // Changed to bg-blue-950 and text-white
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
                       "md:ml-4" // Reduced margin to the left of the card
                     )}>
@@ -136,7 +136,7 @@ const HowItWorksSection = () => {
                         </CardTitle>
                       </CardHeader>
                       <CardContent className="p-0">
-                        <CardDescription className="text-card-foreground/80"> {/* Adjusted description text color */}
+                        <CardDescription className="text-blue-100"> {/* Adjusted description text color */}
                           {step.description}
                         </CardDescription>
                       </CardContent>
