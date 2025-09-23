@@ -84,7 +84,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 500px;
-    height: 40px;
+    height: 250px; /* Increased height to reach the heading */
     background: radial-gradient(
       ellipse at 50% 0%,
       hsl(var(--primary) / 0.2),
