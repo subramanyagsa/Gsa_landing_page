@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 import { teamMembers } from '@/data/teamData';
+import { Linkedin } from 'lucide-react'; // Import Linkedin icon
 
 const TeamSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -42,7 +43,18 @@ const TeamSection = () => {
                 </Avatar>
                 <CardTitle className="text-xl font-semibold mb-1">{member.name}</CardTitle>
                 <CardDescription className="text-sm text-muted-foreground mb-4">{member.title}</CardDescription>
-                <p className="text-muted-foreground text-sm">{member.description}</p>
+                <p className="text-muted-foreground text-sm mb-4">{member.description}</p>
+                {member.linkedinUrl && (
+                  <a
+                    href={member.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 transition-colors mt-2"
+                    aria-label={`LinkedIn profile of ${member.name}`}
+                  >
+                    <Linkedin className="h-6 w-6" />
+                  </a>
+                )}
               </CardContent>
             </Card>
           ))}
