@@ -44,7 +44,7 @@ const PainPointsSection = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-            Stop Drowning in Financial Complexity
+           You are probably stuck with these
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Running a business is hard enough. Add accounting, compliance, and financial strategy into the mix, and it quickly becomes overwhelming.
