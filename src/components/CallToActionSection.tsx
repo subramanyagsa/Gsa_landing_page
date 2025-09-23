@@ -19,7 +19,7 @@ const CallToActionSection = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
-            Relax, We’ve Got Your Numbers Covered
+            Relax, We’ve Got Your  Finances Covered
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
             Schedule a free, no-obligation consultation to see how we can build a financial system that works for you, not against you.
