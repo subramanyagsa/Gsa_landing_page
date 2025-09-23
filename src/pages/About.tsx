@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { DollarSign, Users, ShieldCheck, Lightbulb } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
-import TeamSection from '@/components/TeamSection'; // Import the new TeamSection
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,9 +63,6 @@ const About = () => {
           ))}
         </div>
       </section>
-
-      {/* Team Section */}
-      <TeamSection />
     </div>
   );
 };
