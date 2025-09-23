@@ -77,7 +77,7 @@
 }
 
 @layer utilities {
-  .header-torchlight-glow::before {
+  .torchlight-glow::before {
     content: '';
     position: absolute;
     top: 0;
@@ -91,6 +91,6 @@
       transparent 70%
     );
     pointer-events: none;
-    z-index: 49; /* Below the header content (z-50) */
+    z-index: 1; /* Adjusted z-index for section context */
   }
 }

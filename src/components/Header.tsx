@@ -71,7 +71,7 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 header-torchlight-glow",
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
         isScrolled
           ? "h-16 bg-background/90 backdrop-blur-lg border-b border-border/40"
           : "h-20 bg-background/80 backdrop-blur-sm border-b border-transparent"
