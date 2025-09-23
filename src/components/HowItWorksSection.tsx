@@ -1,148 +1,77 @@
-"use client";
-
-import React, { useRef, useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import React, { useRef } from 'react';
+import { Phone, FileText, BarChart2 } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
-const steps = [
-  {
-    title: "Initial Consultation",
-    description: "We start by understanding your business, financial goals, and current challenges to tailor our services."
-  },
-  {
-    title: "Strategy & Planning",
-    description: "Based on our consultation, we develop a comprehensive accounting strategy designed for your specific needs."
-  },
-  {
-    title: "Implementation & Execution",
-    description: "Our team seamlessly integrates our solutions, handling your bookkeeping, payroll, and financial reporting."
-  },
-  {
-    title: "Ongoing Support & Review",
-    description: "We provide continuous support, regular financial reviews, and proactive advice to ensure sustained growth."
-  }
-];
-
 const HowItWorksSection = () => {
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [blueLineHeight, setBlueLineHeight] = useState(0); // New state for blue line height
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-step-index') || '0');
-            setActiveStepIndex(index);
-          }
-        });
-      },
-      { threshold: 0.5, rootMargin: '-40% 0px -40% 0px' } // Trigger when element is roughly in the middle of the viewport
-    );
-
-    stepRefs.current.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      stepRefs.current.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, []);
-
-  // Effect to update blueLineHeight when activeStepIndex changes
-  useEffect(() => {
-    const activeStepElement = stepRefs.current[activeStepIndex];
-    if (activeStepElement) {
-      const offsetTop = activeStepElement.offsetTop;
-      const elementHeight = activeStepElement.offsetHeight;
-      setBlueLineHeight(offsetTop + elementHeight / 2);
+  const steps = [
+    {
+      icon: <Phone className="h-8 w-8 text-primary" />,
+      title: "1. Discovery Call",
+      description: "Schedule a free consultation to discuss your business needs, goals, and current financial challenges."
+    },
+    {
+      icon: <FileText className="h-8 w-8 text-primary" />,
+      title: "2. Custom Strategy",
+      description: "We design a tailored accounting, tax, and payroll plan that fits your unique business structure."
+    },
+    {
+      icon: <BarChart2 className="h-8 w-8 text-primary" />,
+      title: "3. Focus on Growth",
+      description: "With your finances managed by experts, you get real-time insights and can focus on scaling your business."
     }
-  }, [activeStepIndex]); // Recalculate when activeStepIndex changes
+  ];
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.2 });
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">How It Works</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our streamlined process ensures efficiency and clarity every step of the way.
-            </p>
-          </div>
+    <section id="process" ref={sectionRef} className="w-full py-16 md:py-24 bg-secondary/20">
+      <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+        <div className={cn(
+          "text-center space-y-4 mb-12 transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
+            Your Path to Financial Clarity in 3 Steps
+          </h2>
         </div>
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical white line (base) */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
-          {/* Vertical blue line (fill) */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-primary hidden md:block transition-all duration-500 ease-out"
-            style={{ height: `${blueLineHeight}px` }}
-          ></div>
-          
-          <div className="space-y-6">
+        <div className="relative">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-border hidden md:block"></div>
+          <div className="space-y-12">
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                ref={(el) => (stepRefs.current[index] = el)}
-                data-step-index={index}
-                className="relative flex items-center justify-center md:justify-between"
-              >
-                {/* Dot on the timeline */}
-                <div className={cn(
-                  "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10",
-                  "transition-all duration-300",
-                  activeStepIndex === index ? "bg-primary scale-125" : "bg-muted-foreground"
-                )}></div>
-
-                {/* Step Content Card */}
-                {index % 2 === 0 ? ( // Even index: Left side
-                  <>
-                    <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-card text-card-foreground", // Added dark blue background and adjusted text color
-                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:mr-4" // Reduced margin to the right of the card
-                    )}>
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                          {step.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <CardDescription className="text-card-foreground/80"> {/* Adjusted description text color */}
-                          {step.description}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for right side, adjusted width */}
-                  </>
-                ) : ( // Odd index: Right side
-                  <>
-                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
-                    <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300 bg-card text-card-foreground", // Added dark blue background and adjusted text color
-                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:ml-4" // Reduced margin to the left of the card
-                    )}>
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                          {step.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <CardDescription className="text-card-foreground/80"> {/* Adjusted description text color */}
-                          {step.description}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </>
+                className={cn(
+                  "relative flex flex-col md:flex-row items-center gap-8 transition-all duration-700 ease-out",
+                  isVisible ? "opacity-100 translate-x-0" : (index % 2 === 0 ? "opacity-0 -translate-x-8" : "opacity-0 translate-x-8")
                 )}
+                style={{ transitionDelay: `${index * 200}ms` }}
+              >
+                {/* Left Side */}
+                <div className="md:w-1/2 md:pr-16 flex justify-end">
+                  {index % 2 === 0 && (
+                    <div className="max-w-sm text-center md:text-right">
+                      <h3 className="text-2xl font-bold text-primary mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
+                  )}
+                </div>
+                
+                {/* Center Icon */}
+                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 h-16 w-16 bg-background rounded-full border-2 border-primary flex items-center justify-center z-10">
+                  {step.icon}
+                </div>
+
+                {/* Right Side */}
+                <div className="md:w-1/2 md:pl-16 flex justify-start">
+                  {index % 2 !== 0 && (
+                    <div className="max-w-sm text-center md:text-left">
+                      <h3 className="text-2xl font-bold text-primary mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
+                  )}
+                </div>
               </div>
             ))}
           </div>
