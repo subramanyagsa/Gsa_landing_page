@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Card, CardContent, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardTitle } from '@/components/ui/card'; // Removed CardDescription import
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Target, Eye, Heart, Linkedin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -10,28 +10,28 @@ const teamMembers = [
     name: 'Ashwin Dsouza',
     title: 'Advisor–Investments & Financial Planning',
     imageUrl: '/ashwin-dsouza.png',
-    bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
+    // bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
     linkedin: 'https://www.linkedin.com/in/aadsouza/',
   },
   {
     name: 'CA Subramanya Kamath',
     title: 'Strategic Outsourcing Advisor',
     imageUrl: '/subramanya-kamath.png',
-    bio: 'Subramanya Kamath is a Chartered Accountant with extensive experience in strategic financial planning and outsourcing. He specializes in helping businesses optimize their financial operations and achieve sustainable growth through efficient resource management.',
+    // bio: 'Subramanya Kamath is a Chartered Accountant with extensive experience in strategic financial planning and outsourcing. He specializes in helping businesses optimize their financial operations and achieve sustainable growth through efficient resource management.',
     linkedin: 'https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/',
   },
   {
     name: 'CA Vishnu Acharya',
     title: 'Advisor–Tech enabled Accounting & ERP Solutions',
     imageUrl: '/vishnu-acharya.png',
-    bio: 'Vishnu Acharya is a Chartered Accountant with a strong background in leveraging technology for accounting and ERP solutions. He assists businesses in implementing robust financial systems and streamlining their processes for enhanced efficiency and accuracy.',
+    // bio: 'Vishnu Acharya is a Chartered Accountant with a strong background in leveraging technology for accounting and ERP solutions. He assists businesses in implementing robust financial systems and streamlining their processes for enhanced efficiency and accuracy.',
     linkedin: 'https://www.linkedin.com/in/ca-vishnu-acharya/',
   },
   {
     name: 'CA Sthuthi S Prabhu',
     title: 'Operations lead',
     imageUrl: '/sthuthis-prabhu.png',
-    bio: 'Sthuthi S Prabhu is a Chartered Accountant and our operations lead, ensuring seamless execution of all financial services. Her expertise lies in managing complex accounting workflows and maintaining high standards of operational excellence.',
+    // bio: 'Sthuthi S Prabhu is a Chartered Accountant and our operations lead, ensuring seamless execution of all financial services. Her expertise lies in managing complex accounting workflows and maintaining high standards of operational excellence.',
     linkedin: 'https://www.linkedin.com/in/ca-sthuthi-s-prabhu-77a555212/',
   },
 ];
@@ -121,7 +121,7 @@ const AboutPage = () => {
         <div className="container px-4 md:px-6 max-w-5xl mx-auto">
           <div className={cn(
             "text-center mb-12 transition-all duration-700 ease-out",
-            teamVisible ? "opacity-100 translate-y-0" : "translate-y-8" // Removed opacity-0
+            teamVisible ? "opacity-100 translate-y-0" : "translate-y-8"
           )}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Meet Our Experts</h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
@@ -132,7 +132,7 @@ const AboutPage = () => {
             {teamMembers.map((member, index) => (
               <Card key={member.name} className={cn(
                 "text-center border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105",
-                teamVisible ? "opacity-100 translate-y-0" : "translate-y-8" // Removed opacity-0
+                teamVisible ? "opacity-100 translate-y-0" : "translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6 flex flex-col items-center">
@@ -141,11 +141,6 @@ const AboutPage = () => {
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
-                  {member.bio && ( // Only render CardDescription if bio exists
-                    <CardDescription className="text-muted-foreground mt-2 text-sm max-w-xs">
-                      {member.bio}
-                    </CardDescription>
-                  )}
                   {member.linkedin && (
                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
                       <Linkedin className="h-6 w-6" />
