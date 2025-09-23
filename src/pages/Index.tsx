@@ -1,20 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
-// import FeaturesSection from '@/components/FeaturesSection'; // Removed import
-import HowWeHelpSection from '@/components/HowWeHelpSection'; // Changed from ServicesSection
+import SocialProofSection from '@/components/SocialProofSection';
+import PainPointsSection from '@/components/PainPointsSection';
+import WhyChooseUsSection from '@/components/WhyChooseUsSection'; // Import the new component
+import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
-// import CallToActionSection from '@/components/CallToActionSection'; // Removed import
+import FAQSection from '@/components/FAQSection';
+import CallToActionSection from '@/components/CallToActionSection';
 
-const IndexPage = () => {
+const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.substring(1); // remove #
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <main>
       <HeroSection />
-      {/* <FeaturesSection /> */} {/* Removed usage */}
-      <HowWeHelpSection /> {/* Changed from ServicesSection */}
+      <SocialProofSection />
+      <PainPointsSection />
+      <WhyChooseUsSection /> {/* New section added here */}
+      <HowItWorksSection />
       <TestimonialsSection />
-      {/* <CallToActionSection /> */} {/* Removed usage */}
+      <FAQSection />
+      <CallToActionSection />
     </main>
   );
 };
 
-export default IndexPage;
+export default Index;
