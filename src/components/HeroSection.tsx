@@ -55,6 +55,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto space-y-8"> {/* Increased space-y for better separation */}
           <h1 className={cn(
             "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight transition-all duration-1000 ease-out", // Larger font for headline
+            "bg-dotted-pattern [background-size:1rem_1rem] p-8 rounded-lg border border-primary/10", // Added dotted background
             isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}>
             We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
