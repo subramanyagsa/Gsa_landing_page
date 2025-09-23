@@ -22,7 +22,6 @@ const CallToActionSection = () => {
             Relax, We’ve Got Your  Finances Covered
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
-            Schedule a free, no-obligation consultation to see how we can build a financial system that works for you, not against you.
           </p>
           <div className="mt-8">
             <ConsultationDialog>
