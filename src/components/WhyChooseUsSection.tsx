@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from 'react';
-import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
+import { CheckCircle, Users, DollarSign } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
@@ -52,7 +52,7 @@ const WhyChooseUsSection = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Animated glowing stroke */}
-              <div className="absolute inset-[-4px] rounded-2xl bg-conic-gradient-purple-blue animate-border-spin opacity-100 blur-md transition-opacity duration-300 group-hover:opacity-100 z-[-1]"></div>
+              <div className="absolute inset-[-4px] rounded-2xl bg-conic-gradient-blue animate-border-spin opacity-70 blur-md transition-opacity duration-300 group-hover:opacity-100 z-[-1]"></div>
 
               {/* Inner card content with its own background and border */}
               <div className={cn(
