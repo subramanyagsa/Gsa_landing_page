@@ -59,8 +59,8 @@ const PainPointsSection = () => {
                 isVisible ? `opacity-100 translate-y-0 delay-${index * 150}` : "opacity-0 translate-y-8"
               )}
             >
-              {/* Soft animated purplish outer stroke glow */}
-              <div className="absolute inset-[-4px] rounded-lg bg-conic-gradient-purple-blue animate-border-spin opacity-70 blur-md z-[-1] group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Soft animated bluish outer stroke glow */}
+              <div className="absolute inset-[-4px] rounded-lg bg-conic-gradient-blue animate-border-spin opacity-70 blur-md z-[-1] group-hover:opacity-100 transition-opacity duration-300"></div>
 
               <Card className="relative z-10 h-full bg-black/90 border-border/50 backdrop-blur-sm hover:border-primary transition-colors duration-300">
                 <CardHeader className="flex flex-row items-center gap-4">
