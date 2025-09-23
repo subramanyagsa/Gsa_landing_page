@@ -75,3 +75,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .header-torchlight-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 40px;
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      hsl(var(--primary) / 0.2),
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: 49; /* Below the header content (z-50) */
+  }
+}
