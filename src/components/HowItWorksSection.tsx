@@ -1,103 +1,151 @@
 "use client";
 
-import React, { useRef } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { cn } from "@/lib/utils";
-import ConsultationDialog from "./ConsultationDialog";
+import React, { useRef, useEffect, useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { cn } from '@/lib/utils';
+
+const steps = [
+  {
+    title: "Initial Consultation",
+    description: "We start by understanding your business, financial goals, and current challenges to tailor our services."
+  },
+  {
+    title: "Strategy & Planning",
+    description: "Based on our consultation, we develop a comprehensive accounting strategy designed for your specific needs."
+  },
+  {
+    title: "Implementation & Execution",
+    description: "Our team seamlessly integrates our solutions, handling your bookkeeping, payroll, and financial reporting."
+  },
+  {
+    title: "Ongoing Support & Review",
+    description: "We provide continuous support, regular financial reviews, and proactive advice to ensure sustained growth."
+  }
+];
 
 const HowItWorksSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, {
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const [blueLineHeight, setBlueLineHeight] = useState(0); // New state for blue line height
 
-  const steps = [
-    {
-      title: "Book a Free Consultation",
-      description:
-        "Schedule a no-obligation call to discuss your business needs. We'll identify your pain points and outline a customized plan.",
-    },
-    {
-      title: "Receive a Custom Proposal",
-      description:
-        "We'll send you a detailed proposal with transparent pricing and a clear scope of work. No hidden fees, no surprises.",
-    },
-    {
-      title: "Onboard & Relax",
-      description:
-        "Our team handles the entire onboarding process. You can relax knowing your finances are in expert hands.",
-    },
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-step-index') || '0');
+            setActiveStepIndex(index);
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: '-40% 0px -40% 0px' } // Trigger when element is roughly in the middle of the viewport
+    );
+
+    stepRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      stepRefs.current.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, []);
+
+  // Effect to update blueLineHeight when activeStepIndex changes
+  useEffect(() => {
+    const activeStepElement = stepRefs.current[activeStepIndex];
+    if (activeStepElement) {
+      const offsetTop = activeStepElement.offsetTop;
+      const elementHeight = activeStepElement.offsetHeight;
+      setBlueLineHeight(offsetTop + elementHeight / 2);
+    }
+  }, [activeStepIndex]); // Recalculate when activeStepIndex changes
 
   return (
-    <section ref={sectionRef} className="w-full py-12 md:py-24 lg:py-32 bg-background">
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              How It Works
-            </h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">How It Works</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Getting started is simple. In just three steps, you can offload
-              your financial worries and focus on what you do best.
+              Our streamlined process ensures efficiency and clarity every step of the way.
             </p>
           </div>
         </div>
-        <div className="relative grid gap-8 md:grid-cols-3">
-          {/* Dashed line for desktop */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px -translate-y-1/2">
-            <svg width="100%" height="2">
-              <line
-                x1="0"
-                y1="1"
-                x2="100%"
-                y2="1"
-                stroke="hsl(var(--border))"
-                strokeWidth="2"
-                strokeDasharray="8 8"
-              />
-            </svg>
-          </div>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical white line (base) */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
+          {/* Vertical blue line (fill) */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-primary hidden md:block transition-all duration-500 ease-out"
+            style={{ height: `${blueLineHeight}px` }}
+          ></div>
+          
+          <div className="space-y-6">
+            {steps.map((step, index) => (
+              <div 
+                key={index} 
+                ref={(el) => (stepRefs.current[index] = el)}
+                data-step-index={index}
+                className="relative flex items-center justify-center md:justify-between"
+              >
+                {/* Dot on the timeline */}
+                <div className={cn(
+                  "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10",
+                  "transition-all duration-300",
+                  activeStepIndex === index ? "bg-primary scale-125" : "bg-muted-foreground"
+                )}></div>
 
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className={cn(
-                "relative z-10 transition-all duration-700 ease-out",
-                isVisible
-                  ? `opacity-100 translate-y-0 delay-${index * 200}`
-                  : "opacity-0 translate-y-10"
-              )}
-            >
-              <Card className="h-full bg-background/80 backdrop-blur-sm border-border/60">
-                <CardHeader>
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-lg">
-                      {index + 1}
-                    </div>
-                    <CardTitle className="text-xl font-semibold">
-                      {step.title}
-                    </CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{step.description}</p>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
-        </div>
-        <div className="mt-12 text-center">
-          <ConsultationDialog>
-            <Button size="lg" className="group">
-              Get Your Free Proposal
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </ConsultationDialog>
+                {/* Step Content Card */}
+                {index % 2 === 0 ? ( // Even index: Left side
+                  <>
+                    <Card className={cn(
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
+                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
+                      "md:mr-4" // Reduced margin to the right of the card
+                    )}>
+                      <CardHeader className="p-0 mb-4">
+                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                          {step.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <CardDescription className="text-muted-foreground">
+                          {step.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for right side, adjusted width */}
+                  </>
+                ) : ( // Odd index: Right side
+                  <>
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
+                    <Card className={cn(
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
+                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
+                      "md:ml-4" // Reduced margin to the left of the card
+                    )}>
+                      <CardHeader className="p-0 mb-4">
+                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                          {step.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <CardDescription className="text-muted-foreground">
+                          {step.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
