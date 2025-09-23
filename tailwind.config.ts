@@ -60,7 +60,6 @@ module.exports = {
       backgroundImage: {
         // Distinctly purplish conic gradient for the outer stroke glow
         'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #a78bfa 0%, #8b5cf6 15%, #8b5cf6 40%, #a78bfa 50%, #8b5cf6 65%, #8b5cf6 90%, #a78bfa 100%)',
-        'dotted-pattern': 'radial-gradient(hsl(var(--primary) / 0.3) 1px, transparent 1px)',
       },
       keyframes: {
         "accordion-down": {
