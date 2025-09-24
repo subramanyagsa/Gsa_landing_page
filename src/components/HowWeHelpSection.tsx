@@ -11,7 +11,7 @@ const HowWeHelpSection = () => {
       description: "A clear, real-time view of your cash flow, profits, and expenses, so you're always in control."
     },
     {
-      icon: <ShieldCheck className="h-8 w-8 text-primary" />,
+      icon: <ShieldCheck className="h-6 w-10 text-primary" />,
       title: "Zero Tax Surprises",
       description: "Proactive tax planning means every filing is on time and every deduction is captured."
     },
