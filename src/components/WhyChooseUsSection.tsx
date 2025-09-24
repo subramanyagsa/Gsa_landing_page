@@ -37,7 +37,7 @@ const WhyChooseUsSection = () => {
       <div className="container max-w-screen-xl px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Why Clients Around the World Choose Us
-?</h2>
+</h2>
           <p className="mt-4 text-lg text-gray-400">
             We're not just accountants; we're your financial partners.
           </p>
