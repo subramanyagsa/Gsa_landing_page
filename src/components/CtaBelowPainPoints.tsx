@@ -17,7 +17,7 @@ const CtaBelowPainPoints = () => {
           <ConsultationDialog>
             <Button 
               size="lg" 
-              className="bg-cyan-500 hover:bg-cyan-600 text-black font-bold rounded-full text-lg px-8 py-6 transition-transform duration-300 hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full text-lg px-8 py-6 transition-transform duration-300 hover:scale-105"
             >
               Book a Call
             </Button>
