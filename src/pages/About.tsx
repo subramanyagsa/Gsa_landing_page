@@ -1,160 +1,156 @@
+"use client";
+
 import React, { useRef } from 'react';
-import { Card, CardContent, CardTitle } from '@/components/ui/card'; // Removed CardDescription import
+import { motion } from 'framer-motion';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
-import { Target, Eye, Heart, Linkedin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
 const teamMembers = [
   {
-    name: 'Ashwin Dsouza',
-    title: 'Advisor–Investments & Financial Planning',
-    imageUrl: '/ashwin-dsouza.png',
-    // bio: 'Ashwin Albert Dsouza has 20 years of experience in the Financial and Information Technology sectors. He has successfully led various Technology and Enterprise Architecture initiatives, backed by his 18-year career at Infosys Limited. His qualifications include specialized programs from the National Institute of Securities Markets (NISM) in Portfolio Management and Investment Advisory, reflecting his strong expertise in financial services alongside technology leadership.',
-    linkedin: 'https://www.linkedin.com/in/aadsouza/',
-  },
-  {
-    name: 'CA Subramanya Kamath',
-    title: 'Strategic Outsourcing Advisor',
-    imageUrl: '/subramanya-kamath.png',
-    // bio: 'Subramanya Kamath is a Chartered Accountant with extensive experience in strategic financial planning and outsourcing. He specializes in helping businesses optimize their financial operations and achieve sustainable growth through efficient resource management.',
-    linkedin: 'https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/',
-  },
-  {
-    name: 'CA Vishnu Acharya',
-    title: 'Advisor–Tech enabled Accounting & ERP Solutions',
-    imageUrl: '/vishnu-acharya.png',
-    // bio: 'Vishnu Acharya is a Chartered Accountant with a strong background in leveraging technology for accounting and ERP solutions. He assists businesses in implementing robust financial systems and streamlining their processes for enhanced efficiency and accuracy.',
-    linkedin: 'https://www.linkedin.com/in/ca-vishnu-acharya/',
-  },
-  {
-    name: 'CA Sthuthi S Prabhu',
-    title: 'Operations lead',
-    imageUrl: '/sthuthis-prabhu.png',
-    // bio: 'Sthuthi S Prabhu is a Chartered Accountant and our operations lead, ensuring seamless execution of all financial services. Her expertise lies in managing complex accounting workflows and maintaining high standards of operational excellence.',
-    linkedin: 'https://www.linkedin.com/in/ca-sthuthi-s-prabhu-77a555212/',
+    name: "Subrahmanya G S",
+    role: "Founder & CEO",
+    imageUrl: "/placeholder.svg", // Replace with actual image path
+    bio: "Subrahmanya is a visionary leader with over 20 years of experience in the financial industry, dedicated to helping businesses thrive through strategic financial management.",
   },
 ];
 
-const companyValues = [
-  {
-    icon: <Target className="h-8 w-8 text-primary" />,
-    title: 'Client-Centric',
-    description: 'Your success is our primary metric. We are dedicated to understanding your unique needs and goals.',
-  },
-  {
-    icon: <Eye className="h-8 w-8 text-primary" />,
-    title: 'Transparency',
-    description: 'We believe in clear, honest communication. No hidden fees, no confusing jargon—just straightforward advice.',
-  },
-  {
-    icon: <Heart className="h-8 w-8 text-primary" />,
-    title: 'Integrity',
-    description: 'We uphold the highest ethical standards in all our work, ensuring your finances are managed with care and responsibility.',
-  },
-];
+const About = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.2 });
 
-const AboutPage = () => {
-  const missionRef = useRef<HTMLElement>(null);
-  const valuesRef = useRef<HTMLElement>(null);
-  const teamRef = useRef<HTMLElement>(null);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
 
-  const missionVisible = useIntersectionObserver(missionRef, { threshold: 0.2, triggerOnce: true });
-  const valuesVisible = useIntersectionObserver(valuesRef, { threshold: 0.1, triggerOnce: true });
-  const teamVisible = useIntersectionObserver(teamRef, { threshold: 0.1, triggerOnce: true });
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+      },
+    },
+  };
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="py-20 md:py-32 text-center bg-secondary/20">
-        <div className="container px-4 md:px-6">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">About Global Scale Accountants</h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-            We are more than just accountants; we are your financial partners, dedicated to simplifying your finances so you can focus on growth.
-          </p>
-        </div>
-      </section>
+    <div className="bg-background text-foreground min-h-screen">
+      <main>
+        {/* Hero Section */}
+        <section className="relative py-20 md:py-32 lg:py-40 text-center bg-background/80 backdrop-blur-sm">
+          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+          <div className="container relative z-10">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter"
+            >
+              About Global Scale Accountants
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="mt-4 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+            >
+              Your trusted partner in financial excellence and business growth. We are committed to delivering exceptional accounting services tailored to your unique needs.
+            </motion.p>
+          </div>
+        </section>
 
-      {/* Our Mission Section */}
-      <section ref={missionRef} className="py-16 md:py-24">
-        <div className={cn(
-          "container px-4 md:px-6 max-w-4xl mx-auto text-center transition-all duration-1000 ease-out",
-          missionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Our Mission</h2>
-          <p className="text-xl text-muted-foreground mt-4">
-            To empower business owners with financial clarity and confidence. We handle the complexities of accounting, tax, and payroll, providing real-time insights and strategic guidance that turns financial data into a roadmap for success.
-          </p>
-        </div>
-      </section>
-
-      {/* Company Values Section */}
-      <section ref={valuesRef} className="py-16 md:py-24 bg-secondary/20">
-        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-          <div className={cn(
-            "text-center mb-12 transition-all duration-700 ease-out",
-            valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Our Core Values</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-              The principles that guide every decision we make.
+        {/* Our Mission Section */}
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Our Mission</h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              To empower businesses with clear, actionable financial insights that drive sustainable growth and success. We believe in building long-lasting relationships based on trust, integrity, and a deep understanding of our clients' goals.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {companyValues.map((value, index) => (
-              <div key={value.title} className={cn(
-                "text-center p-6 transition-all duration-500 ease-out",
-                valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}>
-                <div className="flex justify-center mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Meet the Team Section */}
-      <section ref={teamRef} className="py-16 md:py-24">
-        <div className="container px-4 md:px-6 max-w-5xl mx-auto">
-          <div className={cn(
-            "text-center mb-12 transition-all duration-700 ease-out",
-            teamVisible ? "opacity-100 translate-y-0" : "translate-y-8"
-          )}>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Meet Our Experts</h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-              The dedicated professionals behind your financial success.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {teamMembers.map((member, index) => (
-              <Card key={member.name} className={cn(
-                "text-center border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105",
-                teamVisible ? "opacity-100 translate-y-0" : "translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}>
-                <CardContent className="p-6 flex flex-col items-center">
-                  <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
-                    <AvatarImage src={member.imageUrl} alt={member.name} />
-                  </Avatar>
-                  <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
-                  <p className="text-primary font-medium">{member.title}</p>
-                  {member.linkedin && (
-                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-4 text-muted-foreground hover:text-primary transition-colors">
-                      <Linkedin className="h-6 w-6" />
-                      <span className="sr-only">LinkedIn profile of {member.name}</span>
-                    </a>
+        {/* Meet the Team Section */}
+        <section ref={sectionRef} className="py-16 md:py-24 bg-background/90">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-center mb-12">
+              Meet Our Leadership
+            </h2>
+            <motion.div
+              className="grid grid-cols-1 gap-8 max-w-md mx-auto"
+              variants={containerVariants}
+              initial="hidden"
+              animate={isVisible ? 'visible' : 'hidden'}
+            >
+              {teamMembers.map((member, index) => (
+                <motion.div key={index} variants={itemVariants}>
+                  <Card className={cn(
+                    "h-full bg-background/50 border-border/20 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2",
+                    "shadow-lg hover:shadow-primary/20"
                   )}
+                  style={{ transitionDelay: `${index * 150}ms` }}>
+                    <CardContent className="p-6 flex flex-col items-center">
+                      <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
+                        <AvatarImage src={member.imageUrl} alt={member.name} />
+                      </Avatar>
+                      <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+                      <p className="text-primary font-semibold">{member.role}</p>
+                      <p className="mt-4 text-muted-foreground text-center text-sm">{member.bio}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Our Values Section */}
+        <section className="py-16 md:py-24 bg-background">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-center mb-12">Our Core Values</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {/* Value 1 */}
+              <Card className="bg-background/50 border-border/20 p-6 text-center">
+                <CardHeader>
+                  <CardTitle>Integrity</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">We uphold the highest standards of integrity in all of our actions.</p>
                 </CardContent>
               </Card>
-            ))}
+              {/* Value 2 */}
+              <Card className="bg-background/50 border-border/20 p-6 text-center">
+                <CardHeader>
+                  <CardTitle>Client-Centric</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">Our clients are at the heart of everything we do. Your success is our success.</p>
+                </CardContent>
+              </Card>
+              {/* Value 3 */}
+              <Card className="bg-background/50 border-border/20 p-6 text-center">
+                <CardHeader>
+                  <CardTitle>Excellence</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">We are committed to excellence and continuous improvement in our services.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 };
 
-export default AboutPage;
+export default About;
