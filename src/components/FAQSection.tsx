@@ -76,3 +76,9 @@ const FAQSection = () => {
     </div>
   ))}
 </Accordion>
+     </div>
+    </section>
+  );
+};
+
+export default FAQSection
