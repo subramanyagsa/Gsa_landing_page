@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Card, CardContent, CardTitle } from '@/components/ui/card'; // Removed CardDescription import
+import { Card, CardContent, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Target, Eye, Heart, Linkedin } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -10,14 +10,12 @@ const teamMembers = [
     name: 'CA Subramanya Kamath',
     title: 'Strategic Outsourcing Advisor',
     imageUrl: '/subramanya-kamath.png',
-    // bio: 'Subramanya Kamath is a Chartered Accountant with extensive experience in strategic financial planning and outsourcing. He specializes in helping businesses optimize their financial operations and achieve sustainable growth through efficient resource management.',
     linkedin: 'https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/',
   },
   {
     name: 'CA Sthuthi S Prabhu',
     title: 'Operations lead',
     imageUrl: '/sthuthis-prabhu.png',
-    // bio: 'Sthuthi S Prabhu is a Chartered Accountant and our operations lead, ensuring seamless execution of all financial services. Her expertise lies in managing complex accounting workflows and maintaining high standards of operational excellence.',
     linkedin: 'https://www.linkedin.com/in/ca-sthuthi-s-prabhu-77a555212/',
   },
 ];
@@ -114,10 +112,10 @@ const AboutPage = () => {
               The dedicated professionals behind your financial success.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {teamMembers.map((member, index) => (
               <Card key={member.name} className={cn(
-                "text-center border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105",
+                "text-center border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 w-full max-w-sm",
                 teamVisible ? "opacity-100 translate-y-0" : "translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}>
