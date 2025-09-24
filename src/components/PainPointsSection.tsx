@@ -40,7 +40,7 @@ const PainPointsSection = () => {
           "text-center space-y-4 mb-12 transition-all duration-700 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Is Financial Admin Holding Your Business Back?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">You are probably stuck with these</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             You didn't start a business to get buried in spreadsheets and compliance paperwork. Let us handle the complexity, so you can focus on your vision.
           </p>
