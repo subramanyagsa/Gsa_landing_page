@@ -2,7 +2,6 @@
 
 import React, { useRef } from 'react';
 import { Button } from "@/components/ui/button";
-import ConsultationDialog from './ConsultationDialog';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
@@ -24,11 +23,11 @@ const CallToActionSection = () => {
           <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
           </p>
           <div className="mt-8">
-            <ConsultationDialog>
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
+            <Button asChild size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
+              <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                 Schedule Your Free Consultation
-              </Button>
-            </ConsultationDialog>
+              </a>
+            </Button>
           </div>
         </div>
       </div>

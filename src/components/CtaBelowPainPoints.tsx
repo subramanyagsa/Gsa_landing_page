@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import ConsultationDialog from './ConsultationDialog';
 
 const CtaBelowPainPoints = () => {
   return (
@@ -14,14 +13,15 @@ const CtaBelowPainPoints = () => {
           <span className="text-primary text-2xl md:text-3xl font-bold">We’ll handle them.</span>
         </h2>
         <div className="mt-10">
-          <ConsultationDialog>
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full text-lg px-8 py-6 transition-transform duration-300 hover:scale-105"
-            >
+          <Button 
+            asChild
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full text-lg px-8 py-6 transition-transform duration-300 hover:scale-105"
+          >
+            <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
               Book a Call
-            </Button>
-          </ConsultationDialog>
+            </a>
+          </Button>
         </div>
       </div>
     </section>

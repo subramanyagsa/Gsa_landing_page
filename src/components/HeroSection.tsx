@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import GridPattern from './GridPattern';
-import ConsultationDialog from './ConsultationDialog';
 import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
@@ -78,11 +77,11 @@ const HeroSection = () => {
             "flex items-center justify-center transition-all duration-1000 ease-out",
             isMounted ? "opacity-100 translate-y-0 delay-300" : "opacity-0 translate-y-4"
           )}>
-            <ConsultationDialog>
-              <Button size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
+            <Button asChild size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
+              <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
                 Get a Free Consultation
-              </Button>
-            </ConsultationDialog>
+              </a>
+            </Button>
           </div>
         </div>
       </div>
