@@ -47,7 +47,7 @@ const FAQSection = () => {
          <h2 className="text-2xl md:text-2xl font-bold tracking-tighter mb-1 text-left">
   Questions?
           </h2>
-          <p className="text-5xl  text-primary font-bold max-w-6xl mx-auto mb-3 text-left">
+          <p className="text-5xl  text-primary font-bold max-w-5xl mx-auto mb-3 text-left">
            We got answers.
           </p>
         </div>
