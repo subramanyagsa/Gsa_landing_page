@@ -46,10 +46,10 @@ const PainPointsSection = () => {
     <section id="why-us" ref={sectionRef} className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-5xl mx-auto">
         <div className={cn(
-          "text-center mb-12 transition-all duration-700 ease-out",
+          "text-center transition-all duration-700 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">You are probably stuck with these</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-8">You are probably stuck with these</h2>
         </div>
 
         <div className={cn(
