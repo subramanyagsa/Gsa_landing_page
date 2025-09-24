@@ -38,7 +38,7 @@ const PainPointsSection = () => {
     "Expensive & Time-Consuming Hiring",
     "Confusing Statutory Compliance",
     "Incomplete Financial Coverage",
-    "You’re stuck juggling tax filings, payroll, and endless spreadsheets.",
+    "You’re spending hours on tax filings, payroll, and spreadsheets",
     "Distraction from Growth"
   ];
 
