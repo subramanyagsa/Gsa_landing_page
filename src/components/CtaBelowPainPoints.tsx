@@ -8,7 +8,7 @@ const CtaBelowPainPoints = () => {
   return (
     <section className="w-full py-16 md:py-24 bg-background">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl tracking-tight text-white">
+        <h2 className="text-2xl md:text-3xl tracking-tight text-white">
           You can’t grow stuck in numbers.{" "}
           <span className="text-primary">We’ll handle them.</span>
         </h2>
