@@ -1,39 +1,45 @@
 "use client";
 
-import React, { useRef } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { DollarSign, Briefcase, FileText, Users } from "lucide-react";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { useState, useRef, useEffect } from 'react';
+import { CheckCircle2 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 const PainPointsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, {
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const painPoints = [
-    {
-      icon: <DollarSign className="h-8 w-8 text-primary" />,
-      title: "Expensive & Time-Consuming Hiring",
-      description: "Hiring qualified accountants is expensive and time-consuming.",
-    },
-    {
-      icon: <Briefcase className="h-8 w-8 text-primary" />,
-      title: "Confusing Statutory Compliance",
-      description: "Statutory compliance is confusing — and one mistake can cost you thousands in penalties.",
-    },
-    {
-      icon: <FileText className="h-8 w-8 text-primary" />,
-      title: "Incomplete Financial Coverage",
-      description: "Employing a full-time accountant strains your payroll but still doesn’t cover all your financial needs.",
-    },
-    {
-      icon: <Users className="h-8 w-8 text-primary" />,
-      title: "Distraction from Growth",
-      description: "Instead of focusing on growth and clients, you’re stuck juggling tax filings, payroll, and endless spreadsheets.",
-    },
+    "Expensive & Time-Consuming Hiring",
+    "Confusing Statutory Compliance",
+    "Incomplete Financial Coverage",
+    "You’re stuck juggling tax filings, payroll, and endless spreadsheets.",
+    "Distraction from Growth",
   ];
 
   return (
@@ -43,36 +49,51 @@ const PainPointsSection = () => {
           "text-center space-y-4 mb-12 transition-all duration-700 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">
-           You are probably stuck with these
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Tired of the Development Rat Race?</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Running a business is hard enough. Add accounting, compliance, and financial strategy into the mix, and it quickly becomes overwhelming.
+            Stop wasting time and money on development headaches. We provide the expertise you need to succeed, without the overhead.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {painPoints.map((point, index) => (
-            <div
-              key={point.title}
-              className={cn(
-                "relative group rounded-lg overflow-hidden transition-all duration-700 ease-out hover:-translate-y-2 hover:scale-105", // Added hover effects here
-                isVisible ? `opacity-100 translate-y-0 delay-${index * 150}` : "opacity-0 translate-y-8"
-              )}
-            >
-              {/* Soft animated bluish outer stroke glow */}
-              <div className="absolute inset-[-4px] rounded-lg bg-conic-gradient-blue animate-border-spin opacity-70 blur-md z-[-1] group-hover:opacity-100 transition-opacity duration-300"></div>
-
-              <Card className="relative z-10 h-full bg-black/90 border-border/50 backdrop-blur-sm hover:border-primary transition-colors duration-300">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-primary/10 p-3 rounded-full">{point.icon}</div>
-                  <CardTitle className="text-xl font-semibold">{point.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{point.description}</p>
-                </CardContent>
-              </Card>
-            </div>
-          ))}
+        <div className={cn(
+          "grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-700 ease-out delay-200",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <div className="bg-card p-6 rounded-lg shadow-md border border-border">
+            <h3 className="text-xl font-semibold mb-4">Your Common Pain Points</h3>
+            <ul className="space-y-3">
+              {painPoints.map((point, index) => (
+                <li key={index} className="flex items-start">
+                  <CheckCircle2 className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-primary/10 p-6 rounded-lg border border-primary/20">
+            <h3 className="text-xl font-semibold mb-4 text-primary">Our Solutions</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <span><span className="font-semibold">Expert Talent on Demand:</span> Access a pool of vetted, world-class developers, designers, and project managers.</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <span><span className="font-semibold">Cost-Effective:</span> Get the benefits of a full-time team at a fraction of the cost. No recruitment fees, no overhead.</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <span><span className="font-semibold">Accelerated Delivery:</span> Our streamlined processes and expert teams ensure your project is delivered on time.</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <span><span className="font-semibold">Full-Cycle Management:</span> From idea to launch and beyond, we handle every aspect of your project.</span>
+              </li>
+               <li className="flex items-start">
+                <CheckCircle2 className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                <span><span className="font-semibold">Scalable & Flexible:</span> Easily scale your team up or down based on your project needs.</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
