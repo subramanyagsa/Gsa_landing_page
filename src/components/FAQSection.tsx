@@ -47,8 +47,8 @@ const FAQSection = () => {
          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 text-left">
   Questions?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-            Find answers to common questions about our services and how we can help your business.
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12 text-left">
+           We got answers.
           </p>
         </div>
         <Accordion type="single" collapsible className="w-full text-left">
