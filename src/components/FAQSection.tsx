@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Card } from "@/components/ui/card"; // Import Card component
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
@@ -56,19 +57,21 @@ const FAQSection = () => {
             <div
               key={index}
               className={cn(
-                "transition-all duration-500 ease-out",
+                "transition-all duration-500 ease-out mb-4", // Added mb-4 for spacing between cards
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
               )}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <AccordionItem value={`item-${index}`} className="border-b border-white/10">
-                <AccordionTrigger className="text-lg hover:no-underline text-foreground hover:text-primary transition-colors">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base pb-4">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
+              <Card className="border-white/10 bg-black/30 backdrop-blur-xl p-0"> {/* Card wrapper */}
+                <AccordionItem value={`item-${index}`} className="border-none"> {/* Removed border-b */}
+                  <AccordionTrigger className="text-lg hover:no-underline text-foreground hover:text-primary transition-colors p-6"> {/* Added padding */}
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-base pb-6 px-6"> {/* Added padding */}
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </Card>
             </div>
           ))}
         </Accordion>
