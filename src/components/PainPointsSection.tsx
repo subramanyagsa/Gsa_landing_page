@@ -42,7 +42,7 @@ const PainPointsSection = () => {
         )}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">You are probably stuck with these</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            You didn't start a business to get buried in spreadsheets and compliance paperwork. Let us handle the complexity, so you can focus on your vision.
+             Running your business shouldn’t mean losing sleep over taxes, compliance, and endless financial tasks.
           </p>
         </div>
       </div>
