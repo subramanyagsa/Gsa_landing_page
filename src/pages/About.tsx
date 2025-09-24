@@ -14,13 +14,6 @@ const teamMembers = [
     linkedin: 'https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/',
   },
   {
-    name: 'CA Vishnu Acharya',
-    title: 'Advisor–Tech enabled Accounting & ERP Solutions',
-    imageUrl: '/vishnu-acharya.png',
-    // bio: 'Vishnu Acharya is a Chartered Accountant with a strong background in leveraging technology for accounting and ERP solutions. He assists businesses in implementing robust financial systems and streamlining their processes for enhanced efficiency and accuracy.',
-    linkedin: 'https://www.linkedin.com/in/ca-vishnu-acharya/',
-  },
-  {
     name: 'CA Sthuthi S Prabhu',
     title: 'Operations lead',
     imageUrl: '/sthuthis-prabhu.png',
