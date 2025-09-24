@@ -51,30 +51,28 @@ const FAQSection = () => {
            We got answers.
           </p>
         </div>
-        <Accordion type="single" collapsible className="w-full text-left">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className={cn(
-                "transition-all duration-500 ease-out",
-                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-              )}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <AccordionItem value={`item-${index}`} className="border-b border-white/10">
-                <AccordionTrigger className="text-lg hover:no-underline text-foreground hover:text-primary transition-colors">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-base pb-4">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            </div>
-          ))}
-        </Accordion>
-      </div>
-    </section>
-  );
-};
-
-export default FAQSection;
+       <Accordion
+  type="single"
+  collapsible
+  className="w-full text-left divide-y divide-white/10"
+>
+  {faqs.map((faq, index) => (
+    <div
+      key={index}
+      className={cn(
+        "transition-all duration-500 ease-out",
+        isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+      )}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <AccordionItem value={`item-${index}`} className="border-0">
+        <AccordionTrigger className="text-lg py-3 hover:no-underline text-foreground hover:text-primary transition-colors">
+          {faq.question}
+        </AccordionTrigger>
+        <AccordionContent className="text-muted-foreground text-base">
+          {faq.answer}
+        </AccordionContent>
+      </AccordionItem>
+    </div>
+  ))}
+</Accordion>
