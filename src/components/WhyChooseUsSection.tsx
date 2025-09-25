@@ -57,7 +57,7 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8"> {/* Changed to lg:grid-cols-5 */}
           {whyChooseUsPoints.map((point, index) => (
             <Card
               key={point.title}
@@ -65,6 +65,7 @@ const WhyChooseUsSection = () => {
                 "relative flex flex-col overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 hover:-translate-y-2 w-full",
                 "shadow-lg shadow-[0_0_40px_rgba(59,130,246,0.3)]", // Custom outer glow (blue)
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+                index === 3 && "lg:col-start-2" // This will make the 4th card start in the 2nd column on large screens
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
