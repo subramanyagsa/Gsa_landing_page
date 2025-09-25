@@ -33,7 +33,7 @@ const ServiceVisual: React.FC<ServiceVisualProps> = ({ serviceType, className })
         return (
           <div className="relative w-full h-full flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-30 animate-pulse-slow rounded-lg" />
-            {/* Abstract insight hub / data constellation */}
+            {/* Abstract insight hub / data constellation with animated line graph */}
             <div className="relative w-3/4 h-3/4">
               <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-cyan-500/30 rounded-full blur-sm animate-ping-slow" style={{ animationDelay: '0s' }}></div>
               <div className="absolute bottom-1/3 right-1/4 w-6 h-6 bg-blue-500/30 rounded-md blur-sm animate-ping-slow" style={{ animationDelay: '0.5s' }}></div>
@@ -42,6 +42,10 @@ const ServiceVisual: React.FC<ServiceVisualProps> = ({ serviceType, className })
               {/* Connecting lines (abstract) */}
               <div className="absolute top-[35%] left-[35%] w-1/4 h-px bg-white/20 rotate-45 animate-fade-in-up" style={{ animationDelay: '0.2s' }}></div>
               <div className="absolute top-[60%] left-[40%] w-1/3 h-px bg-white/20 -rotate-30 animate-fade-in-up" style={{ animationDelay: '0.7s' }}></div>
+              {/* Animated line graph path */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" fill="none" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round">
+                <path d="M10 80 Q 30 40 50 60 T 90 20" className="animate-draw-path" style={{ strokeDasharray: '1000', strokeDashoffset: '1000', animationDelay: '1.2s' }} />
+              </svg>
             </div>
           </div>
         );

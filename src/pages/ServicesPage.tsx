@@ -2,35 +2,36 @@
 
 import React, { useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookText, BarChart2, ReceiptText, Briefcase } from 'lucide-react';
+import { ClipboardList, BarChart2, ReceiptText, Briefcase } from 'lucide-react'; // Changed BookText to ClipboardList
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 import AnimatedGradientText from '@/components/AnimatedGradientText';
 import ServiceVisual from '@/components/ServiceVisual'; // Import the new component
+import { Button } from '@/components/ui/button'; // Import Button for the CTA
 
 const services = [
   {
-    icon: <BookText className="h-8 w-8 text-primary" />,
+    icon: <ClipboardList className="h-8 w-8 text-primary" />, // Updated icon
     title: "Accounting",
-    description: "Stay on top of your finances with accurate bookkeeping and timely reconciliations. We handle the numbers so you can focus on growing your business.",
+    description: "Stay on top of your finances with precise bookkeeping & reconciliations.", // Updated copy
     visualType: "Accounting",
   },
   {
     icon: <BarChart2 className="h-8 w-8 text-primary" />,
     title: "Management Reports",
-    description: "Get clear, actionable insights with custom management reports. Our detailed analysis turns raw data into strategic decisions.",
+    description: "Turn raw numbers into insights that guide smart business decisions.", // Updated copy
     visualType: "Management Reports",
   },
   {
     icon: <ReceiptText className="h-8 w-8 text-primary" />,
     title: "Tax Filings",
-    description: "Ensure compliance and maximize savings. From planning to filing, we streamline your tax process and help you avoid surprises.",
+    description: "Simplify compliance & maximize savings with stress-free tax filing.", // Updated copy
     visualType: "Tax Filings",
   },
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
     title: "Virtual CFO Services",
-    description: "Gain the expertise of a seasoned CFO without the overhead. We provide financial strategy, cash-flow planning, and performance monitoring to guide your business forward.",
+    description: "Gain strategic financial leadership without the full-time overhead.", // Updated copy
     visualType: "Virtual CFO Services",
   },
 ];
@@ -92,6 +93,19 @@ const ServicesPage = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* CTA Button below cards */}
+        <div className="mt-16 text-center">
+          <Button 
+            asChild
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full text-lg px-8 py-6 transition-transform duration-300 hover:scale-105 shadow-lg shadow-primary/50"
+          >
+            <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
+              Book a Free Consultation
+            </a>
+          </Button>
         </div>
       </section>
     </main>
