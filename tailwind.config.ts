@@ -80,37 +80,12 @@ module.exports = {
           "0%": { "--angle": "0deg" },
           "100%": { "--angle": "360deg" },
         },
-        "pulse-slow": {
-          "0%, 100%": { opacity: "0.3" },
-          "50%": { opacity: "0.7" },
-        },
-        "fade-in-up": {
-          "0%": { opacity: "0", transform: "translateY(20px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        "progress-bar": {
-          "0%": { width: "0%" },
-          "100%": { width: "100%" },
-        },
-        "ping-slow": {
-          "0%": { transform: "scale(0.2)", opacity: "0.8" },
-          "80%, 100%": { transform: "scale(1.5)", opacity: "0" },
-        },
-        "draw-path": {
-          "0%": { strokeDashoffset: "1000" },
-          "100%": { strokeDashoffset: "0" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-shift": "gradient-shift 3s linear infinite",
         "border-spin": "border-spin 7s linear infinite", // Using this for the outer stroke glow
-        "pulse-slow": "pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
-        "progress-bar": "progress-bar 2s ease-out forwards",
-        "ping-slow": "ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite",
-        "draw-path": "draw-path 2s ease-out forwards",
       },
     },
   },

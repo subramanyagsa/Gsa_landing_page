@@ -1,88 +1,68 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle, Lightbulb, ShieldCheck, TrendingUp, Users } from 'lucide-react'; // Importing new icons
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils';
-import AnimatedGradientText from '@/components/AnimatedGradientText';
+import React from 'react';
+import { cn } from "@/lib/utils";
+import { CheckCircle } from 'lucide-react';
 
-const whyChooseUsPoints = [
+const features = [
   {
-    icon: <CheckCircle className="h-8 w-8 text-primary" />,
-    title: "Precision & Accuracy",
-    description: "Flawless financial records ensure compliance and clarity.",
+    title: "Expert Financial Guidance",
+    description: "Navigate complex financial landscapes with our seasoned experts.",
   },
   {
-    icon: <Lightbulb className="h-8 w-8 text-primary" />,
-    title: "Strategic Insights",
-    description: "Data-driven advice to fuel your business growth.",
+    title: "Tailored Business Solutions",
+    description: "Custom strategies that align with your unique business goals.",
   },
   {
-    icon: <ShieldCheck className="h-8 w-8 text-primary" />,
-    title: "Unwavering Compliance",
-    description: "Stay ahead of regulations with expert guidance.",
+    title: "Proactive Growth Strategies",
+    description: "We identify opportunities to scale your business effectively.",
   },
   {
-    icon: <TrendingUp className="h-8 w-8 text-primary" />,
-    title: "Scalable Solutions",
-    description: "Services that grow with your business, effortlessly.",
+    title: "Transparent Reporting",
+    description: "Clear, concise financial reporting you can actually understand.",
   },
   {
-    icon: <Users className="h-8 w-8 text-primary" />,
-    title: "Dedicated Partnership",
-    description: "Your financial success is our top priority.",
+    title: "Dedicated Support",
+    description: "Your financial success is our top priority. We're here for you.",
+  },
+  {
+    title: "Technology-Driven",
+    description: "Leveraging the latest tech for efficiency and accuracy.",
   },
 ];
 
 const WhyChooseUsSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
-
   return (
-    <section
-      ref={sectionRef}
-      className={cn(
-        "w-full py-16 md:py-24 bg-background text-foreground relative overflow-hidden",
-        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-primary/5 before:to-transparent before:opacity-30 before:animate-pulse-slow before:rounded-xl"
-      )}
-    >
-      <div className="container px-4 md:px-6 max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-12 md:mb-16">
-          <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter">
-            Why Choose Us?
-          </AnimatedGradientText>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-            Experience the difference of expert financial partnership.
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-background text-white">
+      <div className="container max-w-screen-xl px-4 md:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Why Clients Around the World Choose Us
+</h2>
+          <p className="mt-4 text-lg text-gray-400">
+            We're not just accountants; we're your financial partners.
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {whyChooseUsPoints.map((point, index) => (
-            <Card
-              key={point.title}
-              className={cn(
-                "relative flex flex-col overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 hover:-translate-y-2 w-full",
-                "shadow-lg shadow-[0_0_40px_rgba(59,130,246,0.3)]", // Custom outer glow (blue)
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              {/* Inner animated radial gradient glow */}
-              <div className="absolute inset-0 z-0 opacity-50">
-                <div className="absolute top-0 left-0 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: `${index * 0.7}s` }} />
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-600/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: `${index * 0.7 + 2.5}s` }} />
+          {features.map((feature, index) => (
+            <div key={index} className="relative group">
+              {/* Background glow effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+              
+              {/* Inner card content with its own background and border */}
+              <div className={cn(
+                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 hover:border-primary flex flex-col justify-center min-h-[280px]", // Inner card styles
+              )}>
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <div className="bg-primary/10 p-3 rounded-full mb-4 border border-primary/30">
+                    <CheckCircle className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">{feature.title}</h3>
+                  <p className="mt-2 text-gray-400 text-sm">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-
-              <CardHeader className="relative z-10 flex flex-row items-center gap-4 p-6 pb-0">
-                <div className="bg-primary/10 p-3 rounded-full">{point.icon}</div>
-                <CardTitle className="text-2xl font-semibold">{point.title}</CardTitle>
-              </CardHeader>
-
-              <CardContent className="relative z-10 flex-grow p-6 pt-4">
-                <p className="text-muted-foreground text-base">{point.description}</p>
-              </CardContent>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
