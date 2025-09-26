@@ -10,13 +10,6 @@ const Footer = () => {
   return (
     <footer className="w-full py-12 border-t border-border/40 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="flex items-center mb-8">
-          <div className="flex-grow border-t border-border/40"></div>
-          <span className="flex-shrink mx-4 text-muted-foreground text-sm font-medium">
-            <Link to="/terms" className="hover:text-primary transition-colors">Terms</Link>
-          </span>
-          <div className="flex-grow border-t border-border/40"></div>
-        </div>
         <div className="flex flex-col items-center text-center gap-8">
           {/* Company Info */}
           <div className="flex flex-col items-center gap-2">
