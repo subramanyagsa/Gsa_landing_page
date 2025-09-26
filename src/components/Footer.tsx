@@ -1,5 +1,6 @@
 import React from 'react';
 import { Twitter, Linkedin, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const socialLinks = [
   { name: 'Twitter', href: '#', icon: <Twitter className="h-5 w-5" /> },
@@ -31,7 +32,13 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/40 text-center text-muted-foreground text-sm">
-          <p>&copy; {new Date().getFullYear()} GSA. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()}{' '}
+            <Link to="/" className="hover:underline text-foreground font-medium">
+              GSA
+            </Link>
+            . All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
