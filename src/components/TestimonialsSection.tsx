@@ -44,7 +44,27 @@ const testimonials = [
   },
 ];
 
+const TestimonialCard = ({ quote, name, title }: { quote: string, name: string, title: string }) => (
+  <Card className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-6 rounded-2xl h-full w-[350px] flex-shrink-0">
+    <CardContent className="p-0 flex-grow">
+      <blockquote className="text-foreground/80 text-base">
+        {quote}
+      </blockquote>
+    </CardContent>
+    <div className="mt-6">
+      <div>
+        <p className="font-bold text-foreground text-sm">{name}</p>
+        <p className="text-xs text-muted-foreground">{title}</p>
+      </div>
+    </div>
+  </Card>
+);
+
 const TestimonialsSection = () => {
+  const column1 = testimonials.filter((_, index) => index % 3 === 0);
+  const column2 = testimonials.filter((_, index) => index % 3 === 1);
+  const column3 = testimonials.filter((_, index) => index % 3 === 2);
+
   return (
     <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
@@ -56,23 +76,24 @@ const TestimonialsSection = () => {
             </p>
           </div>
         </div>
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="break-inside-avoid">
-              <Card className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-6 rounded-2xl h-full">
-                <CardContent className="p-0 flex-grow">
-                  <blockquote className="text-foreground/80 text-base">
-                    {testimonial.quote}
-                  </blockquote>
-                </CardContent>
-                <div className="mt-6">
-                  <div>
-                    <p className="font-bold text-foreground text-sm">{testimonial.name}</p>
-                    <p className="text-xs text-muted-foreground">{testimonial.title}</p>
-                  </div>
-                </div>
-              </Card>
-            </div>
+      </div>
+      <div className="relative mt-12 flex h-[600px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
+        {/* Column 1 - moves down */}
+        <div className="flex flex-col gap-6 animate-marquee-down">
+          {[...column1, ...column1].map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
+        </div>
+        {/* Column 2 - moves up */}
+        <div className="hidden md:flex flex-col gap-6 animate-marquee-up">
+          {[...column2, ...column2].map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
+        </div>
+        {/* Column 3 - moves down */}
+        <div className="hidden lg:flex flex-col gap-6 animate-marquee-down">
+          {[...column3, ...column3].map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
           ))}
         </div>
       </div>
