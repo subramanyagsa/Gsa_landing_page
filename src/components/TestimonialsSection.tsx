@@ -10,12 +10,17 @@ const testimonials = [
   {
     quote: "Running my business from Dubai, compliance used to be a nightmare. With Shruti & GSA, it’s the first time I feel things are actually under control. I send them a message and it just gets done.",
     name: "Omar Hassan",
-    title: "UrbanMart Retail, UAE",
+    title: "Retail Business Owner, UAE",
   },
   {
     quote: "The GSA team honestly feels like part of my company. They handle all the boring finance stuff so I can just focus on growing. I don’t even think about compliance anymore — they’ve got it.",
     name: "Madhavi Shenoy",
     title: "COO, Exelon Circuits Private Limited",
+  },
+  {
+    quote: "The team is proactive. They flag things before they become problems that peace of mind is priceless.",
+    name: "Laura Jensen",
+    title: "Founder, NorthPeak Agency",
   },
   {
     quote: "Shruti & her team make accounting feel simple. I finally know where my business stands without getting lost in numbers.",
