@@ -33,9 +33,9 @@ const testimonials = [
     title: "Founder, NextGen Retail",
   },
   {
-    quote: "The team is incredibly responsive and knowledgeable. They've helped us navigate complex financial landscapes with ease.",
-    name: "John Smith",
-    title: "Founder, Tech Solutions",
+    quote: "Working with Global Scale Accountants felt more like a partnership than a service. Their proactive financial advice and tax compliance support have saved us time and money.",
+    name: "Naveen Prabhu",
+    title: "Proprietor, Prabhu Enterprises",
   },
   {
     quote: "Their proactive approach to accounting has saved us time and money. Highly recommended!",
