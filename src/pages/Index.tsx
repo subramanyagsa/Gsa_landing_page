@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeroSection from '@/components/HeroSection';
 import SocialProofSection from '@/components/SocialProofSection';
-import PainPointsSection from '@/components/PainPointsSection/PainPointsSection'; // Updated import
+import PainPointsSection from '@/components/PainPointsSection'; // Corrected import path
 import CtaBelowPainPoints from '@/components/CtaBelowPainPoints';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
