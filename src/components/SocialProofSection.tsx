@@ -40,6 +40,15 @@ const logos = [
       </svg>
     ),
   },
+  {
+    name: 'Rapple Media',
+    logo: (
+      <svg role="img" viewBox="0 0 200 60" className="h-8 w-auto fill-current">
+        <text x="50%" y="28" textAnchor="middle" fontFamily="sans-serif" fontSize="40" fontWeight="bold" fontStyle="italic">RM</text>
+        <text x="50%" y="55" textAnchor="middle" fontFamily="sans-serif" fontSize="18" letterSpacing="2">RAPPLE MEDIA</text>
+      </svg>
+    ),
+  },
 ];
 
 const SocialProofSection = () => {
@@ -68,7 +77,7 @@ const SocialProofSection = () => {
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="mx-12 flex-shrink-0 text-gray-400"
+                className="mx-12 flex-shrink-0 text-gray-400 transition-all duration-300 ease-in-out hover:text-white hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                 title={logo.name}
               >
                 {logo.logo}
