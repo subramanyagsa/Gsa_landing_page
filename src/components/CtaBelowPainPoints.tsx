@@ -7,8 +7,8 @@ const CtaBelowPainPoints = () => {
   return (
     <section className="w-full py-8 md:py-12 bg-background">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-xl md:text-2xl tracking-tight text-white">
-          That’s where we step in — taking the stress of finance off your plate
+        <h2 className="text-xl md:text-1xl tracking-tight text-white">
+          Freeing yourself from these tasks is the first step to growing your business
           <br />
           <span className="text-primary text-xl md:text-2xl font-bold italic block mt-2">
             "Numbers aren’t the reason you started your business ryt?"
