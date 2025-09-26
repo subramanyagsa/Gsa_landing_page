@@ -59,10 +59,13 @@ const SocialProofSection = () => {
     <section
       ref={sectionRef}
       className={cn(
-        "relative w-full py-12 bg-background",
+        "relative w-full py-12 bg-background overflow-hidden",
         isVisible ? "opacity-100 transition-opacity duration-700" : "opacity-0"
       )}
     >
+      {/* Persistent background glow */}
+      <div className="absolute inset-0 -z-10 bg-radial-gradient-subtle opacity-20 pointer-events-none" />
+
       <div className="container mx-auto text-center relative z-10">
         <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-10">
           Trusted by leading brands
@@ -77,7 +80,7 @@ const SocialProofSection = () => {
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="mx-12 flex-shrink-0 text-gray-400 transition-all duration-300 ease-in-out hover:text-white hover:scale-105 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                className="mx-12 flex-shrink-0 text-gray-400 transition-colors duration-300 ease-in-out hover:text-white"
                 title={logo.name}
               >
                 {logo.logo}
