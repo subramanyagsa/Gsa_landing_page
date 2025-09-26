@@ -6,10 +6,8 @@ const logos = [
   {
     name: 'Exelon',
     logo: (
-      <svg role="img" viewBox="0 0 100 100" className="h-8 w-auto fill-current">
-        <path d="M80,95H25c-8.284,0-15-6.716-15-15V20c0-8.284,6.716-15,15-15h55v10H25c-2.761,0-5,2.239-5,5v60c0,2.761,2.239,5,5,5h55V95z"/>
-        <path d="M65,80H35V65h20c8.284,0,15-6.716,15-15s-6.716-15-15-15H35V20h30v10H45v10h20c2.761,0,5,2.239,5,5s-2.239,5-5,5H45v15h20V80z"/>
-        <circle cx="80" cy="80" r="8"/>
+      <svg role="img" viewBox="0 0 150 40" className="h-8 w-auto fill-current">
+        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontFamily="sans-serif" fontSize="32" fontWeight="bold">EXELON</text>
       </svg>
     ),
   },
