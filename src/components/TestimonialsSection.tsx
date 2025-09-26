@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -57,22 +56,23 @@ const TestimonialsSection = () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="relative border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-3 transition-all duration-300 hover:border-primary hover:scale-105 hover:-translate-y-1 rounded-2xl">
-              <Quote className="absolute top-3 right-3 h-8 w-8 text-white/10" />
-              <CardContent className="p-0 flex-grow">
-                <blockquote className="text-foreground/80 italic text-sm relative z-10">
-                  {testimonial.quote}
-                </blockquote>
-              </CardContent>
-              <div className="mt-4 pt-4 relative z-10">
-                <div>
-                  <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.title}</p>
+            <div key={index} className="break-inside-avoid">
+              <Card className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-6 rounded-2xl h-full">
+                <CardContent className="p-0 flex-grow">
+                  <blockquote className="text-foreground/80 text-base">
+                    {testimonial.quote}
+                  </blockquote>
+                </CardContent>
+                <div className="mt-6">
+                  <div>
+                    <p className="font-bold text-foreground text-sm">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.title}</p>
+                  </div>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
