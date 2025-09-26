@@ -62,6 +62,7 @@ module.exports = {
         'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #a78bfa 0%, #8b5cf6 15%, #8b5cf6 40%, #a78bfa 50%, #8b5cf6 65%, #8b5cf6 90%, #a78bfa 100%)',
         // New blue gradient for pain points section
         'conic-gradient-blue': 'conic-gradient(from var(--angle, 0deg), #a9cbfd 0%, #3b82f6 15%, #3b82f6 40%, #a9cbfd 50%, #3b82f6 65%, #3b82f6 90%, #a9cbfd 100%)',
+        'radial-gradient-subtle': 'radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%)', // Added for SocialProofSection
       },
       keyframes: {
         "accordion-down": {
