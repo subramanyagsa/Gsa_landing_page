@@ -1,65 +1,86 @@
 "use client";
 
-import React from 'react';
-import { cn } from "@/lib/utils";
-import { CheckCircle } from 'lucide-react';
+import React, { useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { Lightbulb, ShieldCheck, TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-const features = [
+const whyChooseUsItems = [
   {
-    title: "Expert Financial Guidance",
-    description: "Navigate complex financial landscapes with our seasoned experts.",
+    icon: <Lightbulb className="h-10 w-10 text-primary" />,
+    title: "Expert Insights",
+    description: "Leverage our deep industry knowledge for strategic financial guidance.",
   },
   {
-    title: "Tailored Business Solutions",
-    description: "Custom strategies that align with your unique business goals.",
+    icon: <ShieldCheck className="h-10 w-10 text-primary" />,
+    title: "Unwavering Accuracy",
+    description: "Benefit from meticulous attention to detail in every financial task.",
   },
   {
-    title: "Proactive Growth Strategies",
-    description: "We identify opportunities to scale your business effectively.",
+    icon: <TrendingUp className="h-10 w-10 text-primary" />,
+    title: "Growth-Oriented",
+    description: "Receive actionable advice focused on scaling your business efficiently.",
   },
   {
-    title: "Transparent Reporting",
-    description: "Clear, concise financial reporting you can actually understand.",
+    icon: <Users className="h-10 w-10 text-primary" />,
+    title: "Client-Centric Approach",
+    description: "Experience personalized service tailored to your unique business needs.",
   },
   {
-    title: "Dedicated Support",
-    description: "Your financial success is our top priority. We're here for you.",
+    icon: <DollarSign className="h-10 w-10 text-primary" />,
+    title: "Cost-Effective Solutions",
+    description: "Optimize your financial operations without compromising on quality.",
   },
   {
-    title: "Technology-Driven",
-    description: "Leveraging the latest tech for efficiency and accuracy.",
+    icon: <Clock className="h-10 w-10 text-primary" />,
+    title: "Timely Delivery",
+    description: "Count on us for prompt and efficient completion of all services.",
   },
 ];
 
 const WhyChooseUsSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
+
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-background text-white">
-      <div className="container max-w-screen-xl px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">Why Clients Around the World Choose Us
-</h2>
-          <p className="mt-4 text-lg text-gray-400">
-            We're not just accountants; we're your financial partners.
+    <section ref={sectionRef} className="py-16 md:py-24 bg-black text-foreground relative overflow-hidden">
+      {/* Background gradient circles for visual interest */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-green-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+
+      <div className="container px-4 md:px-6 relative z-10">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-white drop-shadow-[0_0_10px_rgba(52,211,153,0.7)]">
+            Why Choose Us?
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Partner with us for unparalleled financial expertise and dedicated support.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div key={index} className="relative group">
-              {/* Background glow effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-500 rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
-              
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {whyChooseUsItems.slice(0, 4).map((item, index) => ( // Limiting to 4 cards
+            <div
+              key={item.title}
+              className={cn(
+                "relative group p-1 rounded-2xl overflow-hidden transition-all duration-500 ease-out",
+                "bg-gradient-to-br from-white/5 to-transparent border border-white/10", // Outer glassmorphism border
+                "hover:border-primary hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]", // Blue glow on hover
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+              )}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               {/* Inner card content with its own background and border */}
               <div className={cn(
-                "relative z-10 h-full w-full p-8 rounded-2xl bg-black/90 backdrop-blur-xl border border-white/10 hover:border-primary flex flex-col justify-center min-h-[280px]", // Inner card styles
+                "relative z-10 h-full w-full p-8 rounded-xl bg-black/70 backdrop-blur-xl border border-white/5 flex flex-col justify-center min-h-[280px]", // Inner card styles
+                "transition-all duration-300 group-hover:bg-black/80 group-hover:border-primary/20"
               )}>
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="bg-primary/10 p-3 rounded-full mb-4 border border-primary/30">
-                    <CheckCircle className="h-8 w-8 text-primary" />
+                  <div className="bg-primary/10 p-4 rounded-full mb-4">
+                    {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold">{feature.title}</h3>
-                  <p className="mt-2 text-gray-400 text-sm">
-                    {feature.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground text-base">{item.description}</p>
                 </div>
               </div>
             </div>
