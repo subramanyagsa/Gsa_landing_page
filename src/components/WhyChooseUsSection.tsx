@@ -71,7 +71,7 @@ const WhyChooseUsSection = () => {
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-white drop-shadow-[0_0_10px_rgba(52,211,153,0.7)]">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Why Choose Us?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
