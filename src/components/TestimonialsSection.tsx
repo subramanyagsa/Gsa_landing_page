@@ -3,32 +3,32 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const testimonials = [
   {
-    quote: Shruti and Subramanya together make a brilliant team. They’re approachable, never make you feel dumb for asking questions, and actually simplify compliance instead of complicating it. I can focus on clients without worrying about the back-end mess.,
+    quote: "Shruti and Subramanya together make a brilliant team. They’re approachable, never make you feel dumb for asking questions, and actually simplify compliance instead of complicating it. I can focus on clients without worrying about the back-end mess.",
     name: "Arjun Verma",
     title: "Tech Startup Founder",
   },
   {
-    quote: Running my business from Dubai, compliance used to be a nightmare. With Shruti & GSA, it’s the first time I feel things are actually under control. I send them a message and it just gets done.,
+    quote: "Running my business from Dubai, compliance used to be a nightmare. With Shruti & GSA, it’s the first time I feel things are actually under control. I send them a message and it just gets done.",
     name: "Omar Hassan",
     title: "Retail Business Owner, UAE",
   },
   {
-    quote: The GSA team honestly feels like part of my company. They handle all the boring finance stuff so I can just focus on growing. I don’t even think about compliance anymore — they’ve got it.,
+    quote: "The GSA team honestly feels like part of my company. They handle all the boring finance stuff so I can just focus on growing. I don’t even think about compliance anymore — they’ve got it.",
     name: "Madhavi Shenoy",
     title: "COO, Exelon Circuits Private Limited",
   },
   {
-    quote: Shruti & her team make accounting feel simple. I finally know where my business stands without getting lost in numbers.,
+    quote: "Shruti & her team make accounting feel simple. I finally know where my business stands without getting lost in numbers.",
     name: "David Carter",
     title: "Founder, BrightTech SaaS",
   },
   {
-    quote: Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.,
+    quote: "Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.",
     name: "Jane Doe",
     title: "CEO, Innovate Inc.",
   },
   {
-    quote: The team is incredibly responsive and knowledgeable. They've helped us navigate complex financial landscapes with ease.,
+    quote: "The team is incredibly responsive and knowledgeable. They've helped us navigate complex financial landscapes with ease.",
     name: "John Smith",
     title: "Founder, Tech Solutions",
   },
