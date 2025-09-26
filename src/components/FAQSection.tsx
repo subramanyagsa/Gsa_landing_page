@@ -47,7 +47,7 @@ const FAQSection = () => {
          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
   Questions?
           </h2>
-          <p className="text-5xl  text-primary font-bold max-w-5xl mx-auto mb-3 text-left">
+          <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
            We got answers.
           </p>
         </div>
