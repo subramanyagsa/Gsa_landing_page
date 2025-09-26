@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 
 const testimonials = [
   {
@@ -40,12 +39,6 @@ const testimonials = [
   },
 ];
 
-const getInitials = (name: string) => {
-  const names = name.split(' ');
-  if (names.length === 1) return names[0].charAt(0).toUpperCase();
-  return `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`.toUpperCase();
-};
-
 const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-background">
@@ -66,10 +59,7 @@ const TestimonialsSection = () => {
                   "{testimonial.quote}"
                 </blockquote>
               </CardContent>
-              <div className="mt-4 flex items-center gap-4 pt-4 border-t border-white/10">
-                <Avatar className="h-8 w-8">
-                  <AvatarFallback className="text-xs">{getInitials(testimonial.name)}</AvatarFallback>
-                </Avatar>
+              <div className="mt-4 pt-4 border-t border-white/10">
                 <div>
                   <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.title}</p>
