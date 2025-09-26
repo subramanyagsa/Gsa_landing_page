@@ -72,7 +72,7 @@ const PainPointsSection = () => {
             {painPoints.map((point, index) => (
               <li
                 key={index}
-                className="flex items-centre text-lg leading-relaxed"
+                className="flex items-center text-lg leading-relaxed"
               >
                 <Check className="h-6 w-6 mr-3 mt-1 flex-shrink-0 text-green-500" />
                 <span className="text-white">{point}</span>
