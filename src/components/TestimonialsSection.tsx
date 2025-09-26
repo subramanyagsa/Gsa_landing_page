@@ -19,6 +19,11 @@ const testimonials = [
     title: "COO, Exelon Circuits Private Limited",
   },
   {
+    quote: "Shruti & her team make accounting feel simple. I finally know where my business stands without getting lost in numbers.",
+    name: "David Carter",
+    title: "Founder, BrightTech SaaS",
+  },
+  {
     quote: "Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.",
     name: "Jane Doe",
     title: "CEO, Innovate Inc.",
