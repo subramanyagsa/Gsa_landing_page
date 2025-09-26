@@ -40,6 +40,12 @@ const logos = [
       </svg>
     ),
   },
+  {
+    name: 'Rapple Media',
+    logo: (
+      <img src="/Blue_Border___1_-removebg-preview.png" alt="Rapple Media" className="h-12 w-auto grayscale brightness-0 invert" />
+    ),
+  },
 ];
 
 const SocialProofSection = () => {
@@ -68,7 +74,7 @@ const SocialProofSection = () => {
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="mx-12 flex-shrink-0 text-gray-400"
+                className="mx-12 flex-shrink-0 text-white flex items-center justify-center"
                 title={logo.name}
               >
                 {logo.logo}
