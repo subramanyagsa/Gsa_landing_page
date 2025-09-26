@@ -28,9 +28,9 @@ const testimonials = [
     title: "Founder, BrightTech SaaS",
   },
   {
-    quote: "Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.",
-    name: "Jane Doe",
-    title: "CEO, Innovate Inc.",
+    quote: "I’ve worked with other firms before, but GSA feels different — more like a partner than a service provider.",
+    name: "Brian Thompson",
+    title: "Founder, NextGen Retail",
   },
   {
     quote: "The team is incredibly responsive and knowledgeable. They've helped us navigate complex financial landscapes with ease.",
