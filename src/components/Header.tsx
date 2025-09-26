@@ -78,7 +78,7 @@ const Header = () => {
         <div className="hidden md:flex items-center flex-1">
           <Link to="/" onClick={() => handleNavClick("/")}>
             <img
-              src="/logo1.png"
+              src="/GSA-LOGO(BLACK).jpg"
               alt="Global Scale Accountants Logo"
               className={cn(
                 "h-10 transition-all duration-300 filter invert brightness-200", // Added filter classes to make it white
