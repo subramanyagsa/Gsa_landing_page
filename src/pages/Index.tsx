@@ -4,11 +4,10 @@ import HeroSection from '@/components/HeroSection';
 import SocialProofSection from '@/components/SocialProofSection';
 import PainPointsSection from '@/components/PainPointsSection';
 import CtaBelowPainPoints from '@/components/CtaBelowPainPoints';
-import WhyChooseUsSection from '@/components/WhyChooseUsSection'; // Import the new component
+import WhyChooseUsSection from '@/components/WhyChooseUsSection';
 import HowItWorksSection from '@/components/HowItWorksSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FAQSection from '@/components/FAQSection';
-import CallToActionSection from '@/components/CallToActionSection';
 
 const Index = () => {
   const location = useLocation();
@@ -31,11 +30,10 @@ const Index = () => {
       <SocialProofSection />
       <PainPointsSection />
       <CtaBelowPainPoints />
-      <WhyChooseUsSection /> {/* New section added here */}
+      <WhyChooseUsSection />
       <HowItWorksSection />
       <TestimonialsSection />
       <FAQSection />
-      <CallToActionSection />
     </main>
   );
 };
