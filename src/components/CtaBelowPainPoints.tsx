@@ -8,9 +8,11 @@ const CtaBelowPainPoints = () => {
     <section className="w-full py-8 md:py-12 bg-background">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
         <h2 className="text-xl md:text-2xl tracking-tight text-white">
-          You can’t grow stuck in numbers.
+          Numbers aren’t the reason you started your business.
           <br />
-          <span className="text-primary text-2xl md:text-3xl font-bold">We’ll handle them.</span>
+          <span className="text-primary text-xl md:text-2xl font-bold italic block mt-2">
+            We’ll handle them, so you can get back to doing what you love
+          </span>
         </h2>
         <div className="mt-10">
           <Button 
