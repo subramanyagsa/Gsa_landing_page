@@ -1,25 +1,25 @@
 "use client";
 
-import React from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
+import React, { CSSProperties } from "react";
 
 interface AnimatedGradientTextProps {
   children: React.ReactNode;
   className?: string;
 }
 
-const AnimatedGradientText: React.FC<AnimatedGradientTextProps> = ({ children, className }) => {
+const AnimatedGradientText: React.FC<AnimatedGradientTextProps> = ({
+  children,
+  className,
+}) => {
   return (
     <h1
       className={cn(
         "inline-block text-transparent bg-clip-text",
-        "bg-gradient-to-r from-blue-300 via-blue-600 to-blue-300", // Updated gradient colors
-        "animate-gradient-shift",
+        "bg-gradient-to-r from-gray-300 via-white to-gray-300",
+        "animate-gradient bg-300% ",
         className
       )}
-      style={{
-        backgroundSize: '200% auto', // Ensures the gradient is wider than the text for animation
-      }}
     >
       {children}
     </h1>
