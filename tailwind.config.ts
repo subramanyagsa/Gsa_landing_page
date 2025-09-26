@@ -85,6 +85,14 @@ module.exports = {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        "marquee-up": {
+          from: { transform: 'translateY(0)' },
+          to: { transform: 'translateY(-50%)' },
+        },
+        "marquee-down": {
+          from: { transform: 'translateY(-50%)' },
+          to: { transform: 'translateY(0)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -92,6 +100,8 @@ module.exports = {
         "gradient-shift": "gradient-shift 3s linear infinite",
         "border-spin": "border-spin 7s linear infinite", // Using this for the outer stroke glow
         "marquee": "marquee 40s linear infinite",
+        "marquee-up": "marquee-up 60s linear infinite",
+        "marquee-down": "marquee-down 60s linear infinite",
       },
     },
   },
