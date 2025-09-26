@@ -14,6 +14,11 @@ const testimonials = [
     title: "Retail Business Owner, UAE",
   },
   {
+    quote: "The GSA team honestly feels like part of my company. They handle all the boring finance stuff so I can just focus on growing. I don’t even think about compliance anymore — they’ve got it.",
+    name: "Madhavi Shenoy",
+    title: "COO, Exelon Circuits Private Limited",
+  },
+  {
     quote: "Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.",
     name: "Jane Doe",
     title: "CEO, Innovate Inc.",
