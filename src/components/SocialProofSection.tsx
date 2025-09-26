@@ -40,16 +40,6 @@ const logos = [
       </svg>
     ),
   },
-  {
-    name: 'Catalyst Co',
-    logo: (
-      <svg viewBox="0 0 140 40" className="h-8 w-auto fill-current">
-        <path
-          d="M20 40a20 20 0 110-40 20 20 0 010 40zm-10-20a10 10 0 1020 0 10 10 0 00-20 0zM55 40V0h10v40H55zM80 40V0h30v10H90v30H80zM125 40a20 20 0 110-40 20 20 0 010 40zm-10-20a10 10 0 1020 0 10 10 0 00-20 0z"
-        />
-      </svg>
-    ),
-  },
 ];
 
 const SocialProofSection = () => {
