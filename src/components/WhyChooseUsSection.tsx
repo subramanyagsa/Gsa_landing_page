@@ -9,7 +9,7 @@ const whyChooseUsItems = [
   {
     icon: <Lightbulb className="h-10 w-10 text-primary" />,
     title: "Freedom to Focus on Growth:",
-    description: "Leverage our deep industry knowledge for strategic financial guidance.",
+    description: " Your team can concentrate on strategy and client relationships while we handle the numbers",
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
