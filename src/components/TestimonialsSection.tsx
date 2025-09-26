@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
             <Card key={index} className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-4 transition-all duration-300 hover:border-primary hover:scale-105 hover:-translate-y-1">
               <CardContent className="p-0 flex-grow">
                 <blockquote className="text-foreground/80 italic text-sm">
-                  "{testimonial.quote}"
+                  {testimonial.quote}
                 </blockquote>
               </CardContent>
               <div className="mt-4 pt-4 border-t border-white/10">
