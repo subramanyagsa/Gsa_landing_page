@@ -64,7 +64,7 @@ const WhyChooseUsSection = () => {
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-black text-foreground relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-16 bg-black text-foreground relative overflow-hidden">
       {/* Background gradient circles for visual interest */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-green-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>

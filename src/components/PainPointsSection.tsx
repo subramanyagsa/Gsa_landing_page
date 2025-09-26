@@ -46,7 +46,7 @@ const PainPointsSection = () => {
     <section
       id="why-us"
       ref={sectionRef}
-      className="w-full py-16 md:py-24 bg-background"
+      className="w-full py-12 md:py-16 bg-background"
     >
       <div className="container px-4 md:px-6 max-w-3xl mx-auto text-center">
         {/* Heading */}

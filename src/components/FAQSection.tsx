@@ -38,7 +38,7 @@ const FAQSection = () => {
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
   return (
-    <section id="faq" ref={sectionRef} className="w-full py-16 md:py-24 bg-secondary/20">
+    <section id="faq" ref={sectionRef} className="w-full py-12 md:py-16 bg-secondary/20">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
         <div className={cn(
           "transition-all duration-700 ease-out",

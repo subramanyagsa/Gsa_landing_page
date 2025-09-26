@@ -67,7 +67,7 @@ const TestimonialsSection = () => {
   const column3 = testimonials.filter((_, index) => index % 3 === 2);
 
   return (
-    <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+    <section id="testimonials" className="w-full py-12 md:py-16 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
