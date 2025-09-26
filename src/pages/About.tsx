@@ -50,7 +50,7 @@ const AboutPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="py-20 md:py-32 text-center bg-secondary/20">
+      <section className="py-16 md:py-20 text-center bg-secondary/20">
         <div className="container px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">About Global Scale Accountants</h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
@@ -60,7 +60,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Mission Section */}
-      <section ref={missionRef} className="py-16 md:py-24">
+      <section ref={missionRef} className="py-12 md:py-16">
         <div className={cn(
           "container px-4 md:px-6 max-w-4xl mx-auto text-center transition-all duration-1000 ease-out",
           missionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -73,7 +73,7 @@ const AboutPage = () => {
       </section>
 
       {/* Company Values Section */}
-      <section ref={valuesRef} className="py-16 md:py-24 bg-secondary/20">
+      <section ref={valuesRef} className="py-12 md:py-16 bg-secondary/20">
         <div className="container px-4 md:px-6 max-w-5xl mx-auto">
           <div className={cn(
             "text-center mb-12 transition-all duration-700 ease-out",
@@ -101,7 +101,7 @@ const AboutPage = () => {
       </section>
 
       {/* Meet the Team Section */}
-      <section ref={teamRef} className="py-16 md:py-24">
+      <section ref={teamRef} className="py-12 md:py-16">
         <div className="container px-4 md:px-6 max-w-5xl mx-auto">
           <div className={cn(
             "text-center mb-12 transition-all duration-700 ease-out",
