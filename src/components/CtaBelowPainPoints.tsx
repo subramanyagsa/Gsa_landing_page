@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 const CtaBelowPainPoints = () => {
   return (
-    <section className="w-full py-12 md:py-20 bg-background">
+    <section className="w-full py-8 md:py-12 bg-background">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
         <h2 className="text-xl md:text-2xl tracking-tight text-white">
           Numbers aren’t the reason you started your business.
