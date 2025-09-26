@@ -1,75 +1,71 @@
-"use client";
-
-import React, { useRef } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { cn } from '@/lib/utils';
+import React from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    title: "CEO, Tech Innovators",
-    avatar: "https://api.dicebear.com/8.x/lorelei/svg?seed=Sarah",
-    quote: "Global Scale Accountants transformed our financial operations. Their real-time insights and proactive tax planning saved us countless hours and significantly boosted our profitability. Highly recommend!",
+    quote: "Shruti and Subramanya together make a brilliant team. They’re approachable, never make you feel dumb for asking questions, and actually simplify compliance instead of complicating it. I can focus on clients without worrying about the back-end mess.",
+    name: "Arjun Verma",
+    title: "Tech Startup Founder",
   },
   {
-    name: "Mark Johnson",
-    title: "Founder, Creative Solutions",
-    avatar: "https://api.dicebear.com/8.x/lorelei/svg?seed=Mark",
-    quote: "We finally have a clear picture of our cash flow. The dedicated team feels like an extension of our own, providing peace of mind and allowing us to focus on what we do best.",
+    quote: "Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.",
+    name: "Jane Doe",
+    title: "CEO, Innovate Inc.",
   },
   {
+    quote: "The team is incredibly responsive and knowledgeable. They've helped us navigate complex financial landscapes with ease.",
+    name: "John Smith",
+    title: "Founder, Tech Solutions",
+  },
+  {
+    quote: "Their proactive approach to accounting has saved us time and money. Highly recommended!",
     name: "Emily White",
-    title: "Owner, Local Eatery",
-    avatar: "https://api.dicebear.com/8.x/lorelei/svg?seed=Emily",
-    quote: "Tax season used to be a nightmare. With Global Scale Accountants, it's seamless. They caught deductions we missed and made the entire process stress-free. Truly invaluable partnership.",
+    title: "CFO, Growth Co.",
   },
 ];
 
 const TestimonialsSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
-
   return (
-    <section id="testimonials" ref={sectionRef} className="w-full py-16 md:py-24 bg-background">
-      <div className="container px-4 md:px-6 max-w-6xl mx-auto text-center">
-        <div className={cn(
-          "transition-all duration-700 ease-out",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        )}>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
-            What Our Clients Say
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-            Hear directly from businesses that have achieved financial clarity and growth with our support.
-          </p>
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-primary">What Our Clients Say</h2>
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Hear from businesses who trust us with their financial success.
+            </p>
+          </div>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card 
-              key={index} 
-              className={cn(
-                "relative overflow-hidden border border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 hover:border-primary", // Added hover effects here
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="absolute inset-0 z-0 opacity-50">
-                <div className="absolute top-0 left-0 w-32 h-32 bg-green-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: `${index * 0.7}s` }} />
-                <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: `${index * 0.7 + 2.5}s` }} />
-              </div>
-              <CardContent className="relative z-10 flex flex-col items-center p-6 text-center">
-                <Avatar className="h-16 w-16 mb-4 border-2 border-primary">
-                  <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                  <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                </Avatar>
-                <p className="text-lg italic text-foreground mb-4">"{testimonial.quote}"</p>
-                <CardTitle className="text-xl font-semibold">{testimonial.name}</CardTitle>
-                <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 mt-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1 h-full">
+                    <Card className="h-full flex flex-col justify-center shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-lg" />
+                      <CardContent className="relative z-10 flex flex-col items-center p-6 text-center">
+                        <blockquote className="text-lg font-medium text-foreground">
+                          "{testimonial.quote}"
+                        </blockquote>
+                        <p className="mt-4 text-sm font-semibold text-primary">{testimonial.name}</p>
+                        <p className="text-xs text-muted-foreground">{testimonial.title}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 fill-black" />
+            <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 fill-black" />
+          </Carousel>
         </div>
       </div>
     </section>
