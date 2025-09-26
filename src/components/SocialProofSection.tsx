@@ -64,7 +64,7 @@ const SocialProofSection = () => {
       )}
     >
       <div className="container mx-auto text-center relative z-10">
-        <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-9">
+        <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-15">
           Trusted By
         </p>
         <div className="relative w-full overflow-hidden">
