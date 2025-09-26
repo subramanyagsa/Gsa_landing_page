@@ -64,7 +64,7 @@ const TestimonialsSection = () => {
                   {testimonial.quote}
                 </blockquote>
               </CardContent>
-              <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="mt-4 pt-4">
                 <div>
                   <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.title}</p>
