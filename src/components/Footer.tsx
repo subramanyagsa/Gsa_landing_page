@@ -3,21 +3,14 @@ import { Link } from 'react-router-dom';
 import { Github, Twitter, Linkedin } from 'lucide-react';
 
 const Footer = () => {
-  const footerLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
   return (
     <footer className="w-full py-12 border-t border-border/40 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <a href="/" className="flex items-center gap-2">
-              <img src="/logo1.png" className="h-8 w-auto" />
+              <img src="/logo1.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
               <span className="font-bold text-lg">
                 Global Scale Accountants
               </span>
@@ -25,20 +18,6 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm max-w-xs">
               Simplifying your finances, so you can focus on growth.
             </p>
-          </div>
-
-          {/* Navigation Links */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.name}>
-                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Social Links */}
