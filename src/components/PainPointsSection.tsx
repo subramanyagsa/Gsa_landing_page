@@ -38,7 +38,7 @@ const PainPointsSection = () => {
     "Endless hunt for reliable accountants",
     "Confusing compliance deadlines & penalties",
     "Sky-high cost of hiring in-house finance staff",
-    "You’re spending hours on tax filings, payroll, and spreadsheets",
+    "Hours wasted on tax filings, payroll & messy spreadsheets",
     "Distraction from Growth"
   ];
 
