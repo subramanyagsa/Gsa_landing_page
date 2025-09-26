@@ -77,7 +77,7 @@ const SocialProofSection = () => {
             {[...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="mx-12 flex-shrink-0 text-gray-400 transition-all duration-300 ease-in-out drop-shadow-[0_0_4px_rgba(255,255,255,0.2)] hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                className="mx-12 flex-shrink-0 text-white transition-all duration-300 ease-in-out drop-shadow-[0_0_4px_rgba(255,255,255,0.2)] hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
                 title={logo.name}
               >
                 {logo.logo}
