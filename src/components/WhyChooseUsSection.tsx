@@ -8,7 +8,7 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 const whyChooseUsItems = [
   {
     icon: <Lightbulb className="h-10 w-10 text-primary" />,
-    title: "Expert Insights",
+    title: "Freedom to Focus on Growth:",
     description: "Leverage our deep industry knowledge for strategic financial guidance.",
   },
   {
