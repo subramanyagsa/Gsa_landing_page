@@ -11,7 +11,7 @@ const CtaBelowPainPoints = () => {
           Numbers aren’t the reason you started your business.
           <br />
           <span className="text-primary text-xl md:text-2xl font-bold italic block mt-2">
-            We’ll handle them, so you can get back to doing what you love
+            "We’ll handle them, so you can get back to doing what you love"
           </span>
         </h2>
         <div className="mt-10">
