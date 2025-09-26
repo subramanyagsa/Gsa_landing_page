@@ -8,7 +8,9 @@ import BlogPage from "./pages/Blog";
 import BlogPostPage from "./pages/BlogPost";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
-import ServicesPage from "./pages/ServicesPage"; // Import the new ServicesPage
+import ServicesPage from "./pages/ServicesPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 import { ThemeProvider } from "./components/ThemeProvider";
 import PageLayout from "./components/PageLayout";
@@ -25,11 +27,13 @@ const App = () => (
           <Routes>
             <Route element={<PageLayout />}>
               <Route path="/" element={<Index />} />
-              <Route path="/services" element={<ServicesPage />} /> {/* New Services Route */}
+              <Route path="/services" element={<ServicesPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:id" element={<BlogPostPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/terms" element={<TermsPage />} />
+              <Route path="/privacy" element={<PrivacyPage />} />
             </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
