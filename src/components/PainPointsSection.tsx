@@ -36,7 +36,7 @@ const PainPointsSection = () => {
 
   const painPoints = [
     "Endless hunt for reliable accountants",
-    "Confusing Statutory Compliance",
+    "Confusing compliance deadlines & penalties",
     "Incomplete Financial Coverage",
     "You’re spending hours on tax filings, payroll, and spreadsheets",
     "Distraction from Growth"
