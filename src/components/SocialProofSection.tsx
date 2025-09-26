@@ -59,12 +59,12 @@ const SocialProofSection = () => {
     <section
       ref={sectionRef}
       className={cn(
-        "relative w-full py-4 bg-background",
+        "relative w-full py-2 bg-background",
         isVisible ? "opacity-100 transition-opacity duration-700" : "opacity-0"
       )}
     >
       <div className="container mx-auto text-center relative z-10">
-        <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-6">
+        <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-9">
           Trusted By
         </p>
         <div className="relative w-full overflow-hidden">
