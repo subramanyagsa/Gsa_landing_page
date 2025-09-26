@@ -65,7 +65,7 @@ const SocialProofSection = () => {
     >
       <div className="container mx-auto text-center relative z-10">
         <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-10">
-          Trusted 
+          Trusted By
         </p>
         <div className="relative w-full overflow-hidden">
           {/* Gradient fade on the left and right for a seamless effect */}
