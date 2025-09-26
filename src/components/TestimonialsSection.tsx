@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -40,11 +41,17 @@ const testimonials = [
   },
 ];
 
+const getInitials = (name: string) => {
+  const names = name.split(' ');
+  if (names.length === 1) return names[0].charAt(0).toUpperCase();
+  return `${names[0].charAt(0)}${names[names.length - 1].charAt(0)}`.toUpperCase();
+};
+
 const TestimonialsSection = () => {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
+    <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-primary">What Our Clients Say</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -52,35 +59,26 @@ const TestimonialsSection = () => {
             </p>
           </div>
         </div>
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 mt-12">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent>
-              {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1 h-full">
-                    <Card className="h-full flex flex-col justify-center shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-lg" />
-                      <CardContent className="relative z-10 flex flex-col items-center p-6 text-center">
-                        <blockquote className="text-lg font-medium text-foreground">
-                          "{testimonial.quote}"
-                        </blockquote>
-                        <p className="mt-4 text-sm font-semibold text-primary">{testimonial.name}</p>
-                        <p className="text-xs text-muted-foreground">{testimonial.title}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="absolute left-[-50px] top-1/2 -translate-y-1/2 fill-black" />
-            <CarouselNext className="absolute right-[-50px] top-1/2 -translate-y-1/2 fill-black" />
-          </Carousel>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <Card key={index} className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-6 transition-all duration-300 hover:border-primary hover:scale-105 hover:-translate-y-1">
+              <Quote className="w-8 h-8 text-primary mb-4" />
+              <CardContent className="p-0 flex-grow">
+                <blockquote className="text-foreground/80 italic">
+                  "{testimonial.quote}"
+                </blockquote>
+              </CardContent>
+              <div className="mt-6 flex items-center gap-4 pt-6 border-t border-white/10">
+                <Avatar>
+                  <AvatarFallback>{getInitials(testimonial.name)}</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                </div>
+              </div>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
