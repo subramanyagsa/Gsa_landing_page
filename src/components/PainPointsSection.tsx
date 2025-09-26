@@ -39,7 +39,7 @@ const PainPointsSection = () => {
     "Confusing compliance deadlines & penalties",
     "Sky-high cost of hiring in-house finance staff",
     "Hours wasted on tax filings, payroll & messy spreadsheets",
-    "Distraction from Growth"
+    "Stuck in the back office instead of"
   ];
 
   return (
