@@ -58,8 +58,8 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8"> {/* Changed lg:grid-cols-4 to lg:grid-cols-2 */}
-          {whyChooseUsItems.slice(0, 4).map((item, index) => ( // Limiting to 4 cards
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+          {whyChooseUsItems.slice(0, 4).map((item, index) => (
             <div
               key={item.title}
               className={cn(
@@ -72,7 +72,7 @@ const WhyChooseUsSection = () => {
             >
               {/* Inner card content with its own background and border */}
               <div className={cn(
-                "relative z-10 h-full w-full p-8 rounded-xl bg-black/70 backdrop-blur-xl border border-white/5 flex flex-col justify-center min-h-[280px]", // Inner card styles
+                "relative z-10 h-full w-full p-8 rounded-xl bg-black/70 backdrop-blur-xl border border-white/5 flex flex-col justify-center min-h-[200px]", // Reduced min-h here
                 "transition-all duration-300 group-hover:bg-black/80 group-hover:border-primary/20"
               )}>
                 <div className="relative z-10 flex flex-col items-center text-center">
