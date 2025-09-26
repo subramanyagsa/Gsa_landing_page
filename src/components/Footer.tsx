@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <a href="/" className="flex items-center justify-center gap-2">
-              <img src="/logo(g).png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
+              <img src="/GSA-LOGO(BLACK).jpg" alt="Global Scale Accountants Logo" className="h-8 w-auto filter invert brightness-200" />
             </a>
           </div>
 

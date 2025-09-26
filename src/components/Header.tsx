@@ -78,10 +78,10 @@ const Header = () => {
         <div className="hidden md:flex items-center flex-1">
           <Link to="/" onClick={() => handleNavClick("/")}>
             <img
-              src="/logo(g).png"
+              src="/GSA-LOGO(BLACK).jpg"
               alt="Global Scale Accountants Logo"
               className={cn(
-                "h-10 transition-all duration-300",
+                "h-10 transition-all duration-300 filter invert brightness-200", // Added filter classes to make it white
                 isScrolled ? "h-8" : "h-10" // Shrink on scroll
               )}
             />
