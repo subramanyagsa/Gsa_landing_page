@@ -16,11 +16,8 @@ const logos = [
   {
     name: 'Datta Prasad Builders',
     logo: (
-      <svg role="img" viewBox="0 0 100 100" className="h-8 w-auto fill-current">
-        <path d="M50 12 L20 32 L80 32 Z M25 35 L75 35 L75 38 L25 38Z" />
-        <path d="M47 40 L53 40 L53 95 L47 95Z" />
-        <path d="M47 40 C25 40 25 95 47 95" />
-        <path d="M53 40 C75 40 75 67.5 53 67.5 M53 67.5 C75 67.5 75 95 53 95" />
+      <svg role="img" viewBox="0 0 100 40" className="h-8 w-auto fill-current">
+        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontFamily="sans-serif" fontSize="32" fontWeight="bold">DB</text>
       </svg>
     ),
   },
