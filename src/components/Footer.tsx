@@ -6,6 +6,7 @@ const Footer = () => {
   return (
     <footer className="w-full py-12 border-t border-border/40 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
+        <div className="border-t border-white mb-8"></div>
         <div className="flex flex-col items-center text-center gap-8">
           {/* Company Info */}
           <div className="space-y-4">
