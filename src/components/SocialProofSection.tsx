@@ -4,42 +4,43 @@ import { cn } from '@/lib/utils';
 
 const logos = [
   {
-    name: 'Apex Innovations',
+    name: 'Exelon',
     logo: (
-      <svg viewBox="0 0 140 40" className="h-8 w-auto fill-current">
-        <path
-          d="M20 40L0 0h10l15 30L40 0h10L30 40H20zM65 40V0h10v40H65zM90 40l-15-20v20H65V0h10l15 20V0h10v40H90zM125 40a20 20 0 110-40 20 20 0 010 40zm-10-20a10 10 0 1020 0 10 10 0 00-20 0z"
-        />
+      <svg role="img" viewBox="0 0 100 100" className="h-8 w-auto fill-current">
+        <path d="M80,95H25c-8.284,0-15-6.716-15-15V20c0-8.284,6.716-15,15-15h55v10H25c-2.761,0-5,2.239-5,5v60c0,2.761,2.239,5,5,5h55V95z"/>
+        <path d="M65,80H35V65h20c8.284,0,15-6.716,15-15s-6.716-15-15-15H35V20h30v10H45v10h20c2.761,0,5,2.239,5,5s-2.239,5-5,5H45v15h20V80z"/>
+        <circle cx="80" cy="80" r="8"/>
       </svg>
     ),
   },
   {
-    name: 'Quantum Dynamics',
+    name: 'Datta Prasad Builders',
     logo: (
-      <svg viewBox="0 0 160 40" className="h-8 w-auto fill-current">
-        <path
-          d="M20 40a20 20 0 110-40 20 20 0 010 40zm-10-20a10 10 0 1020 0 10 10 0 00-20 0zM45 40V0h10v40H45zM70 40V0h30v10H80v5h15v10H80v5h20v10H70zM115 40V0h10l15 30L155 0h10v40h-10V10l-15 30h-10L115 10v30h-10z"
-        />
+      <svg role="img" viewBox="0 0 100 100" className="h-8 w-auto fill-current">
+        <path d="M50 12 L20 32 L80 32 Z M25 35 L75 35 L75 38 L25 38Z" />
+        <path d="M47 40 L53 40 L53 95 L47 95Z" />
+        <path d="M47 40 C25 40 25 95 47 95" />
+        <path d="M53 40 C75 40 75 67.5 53 67.5 M53 67.5 C75 67.5 75 95 53 95" />
       </svg>
     ),
   },
   {
-    name: 'Stellar Solutions',
+    name: 'The ENT Care Centre',
     logo: (
-      <svg viewBox="0 0 150 40" className="h-8 w-auto fill-current">
-        <path
-          d="M10 40V0h30v10H20v5h15v10H20v5h20v10H10zM60 40L40 0h10l15 30L80 0h10L70 40H60zM95 40V0h10v40H95zM130 40a20 20 0 110-40 20 20 0 010 40zm-10-20a10 10 0 1020 0 10 10 0 00-20 0z"
-        />
+      <svg role="img" viewBox="0 0 300 40" className="h-8 w-auto fill-current">
+        <text x="0" y="30" fontFamily="sans-serif" fontSize="24" fontWeight="bold">THE ENT CARE CENTRE</text>
       </svg>
     ),
   },
   {
-    name: 'Momentum Labs',
+    name: 'Karavali Interiors',
     logo: (
-      <svg viewBox="0 0 170 40" className="h-8 w-auto fill-current">
-        <path
-          d="M10 40V0h10l15 30L50 0h10v40h-10V10L35 40h-10L10 10v30H0V0h10zM75 40V0h10v40H75zM100 40V0h30v10h-20v30h-10zM145 40a20 20 0 110-40 20 20 0 010 40zm-10-20a10 10 0 1020 0 10 10 0 00-20 0z"
-        />
+      <svg role="img" viewBox="0 0 250 60" className="h-8 w-auto fill-current">
+        <path d="M5,30 C5,15 15,15 20,20 L50,20 C55,15 65,15 65,30 L65,50 L5,50 L5,30 Z" />
+        <path d="M15,20 L35,5 L55,20" />
+        <rect x="31" y="25" width="8" height="8" />
+        <text x="80" y="30" fontFamily="sans-serif" fontSize="24" fontWeight="bold" letterSpacing="1">KARAVALI</text>
+        <text x="80" y="55" fontFamily="sans-serif" fontSize="20" letterSpacing="2">INTERIORS</text>
       </svg>
     ),
   },
