@@ -97,7 +97,7 @@ const WhyChooseUsSection = () => {
                 "transition-all duration-300 group-hover:bg-black/80 group-hover:border-primary/20"
               )}>
                 <div className="relative z-10 flex flex-col items-center text-center">
-                  <div className="bg-primary/10 p-4 rounded-full mb-4">
+                  <div className="bg-white/10 p-4 rounded-full mb-4">
                     {item.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
