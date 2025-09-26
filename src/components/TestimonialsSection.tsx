@@ -9,6 +9,11 @@ const testimonials = [
     title: "Tech Startup Founder",
   },
   {
+    quote: "Running my business from Dubai, compliance used to be a nightmare. With Shruti & GSA, it’s the first time I feel things are actually under control. I send them a message and it just gets done.",
+    name: "Omar Hassan",
+    title: "Retail Business Owner, UAE",
+  },
+  {
     quote: "Working with them has been a game-changer for our business. Their expertise and dedication are unmatched.",
     name: "Jane Doe",
     title: "CEO, Innovate Inc.",
