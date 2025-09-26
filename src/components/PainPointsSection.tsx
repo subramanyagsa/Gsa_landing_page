@@ -35,7 +35,7 @@ const PainPointsSection = () => {
   }, []);
 
   const painPoints = [
-    "Expensive & Time-Consuming Hiring",
+    "Endless hunt for reliable accountants",
     "Confusing Statutory Compliance",
     "Incomplete Financial Coverage",
     "You’re spending hours on tax filings, payroll, and spreadsheets",
