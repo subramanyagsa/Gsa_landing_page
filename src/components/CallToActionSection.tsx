@@ -18,7 +18,7 @@ const CallToActionSection = () => {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
-            Relax, We’ve Got Your  Finances Covered
+            Relax, We’ve Got Your Numbers Covered
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
           </p>
