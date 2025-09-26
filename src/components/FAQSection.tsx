@@ -44,7 +44,7 @@ const FAQSection = () => {
           "transition-all duration-700 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-         <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
   Questions?
           </h2>
           <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
