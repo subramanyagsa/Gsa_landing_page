@@ -1,84 +1,73 @@
-"use client";
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { CheckCircle } from 'lucide-react';
 
-import { useState, useRef, useEffect } from 'react';
-import { cn } from "@/lib/utils";
-import { Check } from 'lucide-react';
+const painPoints = [
+  "Struggling with complex compliance and endless paperwork?",
+  "Worried about missing deadlines and facing penalties?",
+  "Finding it hard to get clear, actionable financial advice?",
+  "Tired of juggling multiple service providers for finance and legal?",
+];
+
+const solutions = [
+  "Streamlined compliance and automated reminders.",
+  "Proactive support to ensure you're always ahead of deadlines.",
+  "Clear, data-driven insights to guide your business decisions.",
+  "A single, trusted partner for all your financial and legal needs.",
+];
 
 const PainPointsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const painPoints = [
-    "Expensive & Time-Consuming Hiring",
-    "Confusing Statutory Compliance",
-    "Incomplete Financial Coverage",
-    "You’re spending hours on tax filings, payroll, and spreadsheets",
-    "Distraction from Growth"
-  ];
-
   return (
-    <section
-      id="why-us"
-      ref={sectionRef}
-      className="w-full py-16 md:py-24 bg-background"
-    >
+    <section id="pain-points" className="w-full py-12 md:py-24 lg:py-32 bg-background">
       <div className="container px-4 md:px-6 max-w-3xl mx-auto">
         {/* Heading */}
         <div
           className={cn(
-            "transition-all duration-700 ease-out",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            "relative z-10 flex flex-col items-center justify-center space-y-4 text-center mb-12",
+            "p-4"
           )}
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-left text-white">
-            You are probably stuck with these
-          </h2>
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-primary">
+              Feeling Overwhelmed by Financial Complexity?
+            </h2>
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              You're not alone. Many businesses face the same challenges. We're here to help you navigate them.
+            </p>
+          </div>
         </div>
 
-        {/* Pain Points */}
-        <div
-          className={cn(
-            "transition-all duration-700 ease-out delay-200",
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}
-        >
-          <ul className="space-y-5 text-left">
-            {painPoints.map((point, index) => (
-              <li
-                key={index}
-                className="flex items-start text-lg leading-relaxed"
-              >
-                <Check className="h-6 w-6 mr-3 mt-1 flex-shrink-0 text-green-500" />
-                <span className="text-white">{point}</span>
-              </li>
-            ))}
-          </ul>
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Pains Column */}
+          <div className="relative p-6 rounded-2xl border border-destructive/20 bg-destructive/5 backdrop-blur-xl">
+            <h3 className="text-xl font-bold text-destructive mb-4">Common Frustrations</h3>
+            <ul className="space-y-3">
+              {painPoints.map((point, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-destructive mr-3 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x-circle"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+                  </span>
+                  <span className="text-foreground/80">{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Solutions Column */}
+          <div className="relative p-6 rounded-2xl border border-primary/20 bg-primary/5 backdrop-blur-xl">
+            <h3 className="text-xl font-bold text-primary mb-4">Our Solutions</h3>
+            <ul className="space-y-3">
+              {solutions.map((solution, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-primary mr-3 mt-1">
+                    <CheckCircle size={18} />
+                  </span>
+                  <span className="text-foreground/80">{solution}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
