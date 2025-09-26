@@ -8,8 +8,8 @@ import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 const whyChooseUsItems = [
   {
     icon: <Lightbulb className="h-10 w-10 text-primary" />,
-    title: "Freedom to Focus on Growth:",
-    description: " Your team can concentrate on strategy and client relationships while we handle the numbers",
+    title: "Expert Insights",
+    description: "Leverage our deep industry knowledge for strategic financial guidance.",
   },
   {
     icon: <ShieldCheck className="h-10 w-10 text-primary" />,
@@ -58,7 +58,7 @@ const WhyChooseUsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8"> {/* Changed lg:grid-cols-4 to lg:grid-cols-2 */}
           {whyChooseUsItems.slice(0, 4).map((item, index) => ( // Limiting to 4 cards
             <div
               key={item.title}
