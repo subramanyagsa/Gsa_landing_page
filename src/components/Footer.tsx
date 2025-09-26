@@ -11,13 +11,7 @@ const Footer = () => {
           <div className="space-y-4">
             <a href="/" className="flex items-center justify-center gap-2">
               <img src="/logo1.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
-              <span className="font-bold text-lg">
-                Global Scale Accountants
-              </span>
             </a>
-            <p className="text-muted-foreground text-sm max-w-xs">
-              Simplifying your finances, so you can focus on growth.
-            </p>
           </div>
 
           {/* Social Links */}
@@ -38,7 +32,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Global Scale Accountants. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} All rights reserved.</p>
           <a
             href="https://www.dyad.sh/"
             target="_blank"
