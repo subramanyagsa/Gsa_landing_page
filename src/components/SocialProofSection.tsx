@@ -50,30 +50,31 @@ const SocialProofSection = () => {
     <section
       ref={sectionRef}
       className={cn(
-        "relative w-full py-12 bg-background overflow-hidden",
-        "before:absolute before:inset-0 before:bg-radial-gradient-subtle before:opacity-30 before:pointer-events-none", // Subtle radial gradient
-        isVisible ? "opacity-100" : "opacity-0" // Section fade-in
+        "relative w-full py-12 bg-background",
+        isVisible ? "opacity-100 transition-opacity duration-700" : "opacity-0"
       )}
     >
       <div className="container mx-auto text-center relative z-10">
-        <p className="text-lg font-medium text-white tracking-wide uppercase mb-10 transition-opacity duration-700 ease-out">
+        <p className="text-lg font-medium text-gray-300 tracking-wide uppercase mb-10">
           Trusted by leading brands
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 md:gap-x-16">
-          {logos.map((logo, index) => (
-            <div
-              key={index}
-              className={cn(
-                "text-white/40 transition-all duration-300 ease-out",
-                "hover:text-white hover:scale-105 hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]", // White glow on hover
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4" // Individual logo fade-in
-              )}
-              style={{ transitionDelay: `${index * 100}ms` }}
-              title={logo.name}
-            >
-              {logo.logo}
-            </div>
-          ))}
+        <div className="relative w-full overflow-hidden">
+          {/* Gradient fade on the left and right for a seamless effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent" />
+
+          <div className="flex animate-marquee whitespace-nowrap">
+            {/* Render the logos twice to create the infinite loop */}
+            {[...logos, ...logos].map((logo, index) => (
+              <div
+                key={index}
+                className="mx-12 flex-shrink-0 text-gray-400"
+                title={logo.name}
+              >
+                {logo.logo}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
