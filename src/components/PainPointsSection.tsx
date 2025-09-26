@@ -68,13 +68,13 @@ const PainPointsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <ul className="space-y-5">
+          <ul className="space-y-5 inline-block text-left">
             {painPoints.map((point, index) => (
               <li
                 key={index}
-                className="flex justify-center items-center text-lg leading-relaxed"
+                className="flex items-start"
               >
-                <Check className="h-6 w-6 mr-3 text-green-500" />
+                <Check className="h-6 w-6 mr-3 mt-1 flex-shrink-0 text-green-500" />
                 <span className="text-white">{point}</span>
               </li>
             ))}
