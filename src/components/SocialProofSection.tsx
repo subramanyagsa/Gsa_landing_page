@@ -14,8 +14,9 @@ const logos = [
   {
     name: 'Datta Builders',
     logo: (
-      <svg role="img" viewBox="0 0 250 40" className="h-8 w-auto fill-current">
-        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontFamily="sans-serif" fontSize="32" fontWeight="bold">DATTA BUILDERS</text>
+      <svg role="img" viewBox="0 0 200 60" className="h-8 w-auto fill-current">
+        <text x="50%" y="28" textAnchor="middle" fontFamily="sans-serif" fontSize="32" fontWeight="bold">DATTA</text>
+        <text x="50%" y="55" textAnchor="middle" fontFamily="sans-serif" fontSize="24" fontWeight="bold">BUILDERS</text>
       </svg>
     ),
   },
