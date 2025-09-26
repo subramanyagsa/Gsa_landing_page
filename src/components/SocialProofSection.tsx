@@ -59,7 +59,7 @@ const SocialProofSection = () => {
     <section
       ref={sectionRef}
       className={cn(
-        "relative w-full py-0.5 bg-background",
+        "relative w-full py-0.1 bg-background",
         isVisible ? "opacity-100 transition-opacity duration-700" : "opacity-0"
       )}
     >
