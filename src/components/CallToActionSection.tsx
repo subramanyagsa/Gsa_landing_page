@@ -1,33 +1,36 @@
-"use client";
-
-import React, { useRef } from 'react';
-import { Button } from "@/components/ui/button";
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import { useInView } from 'react-intersection-observer';
 import { cn } from '@/lib/utils';
 
 const CallToActionSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.3 });
+  const { ref, inView: isVisible } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   return (
-    <section id="contact" ref={sectionRef} className="w-full py-20 md:py-32 bg-background">
-      <div className="container relative px-4 md:px-6 max-w-3xl mx-auto text-center space-y-6">
+    <section ref={ref} id="cta" className="relative w-full py-12 md:py-24 lg:py-32 overflow-hidden">
+      <div className="container px-4 md:px-6 text-center">
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[80vw] h-[40vh] bg-primary/10 rounded-full blur-[120px] z-0" />
         <div className={cn(
           "relative z-10 transition-all duration-1000 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
-            Relax, We’ve Got Your Numbers Covered
-          </h2>
-          <p className="text-lg text-muted-foreground mt-4 max-w-xl mx-auto">
-          </p>
-          <div className="mt-8">
-            <Button asChild size="lg" className="text-lg px-8 py-6 rounded-full font-semibold shadow-lg transition-all duration-300 hover:shadow-primary/50 hover:scale-105">
-              <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
-                Schedule Your Free Consultation
-              </a>
-            </Button>
+          <div className="max-w-3xl mx-auto bg-background/50 backdrop-blur-lg border border-primary/20 rounded-2xl p-8 md:p-12 shadow-lg shadow-primary/10 bg-grid-pattern [background-size:2.5rem_2.5rem]">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
+              Ready to Simplify Your Finances?
+            </h2>
+            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed mt-4">
+              Let us handle the complexities, so you can focus on what you do best—growing your business.
+            </p>
+            <div className="mt-8">
+              <Button size="lg" className="group">
+                Get Started Today
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </Button>
+            </div>
           </div>
         </div>
       </div>
