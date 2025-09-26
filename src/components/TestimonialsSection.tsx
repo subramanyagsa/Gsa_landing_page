@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Quote } from 'lucide-react';
 
 const testimonials = [
   {
@@ -62,7 +61,6 @@ const TestimonialsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-4 transition-all duration-300 hover:border-primary hover:scale-105 hover:-translate-y-1">
-              <Quote className="w-6 h-6 text-primary mb-2" />
               <CardContent className="p-0 flex-grow">
                 <blockquote className="text-foreground/80 italic text-sm">
                   "{testimonial.quote}"
