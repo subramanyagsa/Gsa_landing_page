@@ -68,7 +68,7 @@ const PainPointsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <ul className="space-y-5 text-">
+          <ul className="space-y-5 text-center">
             {painPoints.map((point, index) => (
               <li
                 key={index}
