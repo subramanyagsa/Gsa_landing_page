@@ -59,22 +59,22 @@ const TestimonialsSection = () => {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-6 transition-all duration-300 hover:border-primary hover:scale-105 hover:-translate-y-1">
-              <Quote className="w-8 h-8 text-primary mb-4" />
+            <Card key={index} className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-4 transition-all duration-300 hover:border-primary hover:scale-105 hover:-translate-y-1">
+              <Quote className="w-6 h-6 text-primary mb-2" />
               <CardContent className="p-0 flex-grow">
-                <blockquote className="text-foreground/80 italic">
+                <blockquote className="text-foreground/80 italic text-sm">
                   "{testimonial.quote}"
                 </blockquote>
               </CardContent>
-              <div className="mt-6 flex items-center gap-4 pt-6 border-t border-white/10">
-                <Avatar>
-                  <AvatarFallback>{getInitials(testimonial.name)}</AvatarFallback>
+              <div className="mt-4 flex items-center gap-4 pt-4 border-t border-white/10">
+                <Avatar className="h-8 w-8">
+                  <AvatarFallback className="text-xs">{getInitials(testimonial.name)}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                  <p className="font-medium text-foreground text-sm">{testimonial.name}</p>
+                  <p className="text-xs text-muted-foreground">{testimonial.title}</p>
                 </div>
               </div>
             </Card>
