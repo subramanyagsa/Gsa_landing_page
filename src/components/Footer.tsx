@@ -14,6 +14,13 @@ const Footer = () => {
             </a>
           </div>
 
+          {/* New Text */}
+          <div className="max-w-2xl">
+            <p className="text-muted-foreground">
+              We’re here to make finance simple for you. No jargon, no confusion — just clear guidance, reliable support, and a team that actually cares about your business growth. If you have questions, email us at <a href="mailto:info@globalscaleaccountants.com" className="text-primary hover:underline">info@globalscaleaccountants.com</a> — we’re happy to help!
+            </p>
+          </div>
+
           {/* Social Links */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Connect With Us</h3>
