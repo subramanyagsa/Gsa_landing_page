@@ -48,7 +48,7 @@ const PainPointsSection = () => {
       ref={sectionRef}
       className="w-full py-16 md:py-24 bg-background"
     >
-      <div className="container px-4 md:px-6 max-w-3xl mx-auto">
+      <div className="container px-4 md:px-6 max-w-3xl mx-auto text-center">
         {/* Heading */}
         <div
           className={cn(
@@ -56,7 +56,7 @@ const PainPointsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-left text-white">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-white">
             You are probably stuck with these
           </h2>
         </div>
@@ -68,13 +68,13 @@ const PainPointsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <ul className="space-y-5 text-center">
+          <ul className="space-y-5">
             {painPoints.map((point, index) => (
               <li
                 key={index}
-                className="flex items-center text-lg leading-relaxed"
+                className="flex justify-center items-center text-lg leading-relaxed"
               >
-                <Check className="h-6 w-6 mr-3 mt-1 flex-shrink-0 text-green-500" />
+                <Check className="h-6 w-6 mr-3 text-green-500" />
                 <span className="text-white">{point}</span>
               </li>
             ))}
