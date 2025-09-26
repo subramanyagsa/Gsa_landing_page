@@ -2,10 +2,31 @@
 
 import React, { useRef } from 'react';
 import { cn } from '@/lib/utils';
-import { Lightbulb, ShieldCheck, TrendingUp, Users, DollarSign, Clock } from 'lucide-react';
+import { Lightbulb, ShieldCheck, TrendingUp, Users, DollarSign, Clock, Rocket, Workflow, PiggyBank, Compass } from 'lucide-react'; // Added new icons
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 const whyChooseUsItems = [
+  {
+    icon: <Rocket className="h-10 w-10 text-primary" />, // Changed icon
+    title: "Freedom to Focus on Growth",
+    description: "Your team can concentrate on strategy and client relationships while we handle the numbers.",
+  },
+  {
+    icon: <Workflow className="h-10 w-10 text-primary" />, // Changed icon
+    title: "Proven Processes",
+    description: "Our proven processes boost productivity and keep your finances running smoothly.",
+  },
+  {
+    icon: <PiggyBank className="h-10 w-10 text-primary" />, // Changed icon
+    title: "Lower Costs Without Sacrificing Quality",
+    description: "We help you cut overhead while maintaining exceptional financial service.",
+  },
+  {
+    icon: <Compass className="h-10 w-10 text-primary" />, // Changed icon
+    title: "Expert Financial Guidance",
+    description: "Navigate complex financial landscapes with our seasoned experts.",
+  },
+  // Keeping the original items here in case they are needed later, but only the first 4 will be displayed.
   {
     icon: <Lightbulb className="h-10 w-10 text-primary" />,
     title: "Expert Insights",
@@ -54,7 +75,7 @@ const WhyChooseUsSection = () => {
             Why Choose Us?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Partner with us for unparalleled financial expertise and dedicated support.
+            The benefits our clients experience when partnering with us.
           </p>
         </div>
 
