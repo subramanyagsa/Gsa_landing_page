@@ -38,16 +38,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col items-center justify-center gap-6">
-          <div className="flex w-full max-w-md items-center gap-4">
-            <div className="flex-1 border-t border-border/40" />
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-              <span className="text-border/40">|</span>
-              <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            </div>
-            <div className="flex-1 border-t border-border/40" />
-          </div>
+        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-center gap-4">
           <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Global Scale Accountants. All rights reserved.</p>
         </div>
       </div>
