@@ -1,6 +1,5 @@
 import React from 'react';
-import { Twitter, Linkedin, Github } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Bot, Twitter, Linkedin, Github } from 'lucide-react';
 
 const socialLinks = [
   { name: 'Twitter', href: '#', icon: <Twitter className="h-5 w-5" /> },
@@ -12,10 +11,21 @@ const Footer = () => {
   return (
     <footer className="bg-background border-t border-border/40">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Company Info */}
+          <div className="md:col-span-2">
+            <div className="flex items-center mb-4">
+              <Bot className="h-8 w-8 mr-2 text-primary" />
+              <span className="text-2xl font-bold text-foreground">AI-Powered Solutions</span>
+            </div>
+            <p className="text-muted-foreground max-w-md">
+              Leveraging cutting-edge AI to build intelligent, scalable, and efficient applications for the modern web.
+            </p>
+          </div>
+
           {/* Social Links */}
           <div>
-            <h3 className="font-semibold text-foreground mb-4 text-center">Connect With Us</h3>
+            <h3 className="font-semibold text-foreground mb-4">Connect With Us</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social) => (
                 <a
@@ -32,13 +42,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/40 text-center text-muted-foreground text-sm">
-          <p>
-            &copy; {new Date().getFullYear()}{' '}
-            <Link to="/" className="hover:underline text-foreground font-medium">
-              GSA
-            </Link>
-            . All rights reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} AI-Powered Solutions. All rights reserved.</p>
         </div>
       </div>
     </footer>
