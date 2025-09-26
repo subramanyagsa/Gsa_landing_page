@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <footer className="w-full py-12 border-t border-border/40 bg-background">
       <div className="container px-4 md:px-6 mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col items-center text-center gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <a href="/" className="flex items-center gap-2">
+            <a href="/" className="flex items-center justify-center gap-2">
               <img src="/logo1.png" alt="Global Scale Accountants Logo" className="h-8 w-auto" />
               <span className="font-bold text-lg">
                 Global Scale Accountants
@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Social Links */}
           <div>
             <h3 className="font-semibold text-foreground mb-4">Connect With Us</h3>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center gap-4">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github className="h-6 w-6" />
               </a>
