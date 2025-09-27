@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import GridPattern from './GridPattern';
 import { cn } from '@/lib/utils';
+import GlowingText from './GlowingText';
 
 const HeroSection = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -45,7 +46,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full py-16 md:py-20 lg:py-24 flex items-center justify-center text-center overflow-hidden torchlight-glow">
+    <section className="relative w-full pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24 flex items-center justify-center text-center overflow-hidden torchlight-glow">
       <GridPattern />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vh] bg-primary/20 rounded-full blur-[150px] animate-pulse z-0" />
@@ -58,12 +59,15 @@ const HeroSection = () => {
           )}>
             We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
           </h1>
-          <p className={cn(
-            "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ease-out",
+          
+          <div className={cn(
+            "transition-all duration-1000 ease-out",
             isMounted ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-4"
           )}>
-            End-to-end accounting, tax & payroll solutions that free your time, cut costs & maximize profits.
-          </p>
+            <GlowingText>
+              End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
+            </GlowingText>
+          </div>
 
           {/* VSL Video Embed */}
           <div className={cn(
