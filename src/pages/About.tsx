@@ -121,7 +121,7 @@ const AboutPage = () => {
               style={{ transitionDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6 flex flex-col items-center">
                   <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
-                    <AvatarImage src={member.imageUrl} alt={member.name} />
+                    <AvatarImage src={member.imageUrl} alt={member.name} className="object-cover" />
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>
