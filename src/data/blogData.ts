@@ -112,7 +112,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'The Power of Financial Forecasting for Business Growth',
     date: 'October 28, 2023',
     excerpt: 'Learn how accurate financial forecasting can provide a roadmap for sustainable growth, helping you make informed decisions and mitigate risks.',
-    imageUrl: 'https://images.unsplash.com/photo-1551288259-cd11ad77057f?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/financial-forecasting.png',
     content: `
       <p>Financial forecasting is not just about predicting the future; it's about shaping it. By anticipating revenues, expenses, and cash flow, businesses can make strategic decisions that drive sustainable growth and minimize financial surprises.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Why Forecast?</h3>
@@ -131,7 +131,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'Streamlining Payroll: Best Practices for Modern Businesses',
     date: 'October 15, 2023',
     excerpt: 'Efficient payroll management is key to employee satisfaction and compliance. Discover best practices to simplify your payroll process.',
-    imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dd0f76c7?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/streamlining-payroll.png',
     content: `
       <p>Payroll is more than just paying employees; it's a complex process involving tax withholdings, benefits administration, and compliance with labor laws. Streamlining this process can save time, reduce errors, and boost employee morale.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Automate Where Possible</h3>
@@ -185,7 +185,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'Tax Planning Strategies for Q4',
     date: 'August 30, 2023',
     excerpt: 'Don\'t wait until the deadline. Proactive tax planning involves making strategic decisions throughout the year to minimize your tax liability.',
-    imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059ee41f?q=80&w=1973&auto=format&fit=crop',
+    imageUrl: '/tax-planning-q4.png',
     content: `
       <p>The end of the year is the perfect time to review your finances and make strategic moves to lower your tax bill. Proactive tax planning in the fourth quarter can save you a significant amount of money. Here are a few strategies to consider.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">1. Accelerate Expenses</h3>
@@ -201,7 +201,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'How to Choose the Right Accounting Software',
     date: 'August 12, 2023',
     excerpt: 'The right tool can save you time, reduce errors, and provide valuable insights into your financial health. Here\'s a breakdown of the top contenders.',
-    imageUrl: 'https://images.unsplash.com/photo-1554224154-260328c04740?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/accounting-software.png',
     content: `<p>Choosing the right accounting software is a critical decision for any small business. The right tool can save you time, reduce errors, and provide valuable insights into your financial health. Here's a breakdown of what to consider.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Key Features to Look For</h3>
       <ul class="list-disc list-inside space-y-2">
@@ -218,7 +218,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'Maximizing Deductions for Your Home Office',
     date: 'July 25, 2023',
     excerpt: 'If you work from home, you may be eligible for the home office deduction. Let\'s dive into what qualifies and how to calculate it.',
-    imageUrl: 'https://images.unsplash.com/photo-1487528278747-0402b27b49e9?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/home-office-deductions.png',
     content: `<p>If you're self-employed or work from home, you may be eligible for the home office deduction. This can be a significant tax benefit, but it's important to understand the rules to claim it correctly. Let's dive into what qualifies and how to calculate it.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">The "Exclusive and Regular Use" Test</h3>
       <p>To qualify, you must use a specific area of your home exclusively and regularly for your business. This space doesn't have to be a full room; it can be a portion of a room. The key is that this area is not used for personal activities.</p>
