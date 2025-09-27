@@ -38,47 +38,47 @@ const FAQSection = () => {
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1 });
 
   return (
-    <section id="faq" ref={sectionRef} className="w-full py-16 md:py-24 bg-secondary/20">
+    <section id="faq" ref={sectionRef} className="w-full py-12 md:py-16 bg-secondary/20">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
         <div className={cn(
-          "transition-all duration-700 ease-out",
+          "mb-12 transition-all duration-700 ease-out",
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         )}>
-         <h2 className="text-2xl md:text-2xl font-bold tracking-tighter mb-1 text-left">
-  Questions?
+         <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+            Questions?
           </h2>
-          <p className="text-5xl  text-primary font-bold max-w-5xl mx-auto mb-3 text-left">
+          <p className="mt-2 text-xl text-muted-foreground">
            We got answers.
           </p>
         </div>
        <Accordion
-  type="single"
-  collapsible
-  className="w-full text-left divide-y divide-white/10"
->
-  {faqs.map((faq, index) => (
-    <div
-      key={index}
-      className={cn(
-        "transition-all duration-500 ease-out",
-        isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-      )}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      <AccordionItem value={`item-${index}`} className="border-0">
-        <AccordionTrigger className="text-lg py-3 hover:no-underline text-foreground hover:text-primary transition-colors">
-          {faq.question}
-        </AccordionTrigger>
-        <AccordionContent className="text-muted-foreground text-base">
-          {faq.answer}
-        </AccordionContent>
-      </AccordionItem>
-    </div>
-  ))}
-</Accordion>
+          type="single"
+          collapsible
+          className="w-full text-left divide-y divide-white/10"
+        >
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className={cn(
+                "transition-all duration-500 ease-out",
+                isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+              )}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <AccordionItem value={`item-${index}`} className="border-0">
+                <AccordionTrigger className="text-lg py-3 hover:no-underline text-foreground hover:text-primary transition-colors">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </div>
+          ))}
+        </Accordion>
      </div>
     </section>
   );
 };
 
-export default FAQSection
+export default FAQSection;

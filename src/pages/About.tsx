@@ -50,7 +50,7 @@ const AboutPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="py-20 md:py-32 text-center bg-secondary/20">
+      <section className="py-16 md:py-20 text-center bg-secondary/20">
         <div className="container px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">About Global Scale Accountants</h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
@@ -60,7 +60,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Mission Section */}
-      <section ref={missionRef} className="py-16 md:py-24">
+      <section ref={missionRef} className="py-12 md:py-16">
         <div className={cn(
           "container px-4 md:px-6 max-w-4xl mx-auto text-center transition-all duration-1000 ease-out",
           missionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -73,7 +73,7 @@ const AboutPage = () => {
       </section>
 
       {/* Company Values Section */}
-      <section ref={valuesRef} className="py-16 md:py-24 bg-secondary/20">
+      <section ref={valuesRef} className="py-12 md:py-16 bg-secondary/20">
         <div className="container px-4 md:px-6 max-w-5xl mx-auto">
           <div className={cn(
             "text-center mb-12 transition-all duration-700 ease-out",
@@ -86,22 +86,24 @@ const AboutPage = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {companyValues.map((value, index) => (
-              <div key={value.title} className={cn(
-                "text-center p-6 transition-all duration-500 ease-out",
+              <Card key={value.title} className={cn(
+                "bg-background/50 p-6 text-left transition-all duration-500 ease-out hover:border-primary/50",
                 valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}>
-                <div className="flex justify-center mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
-              </div>
+                <CardContent className="p-0">
+                  <div className="mb-4">{value.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                  <p className="text-muted-foreground">{value.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
       {/* Meet the Team Section */}
-      <section ref={teamRef} className="py-16 md:py-24">
+      <section ref={teamRef} className="py-12 md:py-16">
         <div className="container px-4 md:px-6 max-w-5xl mx-auto">
           <div className={cn(
             "text-center mb-12 transition-all duration-700 ease-out",
@@ -121,7 +123,7 @@ const AboutPage = () => {
               style={{ transitionDelay: `${index * 150}ms` }}>
                 <CardContent className="p-6 flex flex-col items-center">
                   <Avatar className="h-24 w-24 mb-4 border-2 border-primary">
-                    <AvatarImage src={member.imageUrl} alt={member.name} />
+                    <AvatarImage src={member.imageUrl} alt={member.name} className="object-cover" />
                   </Avatar>
                   <CardTitle className="text-xl font-semibold">{member.name}</CardTitle>
                   <p className="text-primary font-medium">{member.title}</p>

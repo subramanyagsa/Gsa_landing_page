@@ -64,14 +64,14 @@ const WhyChooseUsSection = () => {
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-black text-foreground relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-16 bg-black text-foreground relative overflow-hidden">
       {/* Background gradient circles for visual interest */}
       <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-green-400/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
 
       <div className="container px-4 md:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-white drop-shadow-[0_0_10px_rgba(52,211,153,0.7)]">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Why Choose Us?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">

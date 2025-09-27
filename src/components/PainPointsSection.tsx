@@ -35,18 +35,18 @@ const PainPointsSection = () => {
   }, []);
 
   const painPoints = [
-    "Expensive & Time-Consuming Hiring",
-    "Confusing Statutory Compliance",
-    "Incomplete Financial Coverage",
-    "You’re spending hours on tax filings, payroll, and spreadsheets",
-    "Distraction from Growth"
+    "Endless hunt for reliable accountants",
+    "Confusing compliance deadlines & penalties",
+    "Sky-high cost of hiring in-house finance staff",
+    "Hours wasted on tax filings, payroll & messy spreadsheets",
+    "Stuck in the back office instead of actually growing your business"
   ];
 
   return (
     <section
       id="why-us"
       ref={sectionRef}
-      className="w-full py-16 md:py-24 bg-background"
+      className="w-full pt-12 md:pt-16 pb-5 bg-background"
     >
       <div className="container px-4 md:px-6 max-w-3xl mx-auto text-center">
         {/* Heading */}

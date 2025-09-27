@@ -37,7 +37,7 @@ const ServicesPage = () => {
   return (
     <main className="w-full py-16 md:py-24 bg-background text-foreground">
       {/* Hero Section */}
-      <section className="py-20 md:py-32 text-center bg-secondary/20">
+      <section className="py-16 md:py-20 text-center bg-secondary/20">
         <div className="container px-4 md:px-6">
           <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter">
             Our Core Services
@@ -52,7 +52,7 @@ const ServicesPage = () => {
       <section
         ref={sectionRef}
         className={cn(
-          "container px-4 md:px-6 max-w-6xl mx-auto py-16 md:py-24 relative rounded-xl"
+          "container px-4 md:px-6 max-w-6xl mx-auto py-12 md:py-16 relative rounded-xl"
         )}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">

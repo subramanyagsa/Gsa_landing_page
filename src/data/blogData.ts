@@ -13,7 +13,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'A Simple Guide to Personal Finance: Planning Your Liabilities & Assets',
     date: 'July 28, 2025',
     excerpt: 'Understand the basics of personal finance by learning how to effectively plan and manage your assets and liabilities for a secure financial future.',
-    imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop', // Reusing a relevant image
+    imageUrl: '/simpleguide.jpg',
     content: `
       <p>Personal finance can seem daunting, but at its core, it's about understanding and managing your assets and liabilities. A clear grasp of these two concepts is the first step towards building a strong financial foundation and achieving your long-term goals.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">What are Assets?</h3>
@@ -50,9 +50,9 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Why SMEs and Startups Should Consider an Outsourced CFO in 2025',
-    date: 'July 28, 2025',
+    date: 'July 25, 2025',
     excerpt: 'Discover how an outsourced CFO can provide strategic financial leadership, drive growth, and optimize operations for small and medium-sized enterprises in 2025.',
-    imageUrl: 'https://images.unsplash.com/photo-1554076875-02244717217e?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/whysme.jpg',
     content: `
       <p>In today's dynamic business environment, small and medium-sized enterprises (SMEs) face increasing pressure to optimize financial performance, navigate complex regulations, and plan for sustainable growth. While a full-time Chief Financial Officer (CFO) might be out of reach for many, an outsourced CFO offers a powerful, cost-effective alternative.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">What is an Outsourced CFO?</h3>
@@ -80,9 +80,9 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Old vs New Tax Regime: Which One Should You Choose for AY 2025–26 & AY 2026–27?',
-    date: 'July 28, 2025',
+    date: 'June 20, 2025',
     excerpt: 'Understand the differences between the old and new tax regimes in India to make an informed decision for Assessment Years 2025-26 and 2026-27.',
-    imageUrl: 'https://images.unsplash.com/photo-1579621970563-fa0204202365?q=80&w=2070&auto=format&fit=crop', // A relevant image for tax
+    imageUrl: '/tax.jpg',
     content: `
       <p>Navigating India's tax landscape can be complex, especially with the co-existence of the old and new tax regimes. For Assessment Years (AY) 2025-26 and 2026-27, taxpayers have the option to choose between these two systems. Understanding their key differences is crucial for optimizing your tax liability.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">The Old Tax Regime</h3>
@@ -110,9 +110,9 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'The Power of Financial Forecasting for Business Growth',
-    date: 'October 28, 2023',
+    date: 'October 28, 2024',
     excerpt: 'Learn how accurate financial forecasting can provide a roadmap for sustainable growth, helping you make informed decisions and mitigate risks.',
-    imageUrl: 'https://images.unsplash.com/photo-1551288259-cd11ad77057f?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/financial-forecasting.png',
     content: `
       <p>Financial forecasting is not just about predicting the future; it's about shaping it. By anticipating revenues, expenses, and cash flow, businesses can make strategic decisions that drive sustainable growth and minimize financial surprises.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Why Forecast?</h3>
@@ -129,9 +129,9 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Streamlining Payroll: Best Practices for Modern Businesses',
-    date: 'October 15, 2023',
+    date: 'October 15, 2024',
     excerpt: 'Efficient payroll management is key to employee satisfaction and compliance. Discover best practices to simplify your payroll process.',
-    imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dd0f76c7?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/streamlining-payroll.png',
     content: `
       <p>Payroll is more than just paying employees; it's a complex process involving tax withholdings, benefits administration, and compliance with labor laws. Streamlining this process can save time, reduce errors, and boost employee morale.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Automate Where Possible</h3>
@@ -145,7 +145,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: '5 Common Financial Mistakes Startups Make',
-    date: 'September 26, 2023',
+    date: 'September 26, 2024',
     excerpt: 'Starting a business is an exhilarating journey, but it\'s also fraught with financial pitfalls. Learn how to avoid them.',
     imageUrl: 'https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=2070&auto=format&fit=crop',
     content: `
@@ -165,7 +165,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Understanding Your Cash Flow Statement',
-    date: 'September 15, 2023',
+    date: 'September 07, 2024',
     excerpt: 'Profit is not the same as cash flow. A business can be profitable on paper but fail because it runs out of cash. Learn to understand this critical document.',
     imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop',
     content: `
@@ -183,9 +183,9 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Tax Planning Strategies for Q4',
-    date: 'August 30, 2023',
+    date: 'August 30, 2024',
     excerpt: 'Don\'t wait until the deadline. Proactive tax planning involves making strategic decisions throughout the year to minimize your tax liability.',
-    imageUrl: 'https://images.unsplash.com/photo-1560518883-ce09059ee41f?q=80&w=1973&auto=format&fit=crop',
+    imageUrl: '/tax-planning-q4.png',
     content: `
       <p>The end of the year is the perfect time to review your finances and make strategic moves to lower your tax bill. Proactive tax planning in the fourth quarter can save you a significant amount of money. Here are a few strategies to consider.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">1. Accelerate Expenses</h3>
@@ -201,7 +201,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'How to Choose the Right Accounting Software',
     date: 'August 12, 2023',
     excerpt: 'The right tool can save you time, reduce errors, and provide valuable insights into your financial health. Here\'s a breakdown of the top contenders.',
-    imageUrl: 'https://images.unsplash.com/photo-1554224154-260328c04740?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/accounting-software.png',
     content: `<p>Choosing the right accounting software is a critical decision for any small business. The right tool can save you time, reduce errors, and provide valuable insights into your financial health. Here's a breakdown of what to consider.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">Key Features to Look For</h3>
       <ul class="list-disc list-inside space-y-2">
@@ -218,7 +218,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'Maximizing Deductions for Your Home Office',
     date: 'July 25, 2023',
     excerpt: 'If you work from home, you may be eligible for the home office deduction. Let\'s dive into what qualifies and how to calculate it.',
-    imageUrl: 'https://images.unsplash.com/photo-1487528278747-0402b27b49e9?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/home-office-deductions.png',
     content: `<p>If you're self-employed or work from home, you may be eligible for the home office deduction. This can be a significant tax benefit, but it's important to understand the rules to claim it correctly. Let's dive into what qualifies and how to calculate it.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">The "Exclusive and Regular Use" Test</h3>
       <p>To qualify, you must use a specific area of your home exclusively and regularly for your business. This space doesn't have to be a full room; it can be a portion of a room. The key is that this area is not used for personal activities.</p>
@@ -236,9 +236,9 @@ export const blogPosts: BlogPost[] = posts.map((post, index) => {
   } else if (index === 1) {
     author = 'CA Subramanya Kamath';
   } else if (index === 2) {
-    author = 'CA Vishnu Acharya';
+    author = 'CA Ashrith Kotian';
   } else {
-    author = (index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA';
+    author = (index + 1) % 2 === 0 ? 'CA Ashrith Kotian' : 'CA Subramanya Kamath';
   }
   return {
     ...post,
