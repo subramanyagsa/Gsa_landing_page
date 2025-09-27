@@ -1,103 +1,174 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { GlowingText } from './GlowingText';
+"use client";
 
-const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About Us' },
-  { to: '/services', label: 'Services' },
-  { to: '/contact', label: 'Contact Us' },
-];
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ThemeToggle } from "./ThemeToggle";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  const handleNavClick = (path: string) => {
-    if (location.pathname === path) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "About Us", href: "/about" },
+    { name: "Blog", href: "/blog" },
+  ];
+
+  const handleNavClick = (href: string) => {
+    setIsSheetOpen(false);
+    if (href.startsWith("#")) {
+      if (location.pathname === "/") {
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        // Navigate to home page and then scroll
+        navigate(`/${href}`);
+      }
+    } else if (href === "/") {
+      if (location.pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        navigate(href);
+      }
+    } else {
+      navigate(href);
     }
-    setIsOpen(false);
+  };
+
+  const isLinkActive = (href: string) => {
+    if (href.startsWith("/")) {
+      return location.pathname === href;
+    } else if (href.startsWith("#")) {
+      // For anchor links, check if on homepage and hash matches
+      return location.pathname === "/" && location.hash === href;
+    }
+    return false;
   };
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 ease-in-out",
-        isScrolled ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-md" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+        isScrolled
+          ? "h-16 bg-background/90 backdrop-blur-lg border-b border-border/40"
+          : "h-20 bg-background/80 backdrop-blur-sm border-b border-transparent"
       )}
     >
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="flex h-16 md:h-20 items-center justify-between">
-          <Link to="/" onClick={() => handleNavClick("/")} className="flex items-center">
-            <GlowingText text="Global Scale Accountants" />
-          </Link>
+      <div className="container flex h-full items-center justify-between px-4 md:px-6">
+        {/* Logo - visible on all screens, with flex-1 on desktop */}
+        <Link to="/" onClick={() => handleNavClick("/")} className="md:flex-1">
+          <img
+            src="/logo1.png"
+            alt="Global Scale Accountants Logo"
+            className={cn(
+              "h-8 transition-all duration-300 filter invert brightness-200", // Base size for mobile
+              isScrolled ? "md:h-8" : "md:h-10" // Desktop sizes
+            )}
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex md:items-center md:gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => handleNavClick(link.to)}
-                className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  location.pathname === link.to ? "text-primary" : "text-muted-foreground"
+        {/* Desktop Navigation - Pill-shaped container */}
+        <nav
+          className={cn(
+            "hidden md:flex items-center gap-2 p-1 rounded-full border border-gray-700 bg-gradient-to-r from-gray-800 to-gray-900 shadow-lg transition-all duration-300",
+            isScrolled ? "scale-90" : "scale-100"
+          )}
+        >
+          {navLinks.map((link) => (
+            <button
+              key={link.name}
+              onClick={() => handleNavClick(link.href)}
+              className={cn(
+                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
+                "text-white hover:bg-primary/20 hover:shadow-md",
+                isLinkActive(link.href) ? "bg-primary text-white shadow-md" : "text-muted-foreground"
+              )}
+            >
+              {link.name}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right side (ThemeToggle and Consultation Button for Desktop) */}
+        <div className="hidden md:flex items-center gap-4 flex-1 justify-end">
+          <ThemeToggle />
+          <Button asChild className={cn(
+            "relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50",
+            isScrolled ? "scale-90" : "scale-100"
+          )}>
+            <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-sm font-medium text-foreground backdrop-blur-3xl">
+                Get a Consultation
+              </span>
+            </a>
+          </Button>
+        </div>
+
+        {/* Mobile Navigation Trigger */}
+        <div className="md:hidden">
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              side="right"
+              className="w-[250px] sm:w-[300px] bg-background p-6"
+            >
+              <div className="flex flex-col gap-6 pt-8">
+                {navLinks.map((link) => (
+                    <button
+                      key={link.name}
+                      onClick={() => handleNavClick(link.href)}
+                      className={cn(
+                        "text-lg font-medium transition-colors text-left",
+                        isLinkActive(link.href)
+                          ? "text-primary"
+                          : "text-foreground hover:text-primary"
+                      )}
+                    >
+                      {link.name}
+                    </button>
+                  )
                 )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild>
-              <Link to="/contact">Get a Quote</Link>
-            </Button>
-          </nav>
-
-          {/* Mobile Navigation Toggle */}
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" /> }
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </div>
+                <Button asChild className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50 w-full mt-4">
+                  <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-base font-medium text-foreground backdrop-blur-3xl">
+                      Get a Consultation
+                    </span>
+                  </a>
+                </Button>
+                <div className="mt-4">
+                  <ThemeToggle />
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-
-      {/* Mobile Navigation Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 pb-4">
-          <nav className="flex flex-col items-center gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                onClick={() => handleNavClick(link.to)}
-                className={cn(
-                  "text-lg font-medium transition-colors hover:text-primary",
-                  location.pathname === link.to ? "text-primary" : "text-muted-foreground"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button asChild className="mt-2">
-              <Link to="/contact">Get a Quote</Link>
-            </Button>
-          </nav>
-        </div>
-      )}
     </header>
   );
 };
