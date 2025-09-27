@@ -10,9 +10,11 @@ const GlowingText: React.FC<GlowingTextProps> = ({ children, className }) => {
   return (
     <p
       className={cn(
-        "text-lg md:text-xl text-transparent bg-clip-text",
-        "bg-gradient-to-r from-muted-foreground via-primary to-muted-foreground",
-        "animate-gradient-pan bg-[200%_auto]",
+        "text-[23px] font-semibold tracking-[0.2px] leading-snug", // Matched font styles from your code
+        "text-transparent bg-clip-text",
+        "bg-[linear-gradient(90deg,#666_15%,#3B82F5_25%,#666_45%)]", // Matched gradient from your code
+        "bg-[200%_auto]",
+        "animate-gradient-pan",
         "max-w-3xl mx-auto",
         className
       )}
