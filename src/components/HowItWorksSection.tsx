@@ -1,150 +1,86 @@
-"use client";
-
-import React, { useRef, useEffect, useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import React, { useRef } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { cn } from '@/lib/utils';
 
 const steps = [
   {
-    title: "Initial Consultation",
-    description: "We start by understanding your business, financial goals, and current challenges to tailor our services."
+    title: 'Initial Consultation',
+    description: 'We start with a free, no-obligation consultation to understand your business, challenges, and financial goals.',
   },
   {
-    title: "Strategy & Planning",
-    description: "Based on our consultation, we develop a comprehensive accounting strategy designed for your specific needs."
+    title: 'Customized Plan',
+    description: 'Based on our discussion, we create a tailored service package that fits your specific needs and budget.',
   },
   {
-    title: "Implementation & Execution",
-    description: "Our team seamlessly integrates our solutions, handling your bookkeeping, payroll, and financial reporting."
+    title: 'Seamless Onboarding',
+    description: 'We handle the entire setup process, ensuring a smooth transition with minimal disruption to your operations.',
   },
   {
-    title: "Ongoing Support & Review",
-    description: "We provide continuous support, regular financial reviews, and proactive advice to ensure sustained growth."
-  }
+    title: 'Ongoing Support',
+    description: 'Receive continuous support, real-time financial insights, and proactive advice to help you scale.',
+  },
 ];
 
 const HowItWorksSection = () => {
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [blueLineHeight, setBlueLineHeight] = useState(0); // New state for blue line height
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-step-index') || '0');
-            setActiveStepIndex(index);
-          }
-        });
-      },
-      { threshold: 0.5, rootMargin: '-40% 0px -40% 0px' } // Trigger when element is roughly in the middle of the viewport
-    );
-
-    stepRefs.current.forEach((ref) => {
-      if (ref) {
-        observer.observe(ref);
-      }
-    });
-
-    return () => {
-      stepRefs.current.forEach((ref) => {
-        if (ref) {
-          observer.unobserve(ref);
-        }
-      });
-    };
-  }, []);
-
-  // Effect to update blueLineHeight when activeStepIndex changes
-  useEffect(() => {
-    const activeStepElement = stepRefs.current[activeStepIndex];
-    if (activeStepElement) {
-      const offsetTop = activeStepElement.offsetTop;
-      const elementHeight = activeStepElement.offsetHeight;
-      setBlueLineHeight(offsetTop + elementHeight / 2);
-    }
-  }, [activeStepIndex]); // Recalculate when activeStepIndex changes
+  const sectionRef = useRef<HTMLElement>(null);
+  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
 
   return (
-    <section className="w-full py-12 md:py-16 bg-secondary/20">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-secondary/20">
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">How It Works?</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Our streamlined process ensures efficiency and clarity every step of the way.
-            </p>
-          </div>
+        <div className={cn(
+          "text-center mb-12 transition-all duration-700 ease-out",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        )}>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">How It Works</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
+            Our process is designed to be simple, transparent, and effective.
+          </p>
         </div>
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical white line (base) */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
-          {/* Vertical blue line (fill) */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-primary hidden md:block transition-all duration-500 ease-out"
-            style={{ height: `${blueLineHeight}px` }}
-          ></div>
-          
-          <div className="space-y-6">
+
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="space-y-8">
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                ref={(el) => (stepRefs.current[index] = el)}
-                data-step-index={index}
-                className="relative flex items-center justify-center md:justify-between"
-              >
-                {/* Dot on the timeline */}
-                <div className={cn(
-                  "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10",
-                  "transition-all duration-300",
-                  activeStepIndex === index ? "bg-primary scale-125" : "bg-neutral-1200"
-                )}></div>
-
-                {/* Step Content Card */}
-                {index % 2 === 0 ? ( // Even index: Left side
-                  <>
-                    <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
-                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:mr-4" // Reduced margin to the right of the card
-                    )}>
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                          {step.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <CardDescription className="text-muted-foreground">
-                          {step.description}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for right side, adjusted width */}
-                  </>
-                ) : ( // Odd index: Right side
-                  <>
-                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
-                    <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
-                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:ml-4" // Reduced margin to the left of the card
-                    )}>
-                      <CardHeader className="p-0 mb-4">
-                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
-                          {step.title}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <CardDescription className="text-muted-foreground">
-                          {step.description}
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </>
+                className={cn(
+                  "flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left sm:space-x-4 transition-all duration-500 ease-out",
+                  isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
                 )}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className="flex-shrink-0 h-12 w-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mb-4 sm:mb-0">
+                  {index + 1}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">{step.title}</h3>
+                  <p className="text-muted-foreground mt-1">{step.description}</p>
+                </div>
               </div>
             ))}
+          </div>
+
+          <div className={cn(
+            "transition-all duration-700 ease-out",
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          )}
+          style={{ transitionDelay: '300ms' }}>
+            <Card className="bg-background/50 p-8 text-center">
+              <CardHeader>
+                <CardTitle className="text-2xl">Ready to Simplify Your Finances?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground mb-6">
+                  Let's discuss how we can help your business thrive. Schedule your free consultation today.
+                </p>
+                <Button size="lg">
+                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
