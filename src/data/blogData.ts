@@ -13,7 +13,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'A Simple Guide to Personal Finance: Planning Your Liabilities & Assets',
     date: 'July 28, 2025',
     excerpt: 'Understand the basics of personal finance by learning how to effectively plan and manage your assets and liabilities for a secure financial future.',
-    imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop', // Reusing a relevant image
+    imageUrl: '/simpleguide.jpg',
     content: `
       <p>Personal finance can seem daunting, but at its core, it's about understanding and managing your assets and liabilities. A clear grasp of these two concepts is the first step towards building a strong financial foundation and achieving your long-term goals.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">What are Assets?</h3>
@@ -52,7 +52,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'Why SMEs and Startups Should Consider an Outsourced CFO in 2025',
     date: 'July 28, 2025',
     excerpt: 'Discover how an outsourced CFO can provide strategic financial leadership, drive growth, and optimize operations for small and medium-sized enterprises in 2025.',
-    imageUrl: 'https://images.unsplash.com/photo-1554076875-02244717217e?q=80&w=2070&auto=format&fit=crop',
+    imageUrl: '/whysme.jpg',
     content: `
       <p>In today's dynamic business environment, small and medium-sized enterprises (SMEs) face increasing pressure to optimize financial performance, navigate complex regulations, and plan for sustainable growth. While a full-time Chief Financial Officer (CFO) might be out of reach for many, an outsourced CFO offers a powerful, cost-effective alternative.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">What is an Outsourced CFO?</h3>
@@ -82,7 +82,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
     title: 'Old vs New Tax Regime: Which One Should You Choose for AY 2025–26 & AY 2026–27?',
     date: 'July 28, 2025',
     excerpt: 'Understand the differences between the old and new tax regimes in India to make an informed decision for Assessment Years 2025-26 and 2026-27.',
-    imageUrl: 'https://images.unsplash.com/photo-1579621970563-fa0204202365?q=80&w=2070&auto=format&fit=crop', // A relevant image for tax
+    imageUrl: '/tax.jpg',
     content: `
       <p>Navigating India's tax landscape can be complex, especially with the co-existence of the old and new tax regimes. For Assessment Years (AY) 2025-26 and 2026-27, taxpayers have the option to choose between these two systems. Understanding their key differences is crucial for optimizing your tax liability.</p>
       <h3 class="text-2xl font-bold mt-8 mb-4">The Old Tax Regime</h3>
