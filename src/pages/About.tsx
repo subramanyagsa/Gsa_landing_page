@@ -86,15 +86,17 @@ const AboutPage = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {companyValues.map((value, index) => (
-              <div key={value.title} className={cn(
-                "text-center p-6 transition-all duration-500 ease-out",
+              <Card key={value.title} className={cn(
+                "bg-background/50 p-6 text-left transition-all duration-500 ease-out hover:border-primary/50",
                 valuesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}>
-                <div className="flex justify-center mb-4">{value.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.description}</p>
-              </div>
+                <CardContent className="p-0">
+                  <div className="mb-4">{value.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
+                  <p className="text-muted-foreground">{value.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
