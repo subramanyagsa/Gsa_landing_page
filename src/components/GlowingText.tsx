@@ -14,7 +14,7 @@ const GlowingText: React.FC<GlowingTextProps> = ({ children, className }) => {
         "text-transparent bg-clip-text",
         "bg-[linear-gradient(90deg,#666_15%,#3B82F5_25%,#666_45%)]",
         "bg-[200%_auto]",
-        "animate-gradient-shift",
+        "animate-gradient-scroll",
         "max-w-3xl mx-auto",
         className
       )}

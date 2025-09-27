@@ -73,9 +73,9 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "gradient-shift": {
-          "0%": { backgroundPosition: "0% center" },
-          "100%": { backgroundPosition: "200% center" },
+        "gradient-scroll": {
+          "0%": { backgroundPosition: "200% center" },
+          "100%": { backgroundPosition: "-200% center" },
         },
         "border-spin": {
           "0%": { "--angle": "0deg" },
@@ -97,7 +97,7 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "gradient-shift": "gradient-shift 3s linear infinite",
+        "gradient-scroll": "gradient-scroll 4s linear infinite",
         "border-spin": "border-spin 7s linear infinite", // Using this for the outer stroke glow
         "marquee": "marquee 40s linear infinite",
         "marquee-up": "marquee-up 60s linear infinite",
