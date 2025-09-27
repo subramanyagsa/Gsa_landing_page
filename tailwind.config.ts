@@ -106,7 +106,7 @@ module.exports = {
         "marquee": "marquee 40s linear infinite",
         "marquee-up": "marquee-up 60s linear infinite",
         "marquee-down": "marquee-down 60s linear infinite",
-        "gradient-pan": "gradient-pan 4s linear infinite",
+        "gradient-pan": "gradient-pan 8s linear infinite",
       },
     },
   },
