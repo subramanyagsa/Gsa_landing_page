@@ -39,8 +39,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col items-center justify-center text-center gap-2">
           <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Global Scale Accountants. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">
+            Built with ❤️ by <a href="https://rapplemedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline">Rapple Media</a>
+          </p>
         </div>
       </div>
     </footer>
