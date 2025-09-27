@@ -29,6 +29,7 @@ const Header = () => {
     { name: "Services", href: "/services" },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "/blog" },
+    { name: "CPA Tool", href: "https://gsa-cpasavingtool.netlify.app/", external: true },
   ];
 
   const handleNavClick = (href: string) => {
@@ -93,19 +94,37 @@ const Header = () => {
             isScrolled ? "scale-90" : "scale-100"
           )}
         >
-          {navLinks.map((link) => (
-            <button
-              key={link.name}
-              onClick={() => handleNavClick(link.href)}
-              className={cn(
-                "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
-                "text-white hover:bg-primary/20 hover:shadow-md",
-                isLinkActive(link.href) ? "bg-primary text-white shadow-md" : "text-muted-foreground"
-              )}
-            >
-              {link.name}
-            </button>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
+                  "text-white hover:bg-primary/20 hover:shadow-md",
+                  "text-muted-foreground"
+                )}
+              >
+                {link.name}
+              </a>
+            ) : (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className={cn(
+                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
+                  "text-white hover:bg-primary/20 hover:shadow-md",
+                  isLinkActive(link.href)
+                    ? "bg-primary text-white shadow-md"
+                    : "text-muted-foreground"
+                )}
+              >
+                {link.name}
+              </button>
+            )
+          )}
         </nav>
 
         {/* Right side (ThemeToggle and Consultation Button for Desktop) */}
@@ -138,7 +157,21 @@ const Header = () => {
               className="w-[250px] sm:w-[300px] bg-background p-6"
             >
               <div className="flex flex-col gap-6 pt-8">
-                {navLinks.map((link) => (
+                {navLinks.map((link) =>
+                  link.external ? (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "text-lg font-medium transition-colors text-left",
+                        "text-foreground hover:text-primary"
+                      )}
+                    >
+                      {link.name}
+                    </a>
+                  ) : (
                     <button
                       key={link.name}
                       onClick={() => handleNavClick(link.href)}
