@@ -39,7 +39,7 @@ const FAQSection = () => {
             Questions?
           </h2>
           <p className="text-muted-foreground text-lg mb-12">
-            Find answers to common questions about our services and how we can help your business.
+            We got answers
           </p>
         </div>
         <div className="max-w-3xl mx-auto">
