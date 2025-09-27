@@ -62,7 +62,7 @@ const HeroSection = () => {
             "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ease-out",
             isMounted ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-4"
           )}>
-            End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
+            End-to-end accounting, tax & payroll solutions that free your time, cut costs, and maximize profits.
           </p>
 
           {/* VSL Video Embed */}
