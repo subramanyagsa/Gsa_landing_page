@@ -35,11 +35,11 @@ const FAQSection = () => {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl mb-2">
             Questions?
           </h2>
-          <p className="text-muted-foreground text-lg mb-12">
-            We got answers
+          <p className="text-muted-foreground text-lg mb-8">
+            We got answers.
           </p>
         </div>
         <div className="max-w-3xl mx-auto">
