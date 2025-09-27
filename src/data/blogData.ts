@@ -50,7 +50,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Why SMEs and Startups Should Consider an Outsourced CFO in 2025',
-    date: 'July 28, 2025',
+    date: 'July 25, 2025',
     excerpt: 'Discover how an outsourced CFO can provide strategic financial leadership, drive growth, and optimize operations for small and medium-sized enterprises in 2025.',
     imageUrl: '/whysme.jpg',
     content: `
@@ -80,7 +80,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Old vs New Tax Regime: Which One Should You Choose for AY 2025–26 & AY 2026–27?',
-    date: 'July 28, 2025',
+    date: 'June 20, 2025',
     excerpt: 'Understand the differences between the old and new tax regimes in India to make an informed decision for Assessment Years 2025-26 and 2026-27.',
     imageUrl: '/tax.jpg',
     content: `
@@ -110,7 +110,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'The Power of Financial Forecasting for Business Growth',
-    date: 'October 28, 2023',
+    date: 'October 28, 2024',
     excerpt: 'Learn how accurate financial forecasting can provide a roadmap for sustainable growth, helping you make informed decisions and mitigate risks.',
     imageUrl: '/financial-forecasting.png',
     content: `
@@ -129,7 +129,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Streamlining Payroll: Best Practices for Modern Businesses',
-    date: 'October 15, 2023',
+    date: 'October 15, 2024',
     excerpt: 'Efficient payroll management is key to employee satisfaction and compliance. Discover best practices to simplify your payroll process.',
     imageUrl: '/streamlining-payroll.png',
     content: `
@@ -145,7 +145,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: '5 Common Financial Mistakes Startups Make',
-    date: 'September 26, 2023',
+    date: 'September 26, 2024',
     excerpt: 'Starting a business is an exhilarating journey, but it\'s also fraught with financial pitfalls. Learn how to avoid them.',
     imageUrl: 'https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=2070&auto=format&fit=crop',
     content: `
@@ -165,7 +165,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Understanding Your Cash Flow Statement',
-    date: 'September 15, 2023',
+    date: 'September 07, 2024',
     excerpt: 'Profit is not the same as cash flow. A business can be profitable on paper but fail because it runs out of cash. Learn to understand this critical document.',
     imageUrl: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=2070&auto=format&fit=crop',
     content: `
@@ -183,7 +183,7 @@ const posts: Omit<BlogPost, 'id' | 'author'>[] = [
   },
   {
     title: 'Tax Planning Strategies for Q4',
-    date: 'August 30, 2023',
+    date: 'August 30, 2024',
     excerpt: 'Don\'t wait until the deadline. Proactive tax planning involves making strategic decisions throughout the year to minimize your tax liability.',
     imageUrl: '/tax-planning-q4.png',
     content: `
@@ -236,9 +236,9 @@ export const blogPosts: BlogPost[] = posts.map((post, index) => {
   } else if (index === 1) {
     author = 'CA Subramanya Kamath';
   } else if (index === 2) {
-    author = 'CA Vishnu Acharya';
+    author = 'CA Ashrith Kotian';
   } else {
-    author = (index + 1) % 2 === 0 ? 'John Smith, CA' : 'Jane Doe, CPA';
+    author = (index + 1) % 2 === 0 ? 'CA Ashrith Kotian' : 'CA Subramanya Kamath';
   }
   return {
     ...post,
