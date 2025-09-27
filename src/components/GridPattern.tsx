@@ -3,7 +3,7 @@ import React from 'react';
 const GridPattern = () => (
   <svg
     aria-hidden="true"
-    className="absolute inset-0 h-full w-full fill-white/10 stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+    className="absolute inset-0 h-full w-full fill-white/20 stroke-white/20 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
   >
     <defs>
       <pattern
