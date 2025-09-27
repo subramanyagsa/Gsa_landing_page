@@ -74,7 +74,7 @@ const HeroSection = () => {
             "relative w-full max-w-2xl mx-auto rounded-lg overflow-hidden shadow-2xl border border-white/10 transition-all duration-1000 ease-out", // Removed mt-8 mb-8, relying on space-y
             isMounted ? "opacity-100 translate-y-0 delay-250" : "opacity-0 translate-y-4"
           )}>
-            <wistia-player media-id="yslkn30any" aspect="1.7777777777777777"></wistia-player>
+            <wistia-player media-id="92xk0w7742" aspect="1.7777777777777777"></wistia-player>
           </div>
 
           <div className={cn(
