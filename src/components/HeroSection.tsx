@@ -57,7 +57,7 @@ const HeroSection = () => {
             "text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight transition-all duration-1000 ease-out", // Larger font for headline
             isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           )}>
-            We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
+            We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth </span>
           </h1>
           
           <div className={cn(
