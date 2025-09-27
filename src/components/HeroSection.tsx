@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import GridPattern from './GridPattern';
 import { cn } from '@/lib/utils';
-import GlowingText from './GlowingText';
 
 const HeroSection = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -59,15 +58,12 @@ const HeroSection = () => {
           )}>
             We Take Care of Your Finances. <br />So you can <span className="text-primary">Take care of Growth .</span>
           </h1>
-          
-          <div className={cn(
-            "transition-all duration-1000 ease-out",
+          <p className={cn(
+            "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto transition-all duration-1000 ease-out",
             isMounted ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-4"
           )}>
-            <GlowingText>
-              End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
-            </GlowingText>
-          </div>
+            End-to-end accounting, tax, and payroll solutions that free your time, cut costs, and maximize profits.
+          </p>
 
           {/* VSL Video Embed */}
           <div className={cn(

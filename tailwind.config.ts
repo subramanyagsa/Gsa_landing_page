@@ -93,10 +93,6 @@ module.exports = {
           from: { transform: 'translateY(-50%)' },
           to: { transform: 'translateY(0)' },
         },
-        "gradient-pan": {
-          "0%": { "background-position": "200% center" },
-          "100%": { "background-position": "-200% center" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -106,7 +102,6 @@ module.exports = {
         "marquee": "marquee 40s linear infinite",
         "marquee-up": "marquee-up 60s linear infinite",
         "marquee-down": "marquee-down 60s linear infinite",
-        "gradient-pan": "gradient-pan 4s linear infinite",
       },
     },
   },
