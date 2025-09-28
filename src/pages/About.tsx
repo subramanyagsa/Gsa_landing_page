@@ -50,7 +50,7 @@ const AboutPage = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="py-16 md:py-20 text-center bg-secondary/20">
+      <section className="pt-28 pb-16 md:pt-32 md:pb-20 text-center bg-secondary/20">
         <div className="container px-4 md:px-6">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tighter">About Global Scale Accountants</h1>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
