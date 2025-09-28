@@ -1,121 +1,151 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { motion, useAnimation } from 'framer-motion';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import React, { useRef, useEffect, useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from '@/lib/utils';
-import { FileText, Calendar, BarChart2, CheckCircle } from 'lucide-react';
 
 const steps = [
   {
-    icon: <FileText className="h-8 w-8 text-primary" />,
-    title: '1. Initial Consultation',
-    description: 'We start with a free, no-obligation consultation to understand your business, challenges, and financial goals. This helps us tailor our services to your exact needs.',
+    title: "Initial Consultation",
+    description: "We start by understanding your business, financial goals, and current challenges to tailor our services."
   },
   {
-    icon: <Calendar className="h-8 w-8 text-primary" />,
-    title: '2. Customized Plan',
-    description: 'Based on our discussion, we create a customized accounting and tax plan. You’ll receive a clear proposal outlining the scope of work, deliverables, and transparent pricing.',
+    title: "Strategy & Planning",
+    description: "Based on our consultation, we develop a comprehensive accounting strategy designed for your specific needs."
   },
   {
-    icon: <BarChart2 className="h-8 w-8 text-primary" />,
-    title: '3. Seamless Onboarding',
-    description: 'Our team guides you through a smooth onboarding process. We’ll securely gather necessary documents and integrate with your existing systems with minimal disruption.',
+    title: "Implementation & Execution",
+    description: "Our team seamlessly integrates our solutions, handling your bookkeeping, payroll, and financial reporting."
   },
   {
-    icon: <CheckCircle className="h-8 w-8 text-primary" />,
-    title: '4. Ongoing Support & Growth',
-    description: 'We provide continuous support, regular financial reports, and strategic advice. We’re your partners in growth, helping you navigate financial decisions with confidence.',
-  },
+    title: "Ongoing Support & Review",
+    description: "We provide continuous support, regular financial reviews, and proactive advice to ensure sustained growth."
+  }
 ];
 
 const HowItWorksSection = () => {
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.2, triggerOnce: true });
-  const controls = useAnimation();
+  const [blueLineHeight, setBlueLineHeight] = useState(0); // New state for blue line height
 
   useEffect(() => {
-    if (isVisible) {
-      controls.start("visible");
-    }
-  }, [isVisible, controls]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-step-index') || '0');
+            setActiveStepIndex(index);
+          }
+        });
       },
-    },
-  };
+      { threshold: 0.5, rootMargin: '-40% 0px -40% 0px' } // Trigger when element is roughly in the middle of the viewport
+    );
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
+    stepRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      stepRefs.current.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, []);
+
+  // Effect to update blueLineHeight when activeStepIndex changes
+  useEffect(() => {
+    const activeStepElement = stepRefs.current[activeStepIndex];
+    if (activeStepElement) {
+      const offsetTop = activeStepElement.offsetTop;
+      const elementHeight = activeStepElement.offsetHeight;
+      setBlueLineHeight(offsetTop + elementHeight / 2);
+    }
+  }, [activeStepIndex]); // Recalculate when activeStepIndex changes
 
   return (
-    <section ref={sectionRef} id="how-it-works" className="py-16 md:py-24 bg-secondary/20">
+    <section className="w-full py-12 md:py-16 bg-secondary/20">
       <div className="container px-4 md:px-6">
-        <motion.div
-          className="text-center mb-12"
-          initial="hidden"
-          animate={controls}
-          variants={itemVariants}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">How It Works</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
-            Our streamlined process ensures a smooth and efficient experience from start to finish.
-          </p>
-        </motion.div>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+          <div className="space-y-2">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">How It Works?</h2>
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Our streamlined process ensures efficiency and clarity every step of the way.
+            </p>
+          </div>
+        </div>
+        <div className="relative max-w-4xl mx-auto">
+          {/* Vertical white line (base) */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-px h-full bg-white hidden md:block"></div>
+          {/* Vertical blue line (fill) */}
+          <div
+            className="absolute left-1/2 -translate-x-1/2 top-0 w-px bg-primary hidden md:block transition-all duration-500 ease-out"
+            style={{ height: `${blueLineHeight}px` }}
+          ></div>
+          
+          <div className="space-y-6">
+            {steps.map((step, index) => (
+              <div 
+                key={index} 
+                ref={(el) => (stepRefs.current[index] = el)}
+                data-step-index={index}
+                className="relative flex items-center justify-center md:justify-between"
+              >
+                {/* Dot on the timeline */}
+                <div className={cn(
+                  "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10",
+                  "transition-all duration-300",
+                  activeStepIndex === index ? "bg-primary scale-125" : "bg-neutral-1200"
+                )}></div>
 
-        <div className="relative md:grid md:grid-cols-2 md:gap-x-12">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 w-0.5 h-full bg-border hidden md:block" />
-
-          {/* Steps */}
-          {steps.map((step, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <React.Fragment key={index}>
-                {/* Timeline Item Container */}
-                <motion.div
-                  className={cn(
-                    "relative col-span-1 mb-8 md:mb-0",
-                    isEven ? "md:pr-6" : "md:pl-6 md:mt-16"
-                  )}
-                  initial="hidden"
-                  animate={controls}
-                  variants={itemVariants}
-                  onMouseEnter={() => setActiveStepIndex(index)}
-                >
-                  {/* Dot on the timeline */}
-                  <div className={cn(
-                    "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10 hidden md:block",
-                    "transition-all duration-300",
-                    activeStepIndex === index ? "bg-primary scale-125" : "bg-muted"
-                  )} />
-                  <Card className={cn(
-                    "w-full transition-all duration-300 border-2",
-                    activeStepIndex === index ? "border-primary shadow-2xl shadow-primary/20" : "border-transparent"
-                  )}>
-                    <CardHeader className="flex flex-row items-center gap-4">
-                      <div className="bg-primary/10 p-3 rounded-full">
-                        {step.icon}
-                      </div>
-                      <CardTitle className="text-xl">{step.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{step.description}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </React.Fragment>
-            );
-          })}
+                {/* Step Content Card */}
+                {index % 2 === 0 ? ( // Even index: Left side
+                  <>
+                    <Card className={cn(
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
+                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
+                      "md:mr-4" // Reduced margin to the right of the card
+                    )}>
+                      <CardHeader className="p-0 mb-4">
+                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                          {step.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <CardDescription className="text-muted-foreground">
+                          {step.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for right side, adjusted width */}
+                  </>
+                ) : ( // Odd index: Right side
+                  <>
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
+                    <Card className={cn(
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
+                      activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
+                      "md:ml-4" // Reduced margin to the left of the card
+                    )}>
+                      <CardHeader className="p-0 mb-4">
+                        <CardTitle className="text-2xl font-bold flex items-center gap-2">
+                          {step.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0">
+                        <CardDescription className="text-muted-foreground">
+                          {step.description}
+                        </CardDescription>
+                      </CardContent>
+                    </Card>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
