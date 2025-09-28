@@ -96,7 +96,7 @@ const HowItWorksSection = () => {
                   <div className={cn(
                     "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10 hidden md:block",
                     "transition-all duration-300",
-                    activeStepIndex === index ? "bg-primary scale-125" : "bg-neutral-1200"
+                    activeStepIndex === index ? "bg-primary scale-125" : "bg-muted"
                   )} />
                   <Card className={cn(
                     "w-full transition-all duration-300 border-2",
