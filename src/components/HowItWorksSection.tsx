@@ -26,7 +26,7 @@ const steps = [
 const HowItWorksSection = () => {
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
-  const [blueLineHeight, setBlueLineHeight] = useState(0); // New state for blue line height
+  const [blueLineHeight, setBlueLineHeight] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -38,7 +38,7 @@ const HowItWorksSection = () => {
           }
         });
       },
-      { threshold: 0.5, rootMargin: '-40% 0px -40% 0px' } // Trigger when element is roughly in the middle of the viewport
+      { threshold: 0.5, rootMargin: '-40% 0px -40% 0px' }
     );
 
     stepRefs.current.forEach((ref) => {
@@ -56,7 +56,6 @@ const HowItWorksSection = () => {
     };
   }, []);
 
-  // Effect to update blueLineHeight when activeStepIndex changes
   useEffect(() => {
     const activeStepElement = stepRefs.current[activeStepIndex];
     if (activeStepElement) {
@@ -64,7 +63,7 @@ const HowItWorksSection = () => {
       const elementHeight = activeStepElement.offsetHeight;
       setBlueLineHeight(offsetTop + elementHeight / 2);
     }
-  }, [activeStepIndex]); // Recalculate when activeStepIndex changes
+  }, [activeStepIndex]);
 
   return (
     <section className="w-full py-12 md:py-16 bg-secondary/20">
@@ -94,20 +93,23 @@ const HowItWorksSection = () => {
                 data-step-index={index}
                 className="relative flex items-center justify-center md:justify-between"
               >
-                {/* Dot on the timeline */}
-                <div className={cn(
-                  "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-border z-10",
-                  "transition-all duration-300",
-                  activeStepIndex === index ? "bg-primary scale-125" : "bg-neutral-1200"
-                )}></div>
+                {/* Dot on the timeline (hidden on mobile) */}
+                <div
+                  className={cn(
+                    "hidden md:block",
+                    "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full z-10",
+                    "transition-all duration-300",
+                    activeStepIndex === index ? "bg-primary scale-125" : "bg-neutral-1200"
+                  )}
+                ></div>
 
                 {/* Step Content Card */}
-                {index % 2 === 0 ? ( // Even index: Left side
+                {index % 2 === 0 ? (
                   <>
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300",
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:mr-4" // Reduced margin to the right of the card
+                      "md:mr-4"
                     )}>
                       <CardHeader className="p-0 mb-4">
                         <CardTitle className="text-2xl font-bold flex items-center gap-2">
@@ -120,15 +122,15 @@ const HowItWorksSection = () => {
                         </CardDescription>
                       </CardContent>
                     </Card>
-                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for right side, adjusted width */}
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div>
                   </>
-                ) : ( // Odd index: Right side
+                ) : (
                   <>
-                    <div className="hidden md:block w-[calc(50%-16px)]"></div> {/* Placeholder for left side, adjusted width */}
+                    <div className="hidden md:block w-[calc(50%-16px)]"></div>
                     <Card className={cn(
-                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300", // Added bluish glow
+                      "w-full md:w-[calc(50%-16px)] p-6 shadow-lg shadow-[0_0_25px_rgba(173,216,230,0.3)] transition-all duration-300",
                       activeStepIndex === index ? "border-primary scale-[1.02]" : "border-transparent",
-                      "md:ml-4" // Reduced margin to the left of the card
+                      "md:ml-4"
                     )}>
                       <CardHeader className="p-0 mb-4">
                         <CardTitle className="text-2xl font-bold flex items-center gap-2">
