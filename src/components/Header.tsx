@@ -78,7 +78,7 @@ const Header = () => {
         {/* Logo - visible on all screens, with flex-1 on desktop */}
         <Link to="/" onClick={() => handleNavClick("/")} className="md:flex-1">
           <img
-            src="/logo1.png"
+            src="/logo2.png"
             alt="Global Scale Accountants Logo"
             className={cn(
               "h-8 transition-all duration-300 dark:filter dark:invert dark:brightness-200", // Base size for mobile, filters only in dark mode
