@@ -11,22 +11,26 @@ const services = [
   {
     icon: <BookText className="h-8 w-8 text-primary" />,
     title: "Accounting",
-    description: "Stay on top of your finances with accurate bookkeeping and timely reconciliations. We handle the numbers so you can focus on growing your business.",
+    description:
+      "Stay on top of your finances with accurate bookkeeping and timely reconciliations. We handle the numbers so you can focus on growing your business.",
   },
   {
     icon: <BarChart2 className="h-8 w-8 text-primary" />,
     title: "Management Reports",
-    description: "Get clear, actionable insights with custom management reports. Our detailed analysis turns raw data into strategic decisions.",
+    description:
+      "Get clear, actionable insights with custom management reports. Our detailed analysis turns raw data into strategic decisions.",
   },
   {
     icon: <ReceiptText className="h-8 w-8 text-primary" />,
     title: "Tax Filings",
-    description: "Ensure compliance and maximize savings. From planning to filing, we streamline your tax process and help you avoid surprises.",
+    description:
+      "Ensure compliance and maximize savings. From planning to filing, we streamline your tax process and help you avoid surprises.",
   },
   {
     icon: <Briefcase className="h-8 w-8 text-primary" />,
     title: "Virtual CFO Services",
-    description: "Gain the expertise of a seasoned CFO without the overhead. We provide financial strategy, cash-flow planning, and performance monitoring to guide your business forward.",
+    description:
+      "Gain the expertise of a seasoned CFO without the overhead. We provide financial strategy, cash-flow planning, and performance monitoring to guide your business forward.",
   },
 ];
 
@@ -35,14 +39,14 @@ const ServicesPage = () => {
   const isVisible = useIntersectionObserver(sectionRef, { threshold: 0.1, triggerOnce: true });
 
   return (
-    <main className="w-full py-16 md:py-24 bg-background text-foreground">
+    <main className="w-full py-16 md:py-24 bg-white text-black">
       {/* Hero Section */}
-      <section className="py-16 md:py-20 text-center bg-secondary/20">
+      <section className="py-16 md:py-20 text-center bg-gray-100">
         <div className="container px-4 md:px-6">
-          <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter">
+          <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter text-black">
             Our Core Services
           </AnimatedGradientText>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mt-4">
+          <p className="text-lg text-black/70 max-w-3xl mx-auto mt-4">
             Expertly crafted to strengthen and scale your business
           </p>
         </div>
@@ -60,18 +64,20 @@ const ServicesPage = () => {
             <Card
               key={service.title}
               className={cn(
-                "flex flex-col overflow-hidden border-white/10 bg-black/30 backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 hover:-translate-y-2 w-full", // Added hover effects here
-                "shadow-lg shadow-[rgba(180,190,255,0.2)]", // Applied static soft outer glow
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+                "flex flex-col overflow-hidden border border-white/10 bg-black backdrop-blur-xl transition-all duration-500 ease-out hover:border-primary hover:scale-105 hover:-translate-y-2 w-full",
+                "shadow-lg shadow-[rgba(180,190,255,0.2)]",
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               )}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <CardHeader className="flex flex-row items-center gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">{service.icon}</div>
-                <CardTitle className="text-2xl font-semibold">{service.title}</CardTitle>
+                <CardTitle className="text-2xl font-semibold text-white">
+                  {service.title}
+                </CardTitle>
               </CardHeader>
               <CardContent className="flex-grow">
-                <p className="text-muted-foreground text-base">{service.description}</p>
+                <p className="text-base text-white/70">{service.description}</p>
               </CardContent>
             </Card>
           ))}
