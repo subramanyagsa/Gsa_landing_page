@@ -14,7 +14,7 @@ const whyChooseUsItems = [
   {
     icon: <Workflow className="h-10 w-10 text-primary" />, // Changed icon
     title: "Proven Processes",
-    description: "Our systems keep your books accurate and organized without any effort from you.",
+    description: "We make sure your books are organized without any effort from you.",
   },
   {
     icon: <PiggyBank className="h-10 w-10 text-primary" />, // Changed icon
