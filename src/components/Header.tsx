@@ -81,7 +81,7 @@ const Header = () => {
             src="/logo1.png"
             alt="Global Scale Accountants Logo"
             className={cn(
-              "h-8 transition-all duration-300 filter invert brightness-200", // Base size for mobile
+              "h-8 transition-all duration-300 dark:filter dark:invert dark:brightness-200", // Base size for mobile, filters only in dark mode
               isScrolled ? "md:h-8" : "md:h-10" // Desktop sizes
             )}
           />
