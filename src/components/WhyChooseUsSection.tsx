@@ -14,17 +14,17 @@ const whyChooseUsItems = [
   {
     icon: <Workflow className="h-10 w-10 text-primary" />, // Changed icon
     title: "Proven Processes",
-    description: "Our systems keep your books accurate and organized without extra effort from you.",
+    description: "Our systems keep your books accurate and organized without any effort from you.",
   },
   {
     icon: <PiggyBank className="h-10 w-10 text-primary" />, // Changed icon
     title: "Lower Costs Without Sacrificing Quality",
-    description: "We help you reduce overhead while maintaining top-tier financial support.",
+    description: "We help you reduce overhead while maintaining top-tier support.",
   },
   {
     icon: <Compass className="h-10 w-10 text-primary" />, // Changed icon
     title: "Smarter Decisions, Less Risk",
-    description: "Leverage expert guidance to make confident choices that drive profit.",
+    description: "Leverage our expert guidance to make confident choices that drive profit.",
   },
   // Keeping the original items here in case they are needed later, but only the first 4 will be displayed.
   {
