@@ -39,7 +39,7 @@ const ServicesPage = () => {
       {/* Hero Section */}
       <section className="py-16 md:py-20 text-center bg-secondary/20">
         <div className="container px-4 md:px-6">
-          <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter">
+          <AnimatedGradientText className="text-4xl md:text-5xl font-bold tracking-tighter text-black dark:text-transparent">
             Our Core Services
           </AnimatedGradientText>
           <p className="text-lg text-black/70 dark:text-muted-foreground max-w-3xl mx-auto mt-4">
