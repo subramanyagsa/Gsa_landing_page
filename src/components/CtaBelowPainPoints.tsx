@@ -1,31 +1,30 @@
 "use client";
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Button } from "@/components/ui/button";
 
 const CtaBelowPainPoints = () => {
   return (
-    <section className="w-full py-12 md:py-16 bg-gradient-to-br from-primary/10 to-secondary/20">
+    <section className="w-full py-8 md:py-12 bg-background">
       <div className="container px-4 md:px-6 max-w-4xl mx-auto text-center">
-        <div className="mb-6">
-          <ShieldCheck className="h-12 w-12 text-primary mx-auto mb-4" />
-        </div>
-        <h2 className="text-xl md:text-2xl tracking-tight text-foreground mb-4">
-          You don't have to deal with these!
+        <h2 className="text-xl md:text-2xl tracking-tight text-white">
+          You don’t have to deal with these!
           <br />
           <span className="text-primary text-xl md:text-2xl font-bold italic block mt-2">
-            Let us handle your accounting, tax, and payroll with precision and care.
+            "Numbers aren’t the reason you started your business ryt?"
           </span>
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          Get expert support that saves you time, reduces stress, and ensures compliance—starting today.
-        </p>
-        <Button size="lg" className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-primary/20 transition-all duration-300">
-          Start Your Free Consultation
-          <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-        </Button>
+        <div className="mt-10">
+          <Button 
+            asChild
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-full text-lg px-8 py-6 transition-transform duration-300 hover:scale-105"
+          >
+            <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
+              Book a Call
+            </a>
+          </Button>
+        </div>
       </div>
     </section>
   );
