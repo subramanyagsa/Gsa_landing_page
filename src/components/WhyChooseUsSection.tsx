@@ -75,7 +75,7 @@ const WhyChooseUsSection = () => {
             Why Choose Us?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            The benefits our clients experience when partnering with us.
+            This is what our clients experience when partnering with us.
           </p>
         </div>
 
