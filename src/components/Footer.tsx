@@ -1,49 +1,96 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin } from 'lucide-react';
+"use client";
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { Linkedin, Twitter, Facebook } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Footer = () => {
-  return (
-    <footer className="w-full py-12 border-t border-border/40 bg-background">
-      <div className="container px-4 md:px-6 mx-auto">
-        <div className="border-t border-white mb-8"></div>
-        <div className="flex flex-col items-center text-center gap-8">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <a href="/" className="flex items-center justify-center gap-2">
-              <img src="/logo1.png" alt="Global Scale Accountants Logo" className="h-8 w-auto filter invert brightness-200" />
-            </a>
-          </div>
+  const currentYear = new Date().getFullYear();
 
-          {/* New Text */}
-          <div className="max-w-2xl">
-            <p className="text-sm text-muted-foreground">
-              We’re here to make finance simple for you. No complexity, no confusion, just clear guidance, reliable support, and a team that actually cares about your business growth. If you have questions, email us at <a href="mailto:info@globalscaleaccountants.com" className="text-primary hover:underline">info@globalscaleaccountants.com</a>. we’re happy to help!
+  const footerLinks = [
+    {
+      title: "Company",
+      links: [
+        { name: "About Us", href: "/about" },
+        { name: "Services", href: "/services" },
+        { name: "Blog", href: "/blog" },
+        { name: "Contact", href: "/contact" },
+      ],
+    },
+    {
+      title: "Services",
+      links: [
+        { name: "Accounting", href: "/services#accounting" },
+        { name: "Tax Preparation", href: "/services#tax" },
+        { name: "Payroll", href: "/services#payroll" },
+        { name: "Consulting", href: "/services#consulting" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { name: "Privacy Policy", href: "/privacy" },
+        { name: "Terms of Service", href: "/terms" },
+        { name: "Cookie Policy", href: "/cookies" },
+      ],
+    },
+  ];
+
+  return (
+    <footer className="bg-background border-t border-border/20">
+      <div className="container px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
+          {/* Logo and Description */}
+          <div className="col-span-1 md:col-span-2">
+            <a href="/" className="flex items-center justify-center gap-2">
+              <img 
+                src="/logo1.png" 
+                alt="Global Scale Accountants Logo" 
+                className="h-8 w-auto dark:filter dark:invert dark:brightness-200" 
+              />
+            </a>
+            <p className="text-muted-foreground text-sm mt-4 text-center md:text-left">
+              Global Scale Accountants is your trusted partner in financial management, offering comprehensive accounting, tax, and payroll solutions tailored to your business needs.
             </p>
           </div>
 
-          {/* Social Links */}
-          <div>
-            <h3 className="font-semibold text-foreground mb-4">Connect With Us</h3>
-            <div className="flex items-center justify-center gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Instagram className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-6 w-6" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Linkedin className="h-6 w-6" />
-              </a>
+          {/* Navigation Links */}
+          {footerLinks.map((section, index) => (
+            <div key={index} className="space-y-4">
+              <h3 className="font-semibold text-foreground">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <Link
+                      to={link.href}
+                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
+          ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-border/40 flex flex-col items-center justify-center text-center gap-2">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Global Scale Accountants. All rights reserved.</p>
-          <p className="text-xs text-muted-foreground">
-            Built with ❤️ by <a href="https://rapplemedia.in" target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline">Rapple Media</a>
+        {/* Bottom Section */}
+        <div className="border-t border-border/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-muted-foreground text-sm">
+            © {currentYear} Global Scale Accountants. All rights reserved.
           </p>
+          <div className="flex items-center gap-4">
+            <a href="https://linkedin.com/company/global-scale-accountants" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href="https://twitter.com/globalscaleacc" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Twitter className="h-5 w-5" />
+            </a>
+            <a href="https://facebook.com/globalscaleaccountants" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Facebook className="h-5 w-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
