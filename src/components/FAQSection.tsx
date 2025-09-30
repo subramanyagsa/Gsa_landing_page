@@ -39,7 +39,7 @@ const FAQSection = () => {
             Questions?
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
-            We got answers.
+            We got answers
           </p>
         </div>
         <div className="max-w-3xl mx-auto">
