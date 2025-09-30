@@ -56,7 +56,7 @@ const PainPointsSection = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-8 text-foreground">
             You are probably stuck with these
           </h2>
         </div>
@@ -75,7 +75,7 @@ const PainPointsSection = () => {
                 className="flex items-start"
               >
                 <Check className="h-6 w-6 mr-3 mt-1 flex-shrink-0 text-green-500" />
-                <span className="text-white">{point}</span>
+                <span className="text-foreground">{point}</span>
               </li>
             ))}
           </ul>
