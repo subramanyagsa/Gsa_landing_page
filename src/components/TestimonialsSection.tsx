@@ -47,14 +47,14 @@ const testimonials = [
 const TestimonialCard = ({ quote, name, title }: { quote: string, name: string, title: string }) => (
   <Card className="border-white/10 bg-black/30 backdrop-blur-xl flex flex-col p-6 rounded-2xl h-full">
     <CardContent className="p-0 flex-grow">
-      <blockquote className="text-foreground/80 text-base">
+      <blockquote className="text-white/80 text-base">
         {quote}
       </blockquote>
     </CardContent>
     <div className="mt-6">
       <div>
-        <p className="font-bold text-foreground text-sm">{name}</p>
-        <p className="text-xs text-muted-foreground">{title}</p>
+        <p className="font-bold text-white text-sm">{name}</p>
+        <p className="text-xs text-gray-400">{title}</p>
       </div>
     </div>
   </Card>
@@ -67,12 +67,14 @@ const TestimonialsSection = () => {
   const column3 = testimonials.filter((_, index) => index % 3 === 2);
 
   return (
-    <section id="testimonials" className="w-full py-12 md:py-16 bg-background">
+    <section id="testimonials" className="w-full py-12 md:py-16 bg-black">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">What Our Clients Say</h2>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">
+              What Our Clients Say
+            </h2>
+            <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Hear from businesses who trust us with their financial success.
             </p>
           </div>
