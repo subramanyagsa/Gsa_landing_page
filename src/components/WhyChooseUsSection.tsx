@@ -9,7 +9,7 @@ const whyChooseUsItems = [
   {
     icon: <Rocket className="h-10 w-10 text-primary" />, // Changed icon
     title: "Freedom to Focus on Growth",
-    description: "Let your team drive strategy and nurture client relationships while we handle the numbers behind the scenes.",
+    description: "We take care of your finances so you can focus on clients, strategy, and growth.",
   },
   {
     icon: <Workflow className="h-10 w-10 text-primary" />, // Changed icon
