@@ -75,7 +75,7 @@ const TestimonialsSection = () => {
               What Our Clients Say
             </h2>
             <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Some of the top businesses we worked with.
+              From some of the top business owners we worked with.
             </p>
           </div>
         </div>
