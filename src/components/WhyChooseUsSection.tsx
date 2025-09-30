@@ -23,7 +23,7 @@ const whyChooseUsItems = [
   },
   {
     icon: <Compass className="h-10 w-10 text-primary" />, // Changed icon
-    title: "Expert Financial Guidance",
+    title: "Smarter Decisions, Less Risk",
     description: "Navigate complex financial landscapes with our seasoned experts.",
   },
   // Keeping the original items here in case they are needed later, but only the first 4 will be displayed.
