@@ -19,7 +19,7 @@ const whyChooseUsItems = [
   {
     icon: <PiggyBank className="h-10 w-10 text-primary" />, // Changed icon
     title: "Lower Costs Without Sacrificing Quality",
-    description: ".",
+    description: "We help you reduce overhead while maintaining top-tier financial support.",
   },
   {
     icon: <Compass className="h-10 w-10 text-primary" />, // Changed icon
