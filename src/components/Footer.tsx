@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <a href="/" className="flex items-center justify-center gap-2">
-              <img src="/logo2.png" alt="Global Scale Accountants Logo" className="h-8 w-auto filter invert brightness-200" />
+              <img src="/logo2.png" alt="Global Scale Accountants Logo" className="h-8 w-auto dark:filter dark:invert dark:brightness-200" />
             </a>
           </div>
 
