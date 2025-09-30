@@ -14,12 +14,12 @@ const whyChooseUsItems = [
   {
     icon: <Workflow className="h-10 w-10 text-primary" />, // Changed icon
     title: "Proven Processes",
-    description: "Our proven processes boost productivity and keep your finances running smoothly.",
+    description: "Our systems keep your books accurate and organized without extra effort from you.",
   },
   {
     icon: <PiggyBank className="h-10 w-10 text-primary" />, // Changed icon
     title: "Lower Costs Without Sacrificing Quality",
-    description: "We help you cut overhead while maintaining exceptional financial service.",
+    description: ".",
   },
   {
     icon: <Compass className="h-10 w-10 text-primary" />, // Changed icon
