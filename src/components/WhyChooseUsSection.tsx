@@ -24,7 +24,7 @@ const whyChooseUsItems = [
   {
     icon: <Compass className="h-10 w-10 text-primary" />, // Changed icon
     title: "Smarter Decisions, Less Risk",
-    description: "Leverage our expert guidance to make confident choices that drive profit.",
+    description: "Leverage our expert guidance to make confident decisions that drive profit.",
   },
   // Keeping the original items here in case they are needed later, but only the first 4 will be displayed.
   {
