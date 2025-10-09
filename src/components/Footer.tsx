@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin, X } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -26,11 +26,11 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Connect With Us</h3>
             <div className="flex items-center justify-center gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/scalewithgsa/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                <Facebook className="h-6 w-6" />
+              <a href="https://x.com/GlobalScaleAcct" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <X className="h-6 w-6" />
               </a>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-6 w-6" />
