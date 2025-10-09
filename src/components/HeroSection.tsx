@@ -65,7 +65,7 @@ const HeroSection = () => {
             isMounted ? "opacity-100 translate-y-0 delay-200" : "opacity-0 translate-y-4"
           )}>
             <GlowingText>
-              End-to-end accounting, tax & payroll solutions that free your time & maximize profits.
+              End-to-end accounting, tax & payroll solutions that free your time & maximize profits
             </GlowingText>
           </div>
 
