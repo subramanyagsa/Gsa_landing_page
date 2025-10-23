@@ -32,7 +32,7 @@ const Footer = () => {
               <a href="https://x.com/GlobalScaleAcct" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <X className="h-6 w-6" />
               </a>
-              <a href="https://www.linkedin.com/in/subrahmanya-kamath-92b7a6188/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/global-scale-accountants-u/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-6 w-6" />
               </a>
             </div>
