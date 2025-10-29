@@ -20,7 +20,7 @@ const HeroSection = () => {
     document.head.appendChild(script1);
 
     const script2 = document.createElement('script');
-    script2.src = "https://fast.wistia.com/embed/92xk0w7742.js";
+    script2.src = "https://fast.wistia.com/embed/2le3gdrnlq.js";
     script2.async = true;
     script2.type = "module";
     document.head.appendChild(script2);
@@ -28,8 +28,8 @@ const HeroSection = () => {
     // Add the style for the thumbnail placeholder
     const style = document.createElement('style');
     style.textContent = `
-      wistia-player[media-id='92xk0w7742']:not(:defined) {
-        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/92xk0w7742/swatch');
+      wistia-player[media-id='2le3gdrnlq']:not(:defined) {
+        background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2le3gdrnlq/swatch');
         display: block;
         filter: blur(5px);
         padding-top: 56.25%; /* 16:9 aspect ratio */
