@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ModeToggle";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -95,7 +95,7 @@ const Header = () => {
               Get a Consultation
             </a>
           </Button>
-          <ModeToggle />
+          <ThemeToggle />
         </div>
       </div>
 
@@ -156,7 +156,7 @@ const Header = () => {
                   </a>
                 </Button>
                 <div className="flex justify-center mt-4">
-                  <ModeToggle />
+                  <ThemeToggle />
                 </div>
               </nav>
             </div>
