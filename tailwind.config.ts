@@ -99,7 +99,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-scroll": "gradient-scroll 4s linear infinite",
         "border-spin": "border-spin 7s linear infinite", // Using this for the outer stroke glow
-        "marquee": "marquee 40s linear infinite",
+        "marquee": "marquee 60s linear infinite",
         "marquee-up": "marquee-up 60s linear infinite",
         "marquee-down": "marquee-down 60s linear infinite",
       },
