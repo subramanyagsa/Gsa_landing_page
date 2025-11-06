@@ -121,45 +121,6 @@ const logos = [
       </svg>
     ),
   },
-  {
-    name: 'Prabhu Enterprises',
-    logo: (
-      <svg role="img" viewBox="0 0 250 60" className="h-8 w-auto fill-current">
-        <text x="50%" y="28" textAnchor="middle" fontFamily="sans-serif" fontSize="32" fontWeight="bold">
-          PRABHU
-        </text>
-        <text x="50%" y="55" textAnchor="middle" fontFamily="sans-serif" fontSize="24" fontWeight="bold">
-          ENTERPRISES
-        </text>
-      </svg>
-    ),
-  },
-  {
-    name: 'House of Interior Designs Studio',
-    logo: (
-      <svg role="img" viewBox="0 0 300 60" className="h-8 w-auto fill-current">
-        <text x="50%" y="28" textAnchor="middle" fontFamily="sans-serif" fontSize="24" fontWeight="bold">
-          HOUSE OF INTERIOR
-        </text>
-        <text x="50%" y="55" textAnchor="middle" fontFamily="sans-serif" fontSize="20" fontWeight="bold">
-          DESIGNS STUDIO
-        </text>
-      </svg>
-    ),
-  },
-  {
-    name: 'Shriquber Microsource',
-    logo: (
-      <svg role="img" viewBox="0 0 300 60" className="h-8 w-auto fill-current">
-        <text x="50%" y="28" textAnchor="middle" fontFamily="sans-serif" fontSize="32" fontWeight="bold">
-          SHRIQUBER
-        </text>
-        <text x="50%" y="55" textAnchor="middle" fontFamily="sans-serif" fontSize="24" fontWeight="bold">
-          MICROSOURCE
-        </text>
-      </svg>
-    ),
-  },
 ];
 
 const SocialProofSection = () => {
