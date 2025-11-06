@@ -3,12 +3,12 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const testimonials = [
   {
-    quote: "Shruti and Subramanya together make a brilliant team. They’re approachable, never make you feel dumb for asking questions, and actually simplify compliance instead of complicating it. I can focus on clients without worrying about the back-end mess.",
+    quote: "Sthuthi and Subramanya together make a brilliant team. They’re approachable, never make you feel dumb for asking questions, and actually simplify compliance instead of complicating it. I can focus on clients without worrying about the back-end mess.",
     name: "Arjun Verma",
     title: "Tech Startup Founder",
   },
   {
-    quote: "Running my business from Dubai, compliance used to be a nightmare. With Shruti & GSA, it’s the first time I feel things are actually under control. I send them a message and it just gets done.",
+    quote: "Running my business from Dubai, compliance used to be a nightmare. With Sthuthi & GSA, it’s the first time I feel things are actually under control. I send them a message and it just gets done.",
     name: "Omar Hassan",
     title: "Retail Business Owner, UAE",
   },
@@ -23,7 +23,7 @@ const testimonials = [
     title: "Founder, NorthPeak Agency",
   },
   {
-    quote: "Shruti & her team make accounting feel simple. I finally know where my business stands without getting lost in numbers.",
+    quote: "Sthuthi & her team make accounting feel simple. I finally know where my business stands without getting lost in numbers.",
     name: "David Carter",
     title: "Founder, BrightTech SaaS",
   },
