@@ -52,18 +52,19 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       backgroundImage: {
-        // Distinctly purplish conic gradient for the outer stroke glow
         'conic-gradient-purple-blue': 'conic-gradient(from var(--angle, 0deg), #a78bfa 0%, #8b5cf6 15%, #8b5cf6 40%, #a78bfa 50%, #8b5cf6 65%, #8b5cf6 90%, #a78bfa 100%)',
-        // New blue gradient for pain points section
         'conic-gradient-blue': 'conic-gradient(from var(--angle, 0deg), #a9cbfd 0%, #3b82f6 15%, #3b82f6 40%, #a9cbfd 50%, #3b82f6 65%, #3b82f6 90%, #a9cbfd 100%)',
-        'radial-gradient-subtle': 'radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%)', // Added for SocialProofSection
+        'radial-gradient-subtle': 'radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%)',
       },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -81,25 +82,28 @@ module.exports = {
           "0%": { "--angle": "0deg" },
           "100%": { "--angle": "360deg" },
         },
-        "marquee": {
-          from: { transform: 'translateX(0)' },
-          to: { transform: 'translateX(-50%)' },
+
+        // Fixed continuous marquee animation
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
         },
         "marquee-up": {
-          from: { transform: 'translateY(0)' },
-          to: { transform: 'translateY(-50%)' },
+          "0%": { transform: "translateY(0)" },
+          "100%": { transform: "translateY(-100%)" },
         },
         "marquee-down": {
-          from: { transform: 'translateY(-50%)' },
-          to: { transform: 'translateY(0)' },
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
         },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "gradient-scroll": "gradient-scroll 4s linear infinite",
-        "border-spin": "border-spin 7s linear infinite", // Using this for the outer stroke glow
-        "marquee": "marquee 20s linear infinite",
+        "border-spin": "border-spin 7s linear infinite",
+        marquee: "marquee 25s linear infinite",
         "marquee-up": "marquee-up 60s linear infinite",
         "marquee-down": "marquee-down 60s linear infinite",
       },
