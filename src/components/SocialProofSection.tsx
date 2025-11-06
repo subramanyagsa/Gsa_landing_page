@@ -121,6 +121,88 @@ const logos = [
       </svg>
     ),
   },
+  // New Partners
+  {
+    name: 'Prabhu Enterprises',
+    logo: (
+      <svg role="img" viewBox="0 0 250 60" className="h-8 w-auto fill-current">
+        <text
+          x="50%"
+          y="28"
+          textAnchor="middle"
+          fontFamily="sans-serif"
+          fontSize="28"
+          fontWeight="bold"
+        >
+          PRABHU
+        </text>
+        <text
+          x="50%"
+          y="55"
+          textAnchor="middle"
+          fontFamily="sans-serif"
+          fontSize="22"
+          letterSpacing="1"
+        >
+          ENTERPRISES
+        </text>
+      </svg>
+    ),
+  },
+  {
+    name: 'House of Interior Designs Studio',
+    logo: (
+      <svg role="img" viewBox="0 0 350 60" className="h-8 w-auto fill-current">
+        <text
+          x="50%"
+          y="28"
+          textAnchor="middle"
+          fontFamily="sans-serif"
+          fontSize="22"
+          fontWeight="bold"
+        >
+          HOUSE OF INTERIOR
+        </text>
+        <text
+          x="50%"
+          y="55"
+          textAnchor="middle"
+          fontFamily="sans-serif"
+          fontSize="20"
+          letterSpacing="2"
+        >
+          DESIGNS STUDIO
+        </text>
+      </svg>
+    ),
+  },
+  {
+    name: 'Shriquber Microsource',
+    logo: (
+      <svg role="img" viewBox="0 0 300 60" className="h-8 w-auto fill-current">
+        <text
+          x="50%"
+          y="28"
+          textAnchor="middle"
+          fontFamily="sans-serif"
+          fontSize="28"
+          fontWeight="bold"
+        >
+          SHRIQUBER
+        </text>
+        <text
+          x="50%"
+          y="55"
+          textAnchor="middle"
+          fontFamily="sans-serif"
+          fontSize="22"
+          letterSpacing="2"
+        >
+          MICROSOURCE
+        </text>
+      </svg>
+    ),
+  },
 ];
 
 const SocialProofSection = () => {
@@ -143,7 +225,6 @@ const SocialProofSection = () => {
           Trusted By
         </p>
         <div className="relative w-full overflow-hidden">
-          {/* Gradient fade on the left and right for a seamless effect */}
           <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-background to-transparent" />
           <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-background to-transparent" />
 
@@ -153,9 +234,7 @@ const SocialProofSection = () => {
                 key={index}
                 className={cn(
                   'mx-12 flex-shrink-0 text-foreground transition-all duration-300 ease-in-out',
-                  // Light theme shadows
                   'drop-shadow-[0_0_4px_rgba(0,0,0,0.2)] hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.4)]',
-                  // Dark theme shadows
                   'dark:drop-shadow-[0_0_4px_rgba(255,255,255,0.2)] dark:hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]'
                 )}
                 title={logo.name}
