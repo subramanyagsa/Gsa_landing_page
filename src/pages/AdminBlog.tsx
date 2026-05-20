@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Plus, Trash2, Edit3, LogOut, Loader2 } from 'lucide-react';
+import { Trash2, Edit3, LogOut, Loader2, Upload, ImageIcon } from 'lucide-react';
 import { showSuccess, showError } from '@/utils/toast';
 import { useAuth } from '@/components/AuthProvider';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +17,7 @@ const AdminBlog = () => {
   const [posts, setPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
   
   const [formData, setFormData] = useState({
@@ -46,6 +47,35 @@ const AdminBlog = () => {
   const handleLogout = async () => {
     await signOut();
     navigate('/login');
+  };
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    try {
+      setUploading(true);
+      const file = event.target.files?.[0];
+      if (!file) return;
+
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random()}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      const { error: uploadError, data } = await supabase.storage
+        .from('blog-thumbnails')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data: { publicUrl } } = supabase.storage
+        .from('blog-thumbnails')
+        .getPublicUrl(filePath);
+
+      setFormData({ ...formData, image_url: publicUrl });
+      showSuccess('Image uploaded successfully!');
+    } catch (error: any) {
+      showError(error.message || 'Error uploading image');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -140,11 +170,45 @@ const AdminBlog = () => {
                 onChange={e => setFormData({...formData, category: e.target.value})} 
               />
             </div>
-            <Input 
-              placeholder="Image URL" 
-              value={formData.image_url} 
-              onChange={e => setFormData({...formData, image_url: e.target.value})} 
-            />
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
+                <ImageIcon className="h-4 w-4" /> Thumbnail Image
+              </label>
+              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                <div className="relative flex-grow w-full">
+                  <Input 
+                    placeholder="Image URL (or upload below)" 
+                    value={formData.image_url} 
+                    onChange={e => setFormData({...formData, image_url: e.target.value})} 
+                  />
+                </div>
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                  <Button 
+                    type="button" 
+                    variant="secondary" 
+                    className="relative cursor-pointer w-full sm:w-auto"
+                    disabled={uploading}
+                  >
+                    {uploading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Upload className="h-4 w-4 mr-2" />}
+                    {uploading ? 'Uploading...' : 'Upload Image'}
+                    <input
+                      type="file"
+                      className="absolute inset-0 opacity-0 cursor-pointer"
+                      accept="image/*"
+                      onChange={handleFileUpload}
+                      disabled={uploading}
+                    />
+                  </Button>
+                </div>
+              </div>
+              {formData.image_url && (
+                <div className="mt-2 relative w-32 h-20 rounded-md overflow-hidden border border-white/10">
+                  <img src={formData.image_url} alt="Preview" className="w-full h-full object-cover" />
+                </div>
+              )}
+            </div>
+
             <Input 
               placeholder="Author Name" 
               value={formData.author_name} 
@@ -184,9 +248,14 @@ const AdminBlog = () => {
         <h2 className="text-xl font-semibold mb-2">Existing Posts</h2>
         {posts.map(post => (
           <div key={post.id} className="flex items-center justify-between p-4 rounded-lg border border-white/10 bg-black/20 hover:bg-black/40 transition-colors">
-            <div>
-              <h3 className="font-medium">{post.title}</h3>
-              <p className="text-sm text-muted-foreground">{new Date(post.created_at).toLocaleDateString()}</p>
+            <div className="flex items-center gap-4">
+              {post.image_url && (
+                <img src={post.image_url} alt="" className="w-12 h-12 rounded object-cover border border-white/10" />
+              )}
+              <div>
+                <h3 className="font-medium">{post.title}</h3>
+                <p className="text-sm text-muted-foreground">{new Date(post.created_at).toLocaleDateString()}</p>
+              </div>
             </div>
             <div className="flex gap-2">
               <Button size="icon" variant="ghost" onClick={() => handleEdit(post)}>
