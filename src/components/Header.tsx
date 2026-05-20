@@ -31,7 +31,7 @@ const Header = () => {
     { name: "Services", href: "/services" },
     { name: "About Us", href: "/about" },
     { name: "Blog", href: "/blog" },
-    { name: "CPA Tool", href: "https://gsa-cpasavingtool.netlify.app/", external: true },
+    { name: "CPA Tool", href: "https://gsa-cpa-savings-tool.netlify.app/", external: true },
   ];
 
   const handleNavClick = (href: string) => {
