@@ -3,14 +3,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, LayoutDashboard, LogIn } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ThemeToggle } from "./ThemeToggle";
 import { cn } from "@/lib/utils";
+import { useAuth } from "./AuthProvider";
 
 const Header = () => {
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { session } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -41,7 +43,6 @@ const Header = () => {
           element.scrollIntoView({ behavior: "smooth" });
         }
       } else {
-        // Navigate to home page and then scroll
         navigate(`/${href}`);
       }
     } else if (href === "/") {
@@ -58,9 +59,6 @@ const Header = () => {
   const isLinkActive = (href: string) => {
     if (href.startsWith("/")) {
       return location.pathname === href;
-    } else if (href.startsWith("#")) {
-      // For anchor links, check if on homepage and hash matches
-      return location.pathname === "/" && location.hash === href;
     }
     return false;
   };
@@ -75,19 +73,17 @@ const Header = () => {
       )}
     >
       <div className="container flex h-full items-center justify-between px-4 md:px-6">
-        {/* Logo - visible on all screens, with flex-1 on desktop */}
         <Link to="/" onClick={() => handleNavClick("/")} className="md:flex-1">
           <img
             src="/logo2.png"
             alt="Global Scale Accountants Logo"
             className={cn(
-              "h-8 transition-all duration-300 dark:filter dark:invert dark:brightness-200", // Base size for mobile, filters only in dark mode
-              isScrolled ? "md:h-8" : "md:h-10" // Desktop sizes
+              "h-8 transition-all duration-300 dark:filter dark:invert dark:brightness-200",
+              isScrolled ? "md:h-8" : "md:h-10"
             )}
           />
         </Link>
 
-        {/* Desktop Navigation - Pill-shaped container */}
         <nav
           className={cn(
             "hidden md:flex items-center gap-2 p-1 rounded-full border border-gray-700 bg-gradient-to-r from-gray-800 to-gray-900 shadow-lg transition-all duration-300",
@@ -101,11 +97,7 @@ const Header = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
-                  "text-white hover:bg-primary/20 hover:shadow-md",
-                  "text-muted-foreground"
-                )}
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap text-white hover:bg-primary/20"
               >
                 {link.name}
               </a>
@@ -115,7 +107,7 @@ const Header = () => {
                 onClick={() => handleNavClick(link.href)}
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap",
-                  "text-white hover:bg-primary/20 hover:shadow-md",
+                  "text-white hover:bg-primary/20",
                   isLinkActive(link.href)
                     ? "bg-primary text-white shadow-md"
                     : "text-muted-foreground"
@@ -125,9 +117,23 @@ const Header = () => {
               </button>
             )
           )}
+          
+          {/* Admin link */}
+          <Link
+            to={session ? "/admin/blog" : "/login"}
+            className={cn(
+              "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-2",
+              "text-white hover:bg-primary/20",
+              location.pathname.startsWith("/admin") || location.pathname === "/login"
+                ? "bg-primary text-white"
+                : "text-muted-foreground"
+            )}
+          >
+            {session ? <LayoutDashboard className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
+            {session ? "Admin" : "Login"}
+          </Link>
         </nav>
 
-        {/* Right side (ThemeToggle and Consultation Button for Desktop) */}
         <div className="hidden md:flex items-center gap-4 flex-1 justify-end">
           <ThemeToggle />
           <Button asChild className={cn(
@@ -143,60 +149,36 @@ const Header = () => {
           </Button>
         </div>
 
-        {/* Mobile Navigation Trigger */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent
-              side="right"
-              className="w-[250px] sm:w-[300px] bg-background p-6"
-            >
+            <SheetContent side="right" className="w-[250px] bg-background p-6">
               <div className="flex flex-col gap-6 pt-8">
-                {navLinks.map((link) =>
+                {navLinks.map((link) => (
                   link.external ? (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "text-lg font-medium transition-colors text-left",
-                        "text-foreground hover:text-primary"
-                      )}
-                    >
+                    <a key={link.name} href={link.href} target="_blank" rel="noopener noreferrer" className="text-lg font-medium text-foreground">
                       {link.name}
                     </a>
                   ) : (
-                    <button
-                      key={link.name}
-                      onClick={() => handleNavClick(link.href)}
-                      className={cn(
-                        "text-lg font-medium transition-colors text-left",
-                        isLinkActive(link.href)
-                          ? "text-primary"
-                          : "text-foreground hover:text-primary"
-                      )}
-                    >
+                    <button key={link.name} onClick={() => handleNavClick(link.href)} className={cn("text-lg font-medium text-left", isLinkActive(link.href) ? "text-primary" : "text-foreground")}>
                       {link.name}
                     </button>
                   )
-                )}
-                <Button asChild className="relative overflow-hidden rounded-full p-[1px] shadow-lg transition-all duration-300 hover:shadow-primary/50 w-full mt-4">
-                  <a href="https://cal.com/subrahmanyagsa/30min?overlayCalendar=true" target="_blank" rel="noopener noreferrer">
-                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                    <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background px-6 py-2 text-base font-medium text-foreground backdrop-blur-3xl">
-                      Get a Consultation
-                    </span>
-                  </a>
-                </Button>
-                <div className="mt-4">
-                  <ThemeToggle />
-                </div>
+                ))}
+                <button
+                  onClick={() => handleNavClick(session ? "/admin/blog" : "/login")}
+                  className={cn(
+                    "text-lg font-medium text-left flex items-center gap-2",
+                    location.pathname.startsWith("/admin") ? "text-primary" : "text-foreground"
+                  )}
+                >
+                  {session ? "Dashboard" : "Admin Login"}
+                </button>
               </div>
             </SheetContent>
           </Sheet>
