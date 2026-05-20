@@ -8,34 +8,40 @@ import BlogPage from "./pages/Blog";
 import BlogPostPage from "./pages/BlogPost";
 import AboutPage from "./pages/About";
 import ContactPage from "./pages/Contact";
-import ServicesPage from "./pages/ServicesPage"; // Import the new ServicesPage
+import ServicesPage from "./pages/ServicesPage";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import AdminBlog from "./pages/AdminBlog";
 import { ThemeProvider } from "./components/ThemeProvider";
 import PageLayout from "./components/PageLayout";
+import { AuthProvider } from "./components/AuthProvider";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" attribute="class">
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route element={<PageLayout />}>
-              <Route path="/" element={<Index />} />
-              <Route path="/services" element={<ServicesPage />} /> {/* New Services Route */}
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:id" element={<BlogPostPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-            </Route>
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route element={<PageLayout />}>
+                <Route path="/" element={<Index />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:id" element={<BlogPostPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+              </Route>
+              <Route path="/login" element={<Login />} />
+              <Route path="/admin/blog" element={<AdminBlog />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );
